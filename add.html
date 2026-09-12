@@ -1,0 +1,3621 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>เพิ่มคำศัพท์ | Mini-Dicto</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family:
+                "Noto Sans Thai",
+                "Noto Sans",
+                Arial,
+                sans-serif;
+
+            background: #f9f8ff;
+
+            color: #333;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+
+            background: white;
+
+            border-bottom:
+                1px solid #ece8f8;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+        }
+
+
+        .header-inner {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding:
+                15px 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+
+        .logo {
+
+            text-decoration: none;
+
+            color: #514a91;
+
+            font-size: 22px;
+
+            font-weight: 800;
+        }
+
+
+        .logo span {
+
+            color: #ef9ab4;
+        }
+
+
+        nav {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+        }
+
+
+        nav a {
+
+            text-decoration: none;
+
+            color: #666;
+
+            padding:
+                7px 12px;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+        }
+
+
+        nav a:hover {
+
+            background: #f3f0ff;
+
+            color: #514a91;
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+
+            width:
+                min(
+                    calc(100% - 32px),
+                    1050px
+                );
+
+            margin: auto;
+
+            padding:
+                35px 0 60px;
+        }
+
+
+        .page-title {
+
+            text-align: center;
+
+            margin-bottom: 28px;
+        }
+
+
+        .page-title h1 {
+
+            color: #514a91;
+
+            font-size: 30px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .page-title p {
+
+            color: #777;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .card {
+
+            background: white;
+
+            border:
+                1px solid #ece8f8;
+
+            border-radius: 20px;
+
+            padding: 24px;
+
+            margin-bottom: 20px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(
+                    81,
+                    74,
+                    145,
+                    0.06
+                );
+        }
+
+
+        .card-title {
+
+            color: #514a91;
+
+            font-size: 19px;
+
+            font-weight: 700;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           HELP
+        ========================= */
+
+        .help-box {
+
+            background: #f5f2ff;
+
+            border-radius: 15px;
+
+            padding: 18px;
+
+            color: #625b87;
+
+            font-size: 13px;
+        }
+
+
+        .help-box strong {
+
+            color: #514a91;
+        }
+
+
+        .example-format {
+
+            background: white;
+
+            border:
+                1px solid #e7e2f5;
+
+            border-radius: 10px;
+
+            padding: 11px 13px;
+
+            margin-top: 10px;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size: 12px;
+
+            white-space: pre-wrap;
+
+            overflow-x: auto;
+        }
+
+
+        /* =========================
+           TEXTAREA
+        ========================= */
+
+        textarea {
+
+            width: 100%;
+
+            min-height: 350px;
+
+            resize: vertical;
+
+            border:
+                1px solid #ddd8ef;
+
+            border-radius: 15px;
+
+            padding: 16px;
+
+            font-family:
+                "Noto Sans Thai",
+                "Noto Sans",
+                Arial,
+                sans-serif;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            color: #333;
+
+            background: white;
+
+            outline: none;
+        }
+
+
+        textarea:focus {
+
+            border-color: #9a91df;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(
+                    117,
+                    107,
+                    209,
+                    0.10
+                );
+        }
+
+
+        #jsonOutput {
+
+            min-height: 450px;
+
+            background: #28263b;
+
+            color: #f4f1ff;
+
+            border: none;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           OPTIONS
+        ========================= */
+
+        .options {
+
+            display: flex;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-top: 15px;
+        }
+
+
+        .options label {
+
+            font-size: 13px;
+
+            color: #666;
+        }
+
+
+        select {
+
+            border:
+                1px solid #ddd8ef;
+
+            border-radius: 10px;
+
+            padding:
+                8px 12px;
+
+            font-family: inherit;
+
+            background: white;
+
+            color: #555;
+
+            outline: none;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .button-row {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            margin-top: 15px;
+        }
+
+
+        .btn {
+
+            border: none;
+
+            border-radius: 11px;
+
+            padding:
+                10px 17px;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        .btn:hover {
+
+            transform:
+                translateY(-1px);
+        }
+
+
+        .btn-primary {
+
+            background: #756bd1;
+
+            color: white;
+        }
+
+
+        .btn-primary:hover {
+
+            background: #665bc4;
+        }
+
+
+        .btn-pink {
+
+            background: #ef9ab4;
+
+            color: white;
+        }
+
+
+        .btn-pink:hover {
+
+            background: #e886a4;
+        }
+
+
+        .btn-light {
+
+            background: #f2effc;
+
+            color: #514a91;
+        }
+
+
+        .btn-danger {
+
+            background: #fff0f3;
+
+            color: #c85470;
+        }
+
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .stat {
+
+            background: #faf9ff;
+
+            border:
+                1px solid #ece8f7;
+
+            border-radius: 14px;
+
+            padding: 15px;
+
+            text-align: center;
+        }
+
+
+        .stat-number {
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+            color: #514a91;
+        }
+
+
+        .stat-label {
+
+            font-size: 12px;
+
+            color: #888;
+        }
+
+
+        .stat.success
+        .stat-number {
+
+            color: #4c9b6c;
+        }
+
+
+        .stat.warning
+        .stat-number {
+
+            color: #c48a42;
+        }
+
+
+        .stat.error
+        .stat-number {
+
+            color: #d35e78;
+        }
+
+
+        .stat.id
+        .stat-number {
+
+            color: #756bd1;
+        }
+
+
+        /* =========================
+           ERROR
+        ========================= */
+
+        .error-item {
+
+            background: #fff5f7;
+
+            border:
+                1px solid #f2d4dc;
+
+            border-radius: 12px;
+
+            padding:
+                12px 14px;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+        }
+
+
+        .error-line {
+
+            font-weight: 700;
+
+            color: #b64d66;
+        }
+
+
+        .error-text {
+
+            color: #666;
+
+            margin-top: 3px;
+        }
+
+
+        .duplicate-item {
+
+            background: #fff9ef;
+
+            border:
+                1px solid #f1dfbd;
+
+            border-radius: 12px;
+
+            padding:
+                12px 14px;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+        }
+
+
+        .duplicate-title {
+
+            color: #b57927;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           PREVIEW
+        ========================= */
+
+        .preview-wrapper {
+
+            overflow-x: auto;
+        }
+
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            font-size: 13px;
+        }
+
+
+        th,
+        td {
+
+            text-align: left;
+
+            padding: 10px;
+
+            border-bottom:
+                1px solid #eeeaf7;
+
+            vertical-align: top;
+        }
+
+
+        th {
+
+            color: #514a91;
+
+            background: #faf9ff;
+        }
+
+
+        .word-cell {
+
+            font-size: 19px;
+
+            font-weight: 700;
+
+            color: #514a91;
+        }
+
+
+        .pinyin-cell {
+
+            color: #666;
+
+            margin-top: 2px;
+        }
+
+
+        .id-cell {
+
+            color: #999;
+
+            font-family:
+                Consolas,
+                monospace;
+
+            font-size: 11px;
+
+            margin-top: 4px;
+        }
+
+
+        .small-text {
+
+            color: #888;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           ALERT
+        ========================= */
+
+        .alert {
+
+            display: none;
+
+            padding:
+                13px 15px;
+
+            border-radius: 12px;
+
+            margin-bottom: 20px;
+
+            font-size: 14px;
+        }
+
+
+        .alert.show {
+
+            display: block;
+        }
+
+
+        .alert-success {
+
+            background: #ecfaf2;
+
+            color: #25804d;
+
+            border:
+                1px solid #c8ecd8;
+        }
+
+
+        .alert-error {
+
+            background: #fff0f2;
+
+            color: #b84d67;
+
+            border:
+                1px solid #f2c8d2;
+        }
+
+
+        .alert-warning {
+
+            background: #fff9ed;
+
+            color: #9a6a22;
+
+            border:
+                1px solid #efdfbb;
+        }
+
+
+        /* =========================
+           ID INFO
+        ========================= */
+
+        .id-info {
+
+            margin-top: 15px;
+
+            padding:
+                12px 15px;
+
+            background: #faf9ff;
+
+            border:
+                1px solid #ece8f7;
+
+            border-radius: 12px;
+
+            font-size: 12px;
+
+            color: #777;
+        }
+
+
+        .id-example {
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            color: #514a91;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            color: #aaa;
+
+            font-size: 12px;
+
+            padding: 20px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .stats {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .header-inner {
+
+                flex-direction: column;
+
+                align-items:
+                    flex-start;
+            }
+
+
+            .stats {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+
+            .container {
+
+                width:
+                    calc(100% - 22px);
+            }
+
+
+            .card {
+
+                padding: 18px;
+            }
+
+
+            .page-title h1 {
+
+                font-size: 25px;
+            }
+
+
+            .button-row {
+
+                flex-direction: column;
+            }
+
+
+            .btn {
+
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-inner">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            Mini-<span>Dicto</span>
+        </a>
+
+
+        <nav>
+
+            <a href="index.html">
+                หน้าหลัก
+            </a>
+
+            <a href="hsk.html">
+                HSK 1–6
+            </a>
+
+            <a href="add.html">
+                ＋ เพิ่มคำศัพท์
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="container">
+
+
+    <div class="page-title">
+
+        <h1>
+            📚 เพิ่มคำศัพท์
+        </h1>
+
+        <p>
+            วางข้อความ → ตรวจสอบ → สร้าง JSON
+        </p>
+
+    </div>
+
+
+    <div
+        id="alert"
+        class="alert"
+    ></div>
+
+
+
+    <!-- =========================
+         INFORMATION
+    ========================= -->
+
+    <div class="card">
+
+        <div class="card-title">
+            💡 รูปแบบข้อมูล
+        </div>
+
+
+        <div class="help-box">
+
+            <strong>
+                แนะนำให้ใช้รูปแบบนี้
+            </strong>
+
+
+            <div class="example-format">爱 | ài | อ้าย | รัก, ชอบ | คำกริยา (动词) | HSK 1
+八 | bā | ปา | แปด | คำเลข (数词) | HSK 1
+爸爸 | bàba | ป้าปะ | พ่อ | คำนาม (名词) | HSK 1
+吧 | ba | ปะ | นะ, เถอะ | คำช่วย (助词) | HSK 1</div>
+
+
+            <br>
+
+
+            <strong>
+                ลำดับข้อมูล
+            </strong>
+
+
+            <div class="example-format">คำศัพท์ | Pinyin | คำอ่านไทย | ความหมาย | ชนิดคำ | HSK</div>
+
+
+            <br>
+
+
+            <strong>
+                ID จะสร้างจาก "คำศัพท์ + Pinyin"
+            </strong>
+
+
+            <div class="example-format">爱 + ài   → ai-u7231
+矮 + ǎi   → ai-u77ee
+
+行 + háng → hang-u884c
+行 + xíng → xing-u884c</div>
+
+
+            <div class="id-info">
+
+                ดังนั้นคำที่อ่านเหมือนกันจะไม่ใช้ ID เดียวกัน
+                และตัวอักษรเดียวกันที่มีหลายเสียงก็สามารถแยกกันได้
+
+                <br><br>
+
+                เช่น
+                <span class="id-example">
+                    行 + háng
+                </span>
+
+                และ
+
+                <span class="id-example">
+                    行 + xíng
+                </span>
+
+                ถือว่าเป็นคนละรายการ
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         INPUT
+    ========================= -->
+
+    <div class="card">
+
+        <div class="card-title">
+            📝 วางข้อความคำศัพท์
+        </div>
+
+
+        <textarea
+            id="rawInput"
+            placeholder="วางข้อความคำศัพท์ที่นี่...
+
+ตัวอย่าง:
+
+爱 | ài | อ้าย | รัก, ชอบ | คำกริยา (动词) | HSK 1
+八 | bā | ปา | แปด | คำเลข (数词) | HSK 1
+爸爸 | bàba | ป้าปะ | พ่อ | คำนาม (名词) | HSK 1"
+        ></textarea>
+
+
+        <div class="options">
+
+            <label>
+                รูปแบบ:
+            </label>
+
+
+            <select id="formatSelect">
+
+                <option value="auto">
+                    Auto Detect
+                </option>
+
+                <option value="pipe">
+                    คั่นด้วย |
+                </option>
+
+                <option value="line">
+                    แยกข้อมูลเป็นบรรทัด
+                </option>
+
+                <option value="simple">
+                    รายการทั่วไป
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="button-row">
+
+            <button
+                class="btn btn-primary"
+                onclick="convertText()"
+            >
+                🔄 แปลงเป็น JSON
+            </button>
+
+
+            <button
+                class="btn btn-light"
+                onclick="loadExample()"
+            >
+                🧪 ใส่ตัวอย่าง
+            </button>
+
+
+            <button
+                class="btn btn-danger"
+                onclick="clearAll()"
+            >
+                🗑️ ล้างทั้งหมด
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         STATS
+    ========================= -->
+
+    <div
+        id="statsCard"
+        class="card"
+        style="display:none;"
+    >
+
+        <div class="card-title">
+            📊 ผลการตรวจสอบ
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat success">
+
+                <div
+                    id="successCount"
+                    class="stat-number"
+                >
+                    0
+                </div>
+
+                <div class="stat-label">
+                    ผ่าน
+                </div>
+
+            </div>
+
+
+            <div class="stat warning">
+
+                <div
+                    id="duplicateCount"
+                    class="stat-number"
+                >
+                    0
+                </div>
+
+                <div class="stat-label">
+                    คำซ้ำ
+                </div>
+
+            </div>
+
+
+            <div class="stat error">
+
+                <div
+                    id="errorCount"
+                    class="stat-number"
+                >
+                    0
+                </div>
+
+                <div class="stat-label">
+                    ข้อมูลผิด
+                </div>
+
+            </div>
+
+
+            <div class="stat id">
+
+                <div
+                    id="idDuplicateCount"
+                    class="stat-number"
+                >
+                    0
+                </div>
+
+                <div class="stat-label">
+                    ID ซ้ำ
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div
+                    id="totalCount"
+                    class="stat-number"
+                >
+                    0
+                </div>
+
+                <div class="stat-label">
+                    ทั้งหมด
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         ERRORS
+    ========================= -->
+
+    <div
+        id="errorsCard"
+        class="card"
+        style="display:none;"
+    >
+
+        <div class="card-title">
+            ⚠️ รายการที่ต้องตรวจสอบ
+        </div>
+
+
+        <div id="errorList"></div>
+
+    </div>
+
+
+
+    <!-- =========================
+         DUPLICATES
+    ========================= -->
+
+    <div
+        id="duplicatesCard"
+        class="card"
+        style="display:none;"
+    >
+
+        <div class="card-title">
+            🔁 รายการซ้ำ
+        </div>
+
+
+        <div id="duplicateList"></div>
+
+    </div>
+
+
+
+    <!-- =========================
+         PREVIEW
+    ========================= -->
+
+    <div
+        id="previewCard"
+        class="card"
+        style="display:none;"
+    >
+
+        <div class="card-title">
+            👀 ตัวอย่างข้อมูล
+        </div>
+
+
+        <div class="preview-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            คำศัพท์
+                        </th>
+
+                        <th>
+                            Pinyin
+                        </th>
+
+                        <th>
+                            ความหมาย
+                        </th>
+
+                        <th>
+                            HSK
+                        </th>
+
+                        <th>
+                            ID
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody
+                    id="previewBody"
+                ></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         JSON
+    ========================= -->
+
+    <div class="card">
+
+        <div class="card-title">
+            🧩 JSON ผลลัพธ์
+        </div>
+
+
+        <textarea
+            id="jsonOutput"
+            placeholder="JSON จะปรากฏที่นี่..."
+        ></textarea>
+
+
+        <div class="button-row">
+
+            <button
+                class="btn btn-primary"
+                onclick="copyJSON()"
+            >
+                📋 คัดลอก JSON
+            </button>
+
+
+            <button
+                class="btn btn-pink"
+                onclick="downloadJSON()"
+            >
+                ⬇️ ดาวน์โหลด JSON
+            </button>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+
+<footer>
+
+    Mini-Dicto |
+    พจนานุกรมจีน-ไทย
+
+</footer>
+
+
+
+<script>
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+let convertedData = [];
+
+let errors = [];
+
+let duplicates = [];
+
+let idDuplicates = [];
+
+
+
+/* =====================================================
+   EXAMPLE
+===================================================== */
+
+function loadExample() {
+
+    const example = `爱 | ài | อ้าย | รัก, ชอบ | คำกริยา (动词) | HSK 1
+八 | bā | ปา | แปด | คำเลข (数词) | HSK 1
+爸爸 | bàba | ป้าปะ | พ่อ | คำนาม (名词) | HSK 1
+吧 | ba | ปะ | นะ, เถอะ | คำช่วย (助词) | HSK 1
+白天 | báitiān | ไป๋เทียน | กลางวัน | คำนาม (名词) | HSK 1
+行 | háng | หาง | แถว, สายงาน | คำกริยา (动词) | HSK 5
+行 | xíng | สิง | ได้, ใช้ได้ | คำกริยา (动词) | HSK 5`;
+
+
+    document.getElementById(
+        "rawInput"
+    ).value = example;
+
+
+    document.getElementById(
+        "formatSelect"
+    ).value = "pipe";
+
+}
+
+
+
+/* =====================================================
+   CONVERT
+===================================================== */
+
+function convertText() {
+
+    const input =
+        document
+            .getElementById("rawInput")
+            .value
+            .trim();
+
+
+    if (!input) {
+
+        showAlert(
+            "กรุณาวางข้อความคำศัพท์ก่อน",
+            "error"
+        );
+
+        return;
+    }
+
+
+    convertedData = [];
+
+    errors = [];
+
+    duplicates = [];
+
+    idDuplicates = [];
+
+
+    const format =
+        document.getElementById(
+            "formatSelect"
+        ).value;
+
+
+    let result;
+
+
+    if (format === "pipe") {
+
+        result =
+            parsePipeFormat(input);
+
+    }
+
+    else if (format === "line") {
+
+        result =
+            parseLineFormat(input);
+
+    }
+
+    else if (format === "simple") {
+
+        result =
+            parseSimpleFormat(input);
+
+    }
+
+    else {
+
+        result =
+            parseAuto(input);
+
+    }
+
+
+    convertedData =
+        result.data;
+
+    errors =
+        result.errors;
+
+
+    /*
+     * ตรวจซ้ำ
+     */
+
+    checkDuplicates();
+
+
+    /*
+     * ตัดรายการที่ซ้ำออก
+     * จาก JSON
+     */
+
+    removeDuplicatesFromOutput();
+
+
+    /*
+     * สร้าง JSON
+     */
+
+    generateJSON();
+
+
+    /*
+     * แสดงผล
+     */
+
+    renderStats();
+
+    renderErrors();
+
+    renderDuplicates();
+
+    renderPreview();
+
+
+    if (
+        convertedData.length > 0 &&
+        errors.length === 0 &&
+        duplicates.length === 0 &&
+        idDuplicates.length === 0
+    ) {
+
+        showAlert(
+            `แปลงสำเร็จ ${convertedData.length} คำ ✓`,
+            "success"
+        );
+
+    }
+
+    else if (
+        convertedData.length > 0
+    ) {
+
+        showAlert(
+            `สร้าง JSON ได้ ${convertedData.length} คำ แต่มีรายการที่ต้องตรวจสอบ`,
+            "warning"
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   PIPE FORMAT
+===================================================== */
+
+function parsePipeFormat(input) {
+
+    const lines =
+        input.split(/\r?\n/);
+
+
+    const data = [];
+
+    const errorList = [];
+
+
+    lines.forEach(
+        (originalLine, index) => {
+
+            const lineNumber =
+                index + 1;
+
+
+            let line =
+                originalLine.trim();
+
+
+            if (!line) {
+                return;
+            }
+
+
+            line =
+                removeNumberPrefix(
+                    line
+                );
+
+
+            const parts =
+                line
+                    .split("|")
+                    .map(
+                        item =>
+                            item.trim()
+                    );
+
+
+            if (parts.length < 4) {
+
+                errorList.push({
+
+                    line:
+                        lineNumber,
+
+                    text:
+                        originalLine,
+
+                    reason:
+                        "ข้อมูลไม่ครบ ต้องมีอย่างน้อย คำศัพท์ | Pinyin | คำอ่านไทย | ความหมาย"
+
+                });
+
+                return;
+            }
+
+
+            const word =
+                parts[0];
+
+
+            const pinyin =
+                parts[1];
+
+
+            const thai =
+                parts[2];
+
+
+            const meanings =
+                splitMeanings(
+                    parts[3]
+                );
+
+
+            const pos =
+                parts[4]
+                    ? splitMultiple(
+                        parts[4]
+                    )
+                    : [];
+
+
+            const hsk =
+                parts[5]
+                    ? extractHSK(
+                        parts[5]
+                    )
+                    : [];
+
+
+            if (!word) {
+
+                errorList.push({
+
+                    line:
+                        lineNumber,
+
+                    text:
+                        originalLine,
+
+                    reason:
+                        "ไม่พบคำศัพท์จีน"
+
+                });
+
+                return;
+            }
+
+
+            if (
+                !containsChinese(word)
+            ) {
+
+                errorList.push({
+
+                    line:
+                        lineNumber,
+
+                    text:
+                        originalLine,
+
+                    reason:
+                        "คำศัพท์ต้องมีอักษรจีน"
+
+                });
+
+                return;
+            }
+
+
+            if (!pinyin) {
+
+                errorList.push({
+
+                    line:
+                        lineNumber,
+
+                    text:
+                        originalLine,
+
+                    reason:
+                        "ไม่พบ Pinyin"
+
+                });
+
+                return;
+            }
+
+
+            if (!looksLikePinyin(pinyin)) {
+
+                errorList.push({
+
+                    line:
+                        lineNumber,
+
+                    text:
+                        originalLine,
+
+                    reason:
+                        "รูปแบบ Pinyin ไม่ถูกต้อง"
+
+                });
+
+                return;
+            }
+
+
+            if (meanings.length === 0) {
+
+                errorList.push({
+
+                    line:
+                        lineNumber,
+
+                    text:
+                        originalLine,
+
+                    reason:
+                        "ไม่พบความหมาย"
+
+                });
+
+                return;
+            }
+
+
+            const id =
+                createWordPinyinId(
+                    word,
+                    pinyin
+                );
+
+
+            data.push({
+
+                id:
+                    id,
+
+                word:
+                    word,
+
+                pinyin:
+                    pinyin,
+
+                thaiPronunciation:
+                    thai,
+
+                meanings:
+                    meanings,
+
+                partOfSpeech:
+                    pos,
+
+                hsk:
+                    hsk
+
+            });
+
+        }
+    );
+
+
+    return {
+
+        data:
+            data,
+
+        errors:
+            errorList
+
+    };
+
+}
+
+
+
+/* =====================================================
+   LINE FORMAT
+===================================================== */
+
+function parseLineFormat(input) {
+
+    const lines =
+        input
+            .split(/\r?\n/)
+            .map(
+                line =>
+                    line.trim()
+            )
+            .filter(Boolean);
+
+
+    const data = [];
+
+    const errorList = [];
+
+
+    let i = 0;
+
+
+    while (
+        i < lines.length
+    ) {
+
+        const startLine =
+            i + 1;
+
+
+        const word =
+            removeNumberPrefix(
+                lines[i]
+            );
+
+
+        const pinyin =
+            lines[i + 1] || "";
+
+
+        const thai =
+            lines[i + 2] || "";
+
+
+        const meaningsText =
+            lines[i + 3] || "";
+
+
+        const posText =
+            lines[i + 4] || "";
+
+
+        const hskText =
+            lines[i + 5] || "";
+
+
+        if (!word) {
+
+            errorList.push({
+
+                line:
+                    startLine,
+
+                text:
+                    lines[i],
+
+                reason:
+                    "ไม่พบคำศัพท์"
+
+            });
+
+            i++;
+
+            continue;
+        }
+
+
+        if (!containsChinese(word)) {
+
+            errorList.push({
+
+                line:
+                    startLine,
+
+                text:
+                    word,
+
+                reason:
+                    "ไม่พบคำศัพท์ภาษาจีน"
+
+            });
+
+            i++;
+
+            continue;
+        }
+
+
+        if (
+            !pinyin ||
+            !looksLikePinyin(
+                pinyin
+            )
+        ) {
+
+            errorList.push({
+
+                line:
+                    startLine,
+
+                text:
+                    word,
+
+                reason:
+                    "ไม่พบหรือไม่สามารถระบุ Pinyin ได้"
+
+            });
+
+            i++;
+
+            continue;
+        }
+
+
+        if (!meaningsText) {
+
+            errorList.push({
+
+                line:
+                    startLine,
+
+                text:
+                    word,
+
+                reason:
+                    "ไม่พบความหมาย"
+
+            });
+
+            i++;
+
+            continue;
+        }
+
+
+        data.push({
+
+            id:
+                createWordPinyinId(
+                    word,
+                    pinyin
+                ),
+
+            word:
+                word,
+
+            pinyin:
+                pinyin,
+
+            thaiPronunciation:
+                thai,
+
+            meanings:
+                splitMeanings(
+                    meaningsText
+                ),
+
+            partOfSpeech:
+                isLikelyPOS(
+                    posText
+                )
+                    ? splitMultiple(
+                        posText
+                    )
+                    : [],
+
+            hsk:
+                extractHSK(
+                    hskText
+                )
+
+        });
+
+
+        i += 6;
+
+    }
+
+
+    return {
+
+        data:
+            data,
+
+        errors:
+            errorList
+
+    };
+
+}
+
+
+
+/* =====================================================
+   SIMPLE FORMAT
+===================================================== */
+
+function parseSimpleFormat(input) {
+
+    const lines =
+        input
+            .split(/\r?\n/)
+            .map(
+                line =>
+                    line.trim()
+            )
+            .filter(Boolean);
+
+
+    const data = [];
+
+    const errorList = [];
+
+
+    lines.forEach(
+        (originalLine, index) => {
+
+            const lineNumber =
+                index + 1;
+
+
+            let line =
+                removeNumberPrefix(
+                    originalLine
+                );
+
+
+            const tokens =
+                line.split(/\s+/);
+
+
+            if (
+                tokens.length < 3
+            ) {
+
+                errorList.push({
+
+                    line:
+                        lineNumber,
+
+                    text:
+                        originalLine,
+
+                    reason:
+                        "ข้อมูลไม่เพียงพอ"
+
+                });
+
+                return;
+            }
+
+
+            const word =
+                tokens[0];
+
+
+            const pinyin =
+                tokens[1];
+
+
+            if (
+                !containsChinese(word)
+            ) {
+
+                errorList.push({
+
+                    line:
+                        lineNumber,
+
+                    text:
+                        originalLine,
+
+                    reason:
+                        "ไม่พบคำศัพท์ภาษาจีน"
+
+                });
+
+                return;
+            }
+
+
+            if (
+                !looksLikePinyin(
+                    pinyin
+                )
+            ) {
+
+                errorList.push({
+
+                    line:
+                        lineNumber,
+
+                    text:
+                        originalLine,
+
+                    reason:
+                        "ไม่สามารถระบุ Pinyin ได้"
+
+                });
+
+                return;
+            }
+
+
+            const remaining =
+                tokens
+                    .slice(2)
+                    .join(" ");
+
+
+            data.push({
+
+                id:
+                    createWordPinyinId(
+                        word,
+                        pinyin
+                    ),
+
+                word:
+                    word,
+
+                pinyin:
+                    pinyin,
+
+                thaiPronunciation:
+                    "",
+
+                meanings:
+                    [remaining],
+
+                partOfSpeech:
+                    [],
+
+                hsk:
+                    []
+
+            });
+
+        }
+    );
+
+
+    return {
+
+        data:
+            data,
+
+        errors:
+            errorList
+
+    };
+
+}
+
+
+
+/* =====================================================
+   AUTO DETECT
+===================================================== */
+
+function parseAuto(input) {
+
+    const lines =
+        input
+            .split(/\r?\n/)
+            .filter(
+                line =>
+                    line.trim()
+            );
+
+
+    /*
+     * มี |
+     */
+
+    if (
+        lines.some(
+            line =>
+                line.includes("|")
+        )
+    ) {
+
+        return parsePipeFormat(
+            input
+        );
+
+    }
+
+
+    /*
+     * มี HSK
+     */
+
+    const hskCount =
+        lines.filter(
+            line =>
+                /HSK\s*[1-6]/i.test(
+                    line
+                )
+        ).length;
+
+
+    if (
+        hskCount > 0 &&
+        lines.length >= 6
+    ) {
+
+        const result =
+            parseLineFormat(
+                input
+            );
+
+
+        if (
+            result.data.length > 0
+        ) {
+
+            return result;
+
+        }
+
+    }
+
+
+    return parseSimpleFormat(
+        input
+    );
+
+}
+
+
+
+/* =====================================================
+   ID GENERATOR
+===================================================== */
+
+/*
+ * สำคัญ:
+ *
+ * ID = normalized Pinyin + Unicode ของ Chinese word
+ *
+ * ตัวอย่าง:
+ *
+ * 爱 + ài
+ * → ai-u7231
+ *
+ * 矮 + ǎi
+ * → ai-u77ee
+ *
+ * 行 + háng
+ * → hang-u884c
+ *
+ * 行 + xíng
+ * → xing-u884c
+ *
+ */
+
+function createWordPinyinId(
+    word,
+    pinyin
+) {
+
+    const pinyinPart =
+        normalizePinyin(
+            pinyin
+        );
+
+
+    const unicodePart =
+        chineseUnicode(
+            word
+        );
+
+
+    let id =
+        pinyinPart +
+        "-" +
+        unicodePart;
+
+
+    /*
+     * ป้องกัน ID ว่าง
+     */
+
+    if (
+        !pinyinPart &&
+        !unicodePart
+    ) {
+
+        id =
+            "word-" +
+            randomString(
+                8
+            );
+
+    }
+
+
+    return id;
+
+}
+
+
+
+/* =====================================================
+   PINYIN NORMALIZE
+===================================================== */
+
+function normalizePinyin(
+    pinyin
+) {
+
+    let value =
+        String(pinyin)
+            .toLowerCase()
+            .trim();
+
+
+    /*
+     * เอาช่องว่างออก
+     */
+
+    value =
+        value.replace(
+            /\s+/g,
+            ""
+        );
+
+
+    /*
+     * ü → v
+     */
+
+    value =
+        value.replace(
+            /ü/g,
+            "v"
+        );
+
+
+    /*
+     * Tone marks
+     */
+
+    value =
+        value.replace(
+            /[āáǎà]/g,
+            "a"
+        );
+
+
+    value =
+        value.replace(
+            /[ēéěè]/g,
+            "e"
+        );
+
+
+    value =
+        value.replace(
+            /[īíǐì]/g,
+            "i"
+        );
+
+
+    value =
+        value.replace(
+            /[ōóǒò]/g,
+            "o"
+        );
+
+
+    value =
+        value.replace(
+            /[ūúǔù]/g,
+            "u"
+        );
+
+
+    value =
+        value.replace(
+            /[ǖǘǚǜ]/g,
+            "v"
+        );
+
+
+    /*
+     * tone number
+     * เช่น ai4
+     * จะยังคงเลขไว้
+     */
+
+    value =
+        value.replace(
+            /[^a-z0-9v]/g,
+            ""
+        );
+
+
+    return value;
+
+}
+
+
+
+/* =====================================================
+   CHINESE UNICODE
+===================================================== */
+
+function chineseUnicode(
+    word
+) {
+
+    const chineseChars =
+        String(word)
+            .match(
+                /[\u3400-\u9fff]/g
+            );
+
+
+    if (
+        !chineseChars ||
+        chineseChars.length === 0
+    ) {
+
+        return "u" +
+            randomString(6);
+
+    }
+
+
+    return chineseChars
+        .map(
+            char =>
+                "u" +
+                char
+                    .codePointAt(0)
+                    .toString(16)
+        )
+        .join("-");
+
+}
+
+
+
+/* =====================================================
+   DUPLICATE CHECK
+===================================================== */
+
+function checkDuplicates() {
+
+    const wordPinyinMap =
+        new Map();
+
+
+    const idMap =
+        new Map();
+
+
+    convertedData.forEach(
+        (item, index) => {
+
+            /*
+             * Word + Pinyin
+             */
+
+            const wordKey =
+                normalizeWord(
+                    item.word
+                );
+
+
+            const pinyinKey =
+                normalizePinyin(
+                    item.pinyin
+                );
+
+
+            const wordPinyinKey =
+                wordKey +
+                "||" +
+                pinyinKey;
+
+
+            /*
+             * ตรวจ Word + Pinyin
+             */
+
+            if (
+                wordPinyinMap.has(
+                    wordPinyinKey
+                )
+            ) {
+
+                const previousIndex =
+                    wordPinyinMap.get(
+                        wordPinyinKey
+                    );
+
+
+                duplicates.push({
+
+                    index:
+                        index,
+
+                    word:
+                        item.word,
+
+                    pinyin:
+                        item.pinyin,
+
+                    reason:
+                        `ซ้ำกับรายการที่ ${
+                            previousIndex + 1
+                        }`
+
+                });
+
+            }
+
+            else {
+
+                wordPinyinMap.set(
+                    wordPinyinKey,
+                    index
+                );
+
+            }
+
+
+            /*
+             * ตรวจ ID
+             */
+
+            const idKey =
+                item.id
+                    .toLowerCase()
+                    .trim();
+
+
+            if (
+                idMap.has(idKey)
+            ) {
+
+                const previousIndex =
+                    idMap.get(
+                        idKey
+                    );
+
+
+                idDuplicates.push({
+
+                    index:
+                        index,
+
+                    id:
+                        item.id,
+
+                    word:
+                        item.word,
+
+                    pinyin:
+                        item.pinyin,
+
+                    reason:
+                        `ID นี้ซ้ำกับรายการที่ ${
+                            previousIndex + 1
+                        }`
+
+                });
+
+            }
+
+            else {
+
+                idMap.set(
+                    idKey,
+                    index
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   REMOVE DUPLICATES
+===================================================== */
+
+function removeDuplicatesFromOutput() {
+
+    const duplicateIndexes =
+        new Set();
+
+
+    duplicates.forEach(
+        item =>
+            duplicateIndexes.add(
+                item.index
+            )
+    );
+
+
+    idDuplicates.forEach(
+        item =>
+            duplicateIndexes.add(
+                item.index
+            )
+    );
+
+
+    if (
+        duplicateIndexes.size === 0
+    ) {
+
+        return;
+    }
+
+
+    convertedData =
+        convertedData.filter(
+            (_, index) =>
+                !duplicateIndexes.has(
+                    index
+                )
+        );
+
+}
+
+
+
+/* =====================================================
+   NORMALIZE WORD
+===================================================== */
+
+function normalizeWord(
+    word
+) {
+
+    return String(word)
+        .trim()
+        .replace(
+            /\s+/g,
+            ""
+        );
+
+}
+
+
+
+/* =====================================================
+   MEANINGS
+===================================================== */
+
+function splitMeanings(
+    text
+) {
+
+    if (!text) {
+        return [];
+    }
+
+
+    return text
+        .split(
+            /[,，;；、\/]+/
+        )
+        .map(
+            item =>
+                item.trim()
+        )
+        .filter(Boolean);
+
+}
+
+
+
+/* =====================================================
+   MULTIPLE
+===================================================== */
+
+function splitMultiple(
+    text
+) {
+
+    if (!text) {
+        return [];
+    }
+
+
+    return text
+        .split(
+            /[,，;；、\/]+/
+        )
+        .map(
+            item =>
+                item.trim()
+        )
+        .filter(Boolean);
+
+}
+
+
+
+/* =====================================================
+   HSK
+===================================================== */
+
+function extractHSK(
+    text
+) {
+
+    if (!text) {
+        return [];
+    }
+
+
+    const matches =
+        text.match(
+            /HSK\s*([1-6])/gi
+        );
+
+
+    if (matches) {
+
+        return [
+            ...new Set(
+                matches.map(
+                    match =>
+                        match
+                            .replace(
+                                /HSK/i,
+                                ""
+                            )
+                            .trim()
+                )
+            )
+        ];
+
+    }
+
+
+    const numbers =
+        text.match(
+            /\b[1-6]\b/g
+        );
+
+
+    return numbers
+        ? [
+            ...new Set(
+                numbers
+            )
+        ]
+        : [];
+
+}
+
+
+
+/* =====================================================
+   REMOVE NUMBER
+===================================================== */
+
+function removeNumberPrefix(
+    text
+) {
+
+    return String(text)
+        .replace(
+            /^\s*(?:\d+[\.\)、\)]|\d+\s+|[-•●])\s*/,
+            ""
+        )
+        .trim();
+
+}
+
+
+
+/* =====================================================
+   CHINESE CHECK
+===================================================== */
+
+function containsChinese(
+    text
+) {
+
+    return /[\u3400-\u9fff]/.test(
+        String(text)
+    );
+
+}
+
+
+
+/* =====================================================
+   PINYIN CHECK
+===================================================== */
+
+function looksLikePinyin(
+    text
+) {
+
+    if (!text) {
+        return false;
+    }
+
+
+    return /^[a-zA-ZāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜüÜ0-9\s'-]+$/.test(
+        String(text).trim()
+    );
+
+}
+
+
+
+/* =====================================================
+   POS CHECK
+===================================================== */
+
+function isLikelyPOS(
+    text
+) {
+
+    if (!text) {
+        return false;
+    }
+
+
+    return (
+
+        text.includes("名词") ||
+
+        text.includes("动词") ||
+
+        text.includes("形容词") ||
+
+        text.includes("副词") ||
+
+        text.includes("代词") ||
+
+        text.includes("量词") ||
+
+        text.includes("介词") ||
+
+        text.includes("连词") ||
+
+        text.includes("助词") ||
+
+        text.includes("คำ")
+
+    );
+
+}
+
+
+
+/* =====================================================
+   RANDOM
+===================================================== */
+
+function randomString(
+    length
+) {
+
+    return Math.random()
+        .toString(36)
+        .substring(
+            2,
+            2 + length
+        );
+
+}
+
+
+
+/* =====================================================
+   JSON
+===================================================== */
+
+function generateJSON() {
+
+    const output =
+        document.getElementById(
+            "jsonOutput"
+        );
+
+
+    output.value =
+        JSON.stringify(
+            convertedData,
+            null,
+            2
+        );
+
+}
+
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+function renderStats() {
+
+    document.getElementById(
+        "statsCard"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "successCount"
+    ).textContent =
+        convertedData.length;
+
+
+    document.getElementById(
+        "duplicateCount"
+    ).textContent =
+        duplicates.length;
+
+
+    document.getElementById(
+        "errorCount"
+    ).textContent =
+        errors.length;
+
+
+    document.getElementById(
+        "idDuplicateCount"
+    ).textContent =
+        idDuplicates.length;
+
+
+    document.getElementById(
+        "totalCount"
+    ).textContent =
+        convertedData.length +
+        duplicates.length +
+        errors.length;
+
+}
+
+
+
+/* =====================================================
+   ERRORS
+===================================================== */
+
+function renderErrors() {
+
+    const card =
+        document.getElementById(
+            "errorsCard"
+        );
+
+
+    const list =
+        document.getElementById(
+            "errorList"
+        );
+
+
+    if (
+        errors.length === 0
+    ) {
+
+        card.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    card.style.display =
+        "block";
+
+
+    list.innerHTML =
+        errors.map(
+            item => `
+
+                <div class="error-item">
+
+                    <div class="error-line">
+
+                        ⚠️ บรรทัด
+                        ${item.line}
+
+                    </div>
+
+                    <div class="error-text">
+
+                        ${escapeHTML(
+                            item.reason
+                        )}
+
+                    </div>
+
+                    <div
+                        class="error-text"
+                        style="
+                            font-family:monospace;
+                            margin-top:6px;
+                        "
+                    >
+
+                        ${escapeHTML(
+                            item.text
+                        )}
+
+                    </div>
+
+                </div>
+
+            `
+        ).join("");
+
+}
+
+
+
+/* =====================================================
+   DUPLICATES
+===================================================== */
+
+function renderDuplicates() {
+
+    const card =
+        document.getElementById(
+            "duplicatesCard"
+        );
+
+
+    const list =
+        document.getElementById(
+            "duplicateList"
+        );
+
+
+    const allDuplicates = [
+
+        ...duplicates.map(
+            item => ({
+
+                type:
+                    "word",
+
+                ...item
+
+            })
+        ),
+
+        ...idDuplicates.map(
+            item => ({
+
+                type:
+                    "id",
+
+                ...item
+
+            })
+        )
+
+    ];
+
+
+    if (
+        allDuplicates.length === 0
+    ) {
+
+        card.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    card.style.display =
+        "block";
+
+
+    list.innerHTML =
+        allDuplicates
+            .map(
+                item => {
+
+                    if (
+                        item.type === "word"
+                    ) {
+
+                        return `
+
+                            <div class="duplicate-item">
+
+                                <div class="duplicate-title">
+                                    🔁 คำศัพท์ + Pinyin ซ้ำ
+                                </div>
+
+                                <div>
+                                    ${escapeHTML(
+                                        item.word
+                                    )}
+                                    ·
+                                    ${escapeHTML(
+                                        item.pinyin
+                                    )}
+                                </div>
+
+                                <div class="small-text">
+                                    ${escapeHTML(
+                                        item.reason
+                                    )}
+                                </div>
+
+                            </div>
+
+                        `;
+
+                    }
+
+
+                    return `
+
+                        <div class="duplicate-item">
+
+                            <div class="duplicate-title">
+                                🆔 ID ซ้ำ
+                            </div>
+
+                            <div>
+                                ${escapeHTML(
+                                    item.id
+                                )}
+                            </div>
+
+                            <div class="small-text">
+                                ${escapeHTML(
+                                    item.word
+                                )}
+                                ·
+                                ${escapeHTML(
+                                    item.pinyin
+                                )}
+                            </div>
+
+                            <div class="small-text">
+                                ${escapeHTML(
+                                    item.reason
+                                )}
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+            )
+            .join("");
+
+}
+
+
+
+/* =====================================================
+   PREVIEW
+===================================================== */
+
+function renderPreview() {
+
+    const card =
+        document.getElementById(
+            "previewCard"
+        );
+
+
+    const body =
+        document.getElementById(
+            "previewBody"
+        );
+
+
+    if (
+        convertedData.length === 0
+    ) {
+
+        card.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    card.style.display =
+        "block";
+
+
+    body.innerHTML =
+        convertedData
+            .map(
+                item => `
+
+                    <tr>
+
+                        <td>
+
+                            <div class="word-cell">
+
+                                ${escapeHTML(
+                                    item.word
+                                )}
+
+                            </div>
+
+                            <div class="small-text">
+
+                                ${escapeHTML(
+                                    item.thaiPronunciation
+                                )}
+
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            ${escapeHTML(
+                                item.pinyin
+                            )}
+
+                        </td>
+
+
+                        <td>
+
+                            ${item.meanings
+                                .map(
+                                    meaning =>
+                                        escapeHTML(
+                                            meaning
+                                        )
+                                )
+                                .join(
+                                    ", "
+                                )}
+
+                        </td>
+
+
+                        <td>
+
+                            ${
+                                item.hsk.length
+                                    ? item.hsk
+                                        .map(
+                                            h =>
+                                                `HSK ${escapeHTML(h)}`
+                                        )
+                                        .join(
+                                            ", "
+                                        )
+                                    : "-"
+                            }
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="id-cell">
+
+                                ${escapeHTML(
+                                    item.id
+                                )}
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                `
+            )
+            .join("");
+
+}
+
+
+
+/* =====================================================
+   COPY
+===================================================== */
+
+async function copyJSON() {
+
+    const output =
+        document.getElementById(
+            "jsonOutput"
+        );
+
+
+    if (
+        !output.value.trim()
+    ) {
+
+        showAlert(
+            "ยังไม่มี JSON ให้คัดลอก",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        await navigator.clipboard.writeText(
+            output.value
+        );
+
+
+        showAlert(
+            "คัดลอก JSON เรียบร้อยแล้ว ✓",
+            "success"
+        );
+
+    }
+
+    catch (error) {
+
+        output.focus();
+
+        output.select();
+
+        document.execCommand(
+            "copy"
+        );
+
+
+        showAlert(
+            "คัดลอก JSON เรียบร้อยแล้ว ✓",
+            "success"
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   DOWNLOAD
+===================================================== */
+
+function downloadJSON() {
+
+    if (
+        convertedData.length === 0
+    ) {
+
+        showAlert(
+            "ยังไม่มีข้อมูลสำหรับดาวน์โหลด",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    const json =
+        JSON.stringify(
+            convertedData,
+            null,
+            2
+        );
+
+
+    const blob =
+        new Blob(
+            [json],
+            {
+                type:
+                    "application/json;charset=utf-8"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(
+            blob
+        );
+
+
+    const link =
+        document.createElement(
+            "a"
+        );
+
+
+    link.href =
+        url;
+
+
+    link.download =
+        "dictionary-add.json";
+
+
+    document.body.appendChild(
+        link
+    );
+
+
+    link.click();
+
+
+    document.body.removeChild(
+        link
+    );
+
+
+    URL.revokeObjectURL(
+        url
+    );
+
+
+    showAlert(
+        "ดาวน์โหลด dictionary-add.json แล้ว ✓",
+        "success"
+    );
+
+}
+
+
+
+/* =====================================================
+   CLEAR
+===================================================== */
+
+function clearAll() {
+
+    const confirmed =
+        confirm(
+            "ต้องการล้างข้อมูลทั้งหมดหรือไม่?"
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    document.getElementById(
+        "rawInput"
+    ).value = "";
+
+
+    document.getElementById(
+        "jsonOutput"
+    ).value = "";
+
+
+    convertedData = [];
+
+    errors = [];
+
+    duplicates = [];
+
+    idDuplicates = [];
+
+
+    document.getElementById(
+        "statsCard"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "errorsCard"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "duplicatesCard"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "previewCard"
+    ).style.display =
+        "none";
+
+
+    showAlert(
+        "ล้างข้อมูลแล้ว",
+        "success"
+    );
+
+}
+
+
+
+/* =====================================================
+   ALERT
+===================================================== */
+
+function showAlert(
+    message,
+    type
+) {
+
+    const alert =
+        document.getElementById(
+            "alert"
+        );
+
+
+    alert.textContent =
+        message;
+
+
+    alert.className =
+        "alert show " +
+        (
+            type === "error"
+
+                ? "alert-error"
+
+                : type === "warning"
+
+                    ? "alert-warning"
+
+                    : "alert-success"
+        );
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+
+    setTimeout(
+        () => {
+
+            alert.classList.remove(
+                "show"
+            );
+
+        },
+        4000
+    );
+
+}
+
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(
+    value
+) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
