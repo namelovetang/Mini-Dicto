@@ -1,0 +1,1517 @@
+```html
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mini-Dicto | คำศัพท์</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                "Noto Sans Thai",
+                "Noto Sans",
+                Arial,
+                sans-serif;
+
+            background: #f9f8ff;
+
+            color: #4d4d4d;
+
+            min-height: 100vh;
+
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+
+            width: 100%;
+
+            background:
+                rgba(255, 255, 255, 0.96);
+
+            border-bottom:
+                1px solid #eeeafa;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            backdrop-filter:
+                blur(10px);
+
+        }
+
+
+        .nav-container {
+
+            max-width: 1100px;
+
+            min-height: 70px;
+
+            margin: auto;
+
+            padding:
+                12px 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content:
+                space-between;
+
+        }
+
+
+        .logo {
+
+            font-size: 24px;
+
+            font-weight: 800;
+
+            color: #756bd1;
+
+            letter-spacing:
+                0.3px;
+
+        }
+
+
+        .logo span {
+            color: #ef9ab4;
+        }
+
+
+        .nav-menu {
+
+            list-style: none;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+        }
+
+
+        .nav-menu a {
+
+            display: block;
+
+            padding:
+                9px 14px;
+
+            border-radius: 12px;
+
+            color: #666;
+
+            font-size: 14px;
+
+            transition:
+                0.2s ease;
+
+        }
+
+
+        .nav-menu a:hover {
+
+            background: #f0edff;
+
+            color: #756bd1;
+
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            padding:
+                40px 24px 70px;
+
+        }
+
+
+        /* =========================
+           BACK
+        ========================= */
+
+        .back-link {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            margin-bottom: 20px;
+
+            color: #8b83ca;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+        }
+
+
+        .back-link:hover {
+            color: #756bd1;
+        }
+
+
+        /* =========================
+           WORD HERO
+        ========================= */
+
+        .word-header {
+
+            background: white;
+
+            border:
+                1px solid #eeeafa;
+
+            border-radius: 24px;
+
+            padding:
+                32px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(70, 60, 130, 0.06);
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .word-header::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+
+            height: 180px;
+
+            border-radius: 50%;
+
+            background:
+                #f3f0ff;
+
+            right: -70px;
+
+            top: -70px;
+
+            z-index: 0;
+
+        }
+
+
+        .word-header-content {
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+
+        .word-top {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            justify-content:
+                space-between;
+
+            gap: 20px;
+
+        }
+
+
+        .word-chinese {
+
+            color: #514a91;
+
+            font-size: 52px;
+
+            line-height: 1.2;
+
+            font-weight: 800;
+
+        }
+
+
+        .word-pinyin {
+
+            color: #8b83ca;
+
+            font-size: 18px;
+
+            margin-top: 8px;
+
+        }
+
+
+        .word-pronunciation {
+
+            color: #999;
+
+            font-size: 14px;
+
+            margin-top: 5px;
+
+        }
+
+
+        .hsk-tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: flex-end;
+
+            gap: 6px;
+
+        }
+
+
+        .hsk-tag {
+
+            display: inline-block;
+
+            padding:
+                6px 10px;
+
+            background: #f4f2ff;
+
+            color: #8178c3;
+
+            border-radius: 9px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+
+        }
+
+
+        /* =========================
+           CONTENT CARDS
+        ========================= */
+
+        .content-card {
+
+            background: white;
+
+            border:
+                1px solid #eeeafa;
+
+            border-radius: 20px;
+
+            padding: 24px;
+
+            margin-top: 18px;
+
+            box-shadow:
+                0 7px 20px
+                rgba(70, 60, 130, 0.05);
+
+        }
+
+
+        .section-title {
+
+            color: #514a91;
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* =========================
+           MEANINGS
+        ========================= */
+
+        .meaning-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 9px;
+
+        }
+
+
+        .meaning-item {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 10px;
+
+            color: #666;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .meaning-number {
+
+            min-width: 25px;
+
+            height: 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #f1efff;
+
+            color: #8178c3;
+
+            border-radius: 8px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =========================
+           PART OF SPEECH
+        ========================= */
+
+        .pos {
+
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding:
+                6px 11px;
+
+            background: #fff0f5;
+
+            color: #d98298;
+
+            border-radius: 9px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =========================
+           EXAMPLES
+        ========================= */
+
+        .example-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 15px;
+
+        }
+
+
+        .example {
+
+            padding:
+                15px 16px;
+
+            background: #faf9ff;
+
+            border:
+                1px solid #eeeafa;
+
+            border-radius: 14px;
+
+        }
+
+
+        .example-chinese {
+
+            color: #514a91;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            line-height: 1.7;
+
+        }
+
+
+        .example-pinyin {
+
+            color: #8b83ca;
+
+            font-size: 13px;
+
+            margin-top: 4px;
+
+        }
+
+
+        .example-thai {
+
+            color: #777;
+
+            font-size: 13px;
+
+            margin-top: 5px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================
+           EXTRA INFORMATION
+        ========================= */
+
+        .info-row {
+
+            display: flex;
+
+            gap: 10px;
+
+            padding:
+                10px 0;
+
+            border-bottom:
+                1px solid #f0eef7;
+
+            font-size: 13px;
+
+        }
+
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+
+        .info-label {
+
+            min-width: 120px;
+
+            color: #999;
+
+        }
+
+
+        .info-value {
+            color: #666;
+        }
+
+
+        /* =========================
+           NOT FOUND
+        ========================= */
+
+        .message-box {
+
+            background: white;
+
+            border:
+                1px solid #eeeafa;
+
+            border-radius: 22px;
+
+            padding:
+                45px 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 25px
+                rgba(70, 60, 130, 0.06);
+
+        }
+
+
+        .message-icon {
+
+            font-size: 45px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .message-title {
+
+            color: #514a91;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .message-text {
+
+            color: #999;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .home-button {
+
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding:
+                10px 17px;
+
+            background: #756bd1;
+
+            color: white;
+
+            border-radius: 12px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+
+            padding:
+                30px 20px 40px;
+
+            text-align: center;
+
+            color: #aaa;
+
+            font-size: 12px;
+
+            border-top:
+                1px solid #eeeafa;
+
+            background: white;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .nav-container {
+
+                min-height: 62px;
+
+                padding:
+                    9px 16px;
+
+            }
+
+
+            .logo {
+                font-size: 21px;
+            }
+
+
+            .nav-menu {
+                gap: 2px;
+            }
+
+
+            .nav-menu a {
+
+                padding:
+                    8px 9px;
+
+                font-size: 12px;
+
+            }
+
+
+            .main {
+
+                padding:
+                    25px 16px 55px;
+
+            }
+
+
+            .word-header {
+
+                padding: 23px;
+
+                border-radius: 20px;
+
+            }
+
+
+            .word-top {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+            }
+
+
+            .word-chinese {
+
+                font-size: 43px;
+
+            }
+
+
+            .word-pinyin {
+
+                font-size: 16px;
+
+            }
+
+
+            .hsk-tags {
+
+                justify-content: flex-start;
+
+            }
+
+
+            .content-card {
+
+                padding: 20px;
+
+                border-radius: 18px;
+
+            }
+
+
+            .info-row {
+
+                flex-direction: column;
+
+                gap: 3px;
+
+            }
+
+
+            .info-label {
+                min-width: auto;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+                Mini<span>-Dicto</span>
+            </a>
+
+
+            <ul class="nav-menu">
+
+                <li>
+                    <a href="index.html">
+                        หน้าหลัก
+                    </a>
+                </li>
+
+                <li>
+                    <a href="hsk.html">
+                        HSK
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="main">
+
+
+        <a
+            href="javascript:history.back()"
+            class="back-link"
+        >
+            ← ย้อนกลับ
+        </a>
+
+
+        <!-- =========================
+             WORD CONTENT
+        ========================== -->
+
+        <div id="wordContent">
+
+            <div class="message-box">
+
+                <div class="message-icon">
+                    ⏳
+                </div>
+
+                <div class="message-title">
+                    กำลังโหลดคำศัพท์...
+                </div>
+
+                <div class="message-text">
+                    กรุณารอสักครู่
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        Mini-Dicto · Chinese–Thai Dictionary
+
+        <br>
+
+        เรียนภาษาจีนทีละคำ เข้าใจง่ายขึ้นทุกวัน 🌷
+
+    </footer>
+
+
+
+    <script>
+
+        /* =========================
+           VARIABLES
+        ========================= */
+
+        let dictionary = [];
+
+        const wordContent =
+            document.getElementById(
+                "wordContent"
+            );
+
+
+        /* =========================
+           ESCAPE HTML
+        ========================= */
+
+        function escapeHTML(text) {
+
+            const div =
+                document.createElement("div");
+
+            div.textContent =
+                text ?? "";
+
+            return div.innerHTML;
+
+        }
+
+
+        /* =========================
+           GET ID FROM URL
+        ========================= */
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+        const wordId =
+            params.get("id");
+
+
+        /* =========================
+           SHOW ERROR
+        ========================= */
+
+        function showMessage(
+            icon,
+            title,
+            text
+        ) {
+
+            wordContent.innerHTML = `
+
+                <div class="message-box">
+
+                    <div class="message-icon">
+                        ${icon}
+                    </div>
+
+                    <div class="message-title">
+                        ${escapeHTML(title)}
+                    </div>
+
+                    <div class="message-text">
+                        ${escapeHTML(text)}
+                    </div>
+
+                    <a
+                        href="index.html"
+                        class="home-button"
+                    >
+                        ← กลับหน้าหลัก
+                    </a>
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =========================
+           LOAD DICTIONARY
+        ========================= */
+
+        async function loadDictionary() {
+
+            try {
+
+                const response =
+                    await fetch(
+                        "./dictionary.json"
+                    );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "ไม่สามารถโหลด dictionary.json"
+                    );
+
+                }
+
+
+                dictionary =
+                    await response.json();
+
+
+                /* ตรวจสอบว่าเป็น Array */
+
+                if (!Array.isArray(dictionary)) {
+
+                    throw new Error(
+                        "รูปแบบ dictionary.json ไม่ถูกต้อง"
+                    );
+
+                }
+
+
+                /* =========================
+                   CHECK ID
+                ========================= */
+
+                if (!wordId) {
+
+                    showMessage(
+                        "🔍",
+                        "ไม่พบรหัสคำศัพท์",
+                        "กรุณาเปิดหน้าคำศัพท์ผ่านลิงก์ที่มี ?id=..."
+                    );
+
+                    return;
+
+                }
+
+
+                /* =========================
+                   FIND WORD
+                ========================= */
+
+                const item =
+                    dictionary.find(
+                        word =>
+                            String(word.id) ===
+                            String(wordId)
+                    );
+
+
+                /* ไม่พบคำศัพท์ */
+
+                if (!item) {
+
+                    showMessage(
+                        "😿",
+                        "ไม่พบคำศัพท์",
+                        `ไม่พบคำศัพท์ที่มี id = ${wordId}`
+                    );
+
+                    return;
+
+                }
+
+
+                /* =========================
+                   DISPLAY WORD
+                ========================= */
+
+                displayWord(item);
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "Dictionary Error:",
+                    error
+                );
+
+
+                showMessage(
+                    "⚠️",
+                    "เกิดข้อผิดพลาด",
+                    "ไม่สามารถโหลดข้อมูลคำศัพท์ได้ กรุณาตรวจสอบ dictionary.json"
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           DISPLAY WORD
+        ========================= */
+
+        function displayWord(item) {
+
+
+            /* =========================
+               MEANINGS
+            ========================= */
+
+            const meanings =
+                Array.isArray(item.meanings)
+                    ? item.meanings
+                    : item.meanings
+                        ? [item.meanings]
+                        : [];
+
+
+            const meaningsHTML =
+                meanings.length
+
+                    ? meanings.map(
+                        (meaning, index) => `
+
+                            <div class="meaning-item">
+
+                                <div class="meaning-number">
+                                    ${index + 1}
+                                </div>
+
+                                <div>
+                                    ${escapeHTML(
+                                        meaning
+                                    )}
+                                </div>
+
+                            </div>
+
+                        `
+                    ).join("")
+
+                    : `
+
+                        <div class="meaning-item">
+
+                            <div>
+                                ยังไม่มีข้อมูลความหมาย
+                            </div>
+
+                        </div>
+
+                    `;
+
+
+            /* =========================
+               HSK
+            ========================= */
+
+            const hsk =
+                Array.isArray(item.hsk)
+                    ? item.hsk
+                    : item.hsk
+                        ? [item.hsk]
+                        : [];
+
+
+            const hskHTML =
+                hsk.map(
+                    level => `
+
+                        <span class="hsk-tag">
+                            HSK ${escapeHTML(level)}
+                        </span>
+
+                    `
+                ).join("");
+
+
+            /* =========================
+               PART OF SPEECH
+            ========================= */
+
+            let posHTML = "";
+
+
+            if (item.partOfSpeech) {
+
+                const pos =
+                    Array.isArray(
+                        item.partOfSpeech
+                    )
+                        ? item.partOfSpeech.join(" / ")
+                        : item.partOfSpeech;
+
+
+                posHTML = `
+
+                    <div class="pos">
+                        ${escapeHTML(pos)}
+                    </div>
+
+                `;
+
+            }
+
+
+            /* =========================
+               EXAMPLES
+            ========================= */
+
+            let examplesHTML = "";
+
+
+            if (
+                Array.isArray(item.examples) &&
+                item.examples.length > 0
+            ) {
+
+                const exampleItems =
+                    item.examples.map(
+                        example => {
+
+                            /*
+                             รองรับทั้ง
+
+                             {
+                               chinese: "...",
+                               pinyin: "...",
+                               thai: "..."
+                             }
+
+                             และ
+
+                             {
+                               sentence: "...",
+                               pinyin: "...",
+                               translation: "..."
+                             }
+                            */
+
+                            const chinese =
+                                example.chinese ??
+                                example.sentence ??
+                                "";
+
+                            const pinyin =
+                                example.pinyin ??
+                                "";
+
+                            const thai =
+                                example.thai ??
+                                example.translation ??
+                                "";
+
+                            return `
+
+                                <div class="example">
+
+                                    <div class="example-chinese">
+                                        ${escapeHTML(
+                                            chinese
+                                        )}
+                                    </div>
+
+                                    ${
+                                        pinyin
+                                            ? `
+                                                <div class="example-pinyin">
+                                                    ${escapeHTML(
+                                                        pinyin
+                                                    )}
+                                                </div>
+                                              `
+                                            : ""
+                                    }
+
+                                    ${
+                                        thai
+                                            ? `
+                                                <div class="example-thai">
+                                                    ${escapeHTML(
+                                                        thai
+                                                    )}
+                                                </div>
+                                              `
+                                            : ""
+                                    }
+
+                                </div>
+
+                            `;
+
+                        }
+                    ).join("");
+
+
+                examplesHTML = `
+
+                    <section class="content-card">
+
+                        <div class="section-title">
+                            💬 ตัวอย่างประโยค
+                        </div>
+
+                        <div class="example-list">
+
+                            ${exampleItems}
+
+                        </div>
+
+                    </section>
+
+                `;
+
+            }
+
+
+            /* =========================
+               EXTRA INFO
+            ========================= */
+
+            let extraHTML = "";
+
+
+            const extraRows = [];
+
+
+            if (item.id) {
+
+                extraRows.push(`
+
+                    <div class="info-row">
+
+                        <div class="info-label">
+                            ID
+                        </div>
+
+                        <div class="info-value">
+                            ${escapeHTML(item.id)}
+                        </div>
+
+                    </div>
+
+                `);
+
+            }
+
+
+            if (item.thaiPronunciation) {
+
+                extraRows.push(`
+
+                    <div class="info-row">
+
+                        <div class="info-label">
+                            คำอ่านไทย
+                        </div>
+
+                        <div class="info-value">
+                            ${escapeHTML(
+                                item.thaiPronunciation
+                            )}
+                        </div>
+
+                    </div>
+
+                `);
+
+            }
+
+
+            if (hsk.length) {
+
+                extraRows.push(`
+
+                    <div class="info-row">
+
+                        <div class="info-label">
+                            ระดับ HSK
+                        </div>
+
+                        <div class="info-value">
+                            ${escapeHTML(
+                                hsk
+                                    .map(
+                                        level =>
+                                            `HSK ${level}`
+                                    )
+                                    .join(" / ")
+                            )}
+                        </div>
+
+                    </div>
+
+                `);
+
+            }
+
+
+            if (extraRows.length) {
+
+                extraHTML = `
+
+                    <section class="content-card">
+
+                        <div class="section-title">
+                            ℹ️ ข้อมูลเพิ่มเติม
+                        </div>
+
+                        ${extraRows.join("")}
+
+                    </section>
+
+                `;
+
+            }
+
+
+            /* =========================
+               FINAL HTML
+            ========================= */
+
+            wordContent.innerHTML = `
+
+                <section class="word-header">
+
+                    <div class="word-header-content">
+
+                        <div class="word-top">
+
+                            <div>
+
+                                <div class="word-chinese">
+                                    ${escapeHTML(
+                                        item.word || ""
+                                    )}
+                                </div>
+
+
+                                <div class="word-pinyin">
+                                    ${escapeHTML(
+                                        item.pinyin || ""
+                                    )}
+                                </div>
+
+
+                                ${
+                                    item.thaiPronunciation
+                                        ? `
+                                            <div class="word-pronunciation">
+                                                ${escapeHTML(
+                                                    item.thaiPronunciation
+                                                )}
+                                            </div>
+                                          `
+                                        : ""
+                                }
+
+                            </div>
+
+
+                            <div class="hsk-tags">
+
+                                ${hskHTML}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <section class="content-card">
+
+                    <div class="section-title">
+                        📖 ความหมาย
+                    </div>
+
+                    <div class="meaning-list">
+
+                        ${meaningsHTML}
+
+                    </div>
+
+
+                    ${posHTML}
+
+                </section>
+
+
+                ${examplesHTML}
+
+
+                ${extraHTML}
+
+            `;
+
+
+            /* =========================
+               UPDATE PAGE TITLE
+            ========================= */
+
+            document.title =
+                `${item.word || "คำศัพท์"} | Mini-Dicto`;
+
+        }
+
+
+        /* =========================
+           START
+        ========================= */
+
+        loadDictionary();
+
+    </script>
+
+</body>
+
+</html>
+```
