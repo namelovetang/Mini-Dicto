@@ -19,11 +19,13 @@
                 "Noto Sans",
                 Arial,
                 sans-serif;
+
             background: linear-gradient(
                 135deg,
                 #eef8ff,
                 #fff4fa
             );
+
             color: #344054;
             min-height: 100vh;
         }
@@ -35,7 +37,9 @@
         nav {
             background: rgba(255,255,255,0.92);
             backdrop-filter: blur(10px);
+
             border-bottom: 1px solid #e7edf5;
+
             position: sticky;
             top: 0;
             z-index: 100;
@@ -54,6 +58,7 @@
         .logo {
             text-decoration: none;
             color: #4d8fc7;
+
             font-size: 21px;
             font-weight: 800;
         }
@@ -70,8 +75,10 @@
         .nav-links a {
             text-decoration: none;
             color: #667085;
+
             padding: 8px 13px;
             border-radius: 10px;
+
             font-size: 14px;
         }
 
@@ -100,6 +107,7 @@
 
             border: none;
             background: transparent;
+
             color: #6b8eac;
 
             font-size: 15px;
@@ -118,8 +126,10 @@
 
         .word-card {
             background: rgba(255,255,255,0.96);
+
             border: 1px solid #e5edf5;
             border-radius: 26px;
+
             padding: 35px 30px;
 
             box-shadow:
@@ -130,23 +140,84 @@
 
         .word {
             font-size: clamp(48px, 10vw, 78px);
+
             font-weight: 800;
+
             color: #3f79a8;
+
             line-height: 1.2;
+
             margin-bottom: 10px;
         }
 
         .pinyin {
             font-size: 25px;
+
             color: #6b7280;
+
             font-weight: 600;
+
             margin-bottom: 5px;
         }
 
         .thai-pronunciation {
             color: #e38aad;
+
             font-size: 17px;
+
             margin-bottom: 20px;
+        }
+
+        /* =========================
+           SPEAK BUTTON
+        ========================= */
+
+        .speak-btn {
+            border: none;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 7px;
+
+            background: #eaf6ff;
+            color: #4382ae;
+
+            border: 1px solid #cfe8f8;
+
+            padding: 10px 17px;
+
+            border-radius: 999px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .speak-btn:hover {
+            background: #dff1fc;
+
+            transform: translateY(-1px);
+        }
+
+        .speak-btn:active {
+            transform: scale(0.97);
+        }
+
+        .speak-btn.speaking {
+            background: #fff0f7;
+            border-color: #f3c5da;
+            color: #d779a1;
+        }
+
+        .speak-btn.small {
+            padding: 7px 12px;
+            font-size: 13px;
+            margin-top: 10px;
         }
 
         /* =========================
@@ -157,16 +228,20 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+
             gap: 7px;
-            margin-bottom: 25px;
+
+            margin: 20px 0 25px;
         }
 
         .hsk-badge {
             background: #e9f5ff;
             color: #3980b9;
+
             border: 1px solid #cde8fb;
 
             padding: 6px 13px;
+
             border-radius: 999px;
 
             font-size: 13px;
@@ -179,7 +254,10 @@
 
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
             gap: 15px;
 
             margin-top: 10px;
@@ -187,21 +265,29 @@
 
         .info-box {
             background: #f8fbfd;
+
             border: 1px solid #edf2f6;
+
             border-radius: 17px;
+
             padding: 17px;
+
             text-align: left;
         }
 
         .info-label {
             font-size: 13px;
+
             color: #98a2b3;
+
             margin-bottom: 7px;
         }
 
         .info-value {
             color: #344054;
+
             font-size: 16px;
+
             font-weight: 600;
         }
 
@@ -213,7 +299,9 @@
             margin-top: 22px;
 
             background: rgba(255,255,255,0.96);
+
             border: 1px solid #e5edf5;
+
             border-radius: 22px;
 
             padding: 25px;
@@ -225,9 +313,11 @@
         .section-title {
             display: flex;
             align-items: center;
+
             gap: 9px;
 
             font-size: 19px;
+
             font-weight: 800;
 
             color: #3f79a8;
@@ -242,17 +332,21 @@
         .meaning-list {
             display: flex;
             flex-direction: column;
+
             gap: 10px;
         }
 
         .meaning-item {
             background: #fff7fb;
+
             border-left: 4px solid #e89abb;
 
             padding: 12px 15px;
+
             border-radius: 10px;
 
             font-size: 16px;
+
             color: #475467;
         }
 
@@ -262,18 +356,23 @@
 
         .pos-list {
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 8px;
         }
 
         .pos {
             background: #eef8ff;
+
             color: #4a83ad;
 
             border-radius: 10px;
+
             padding: 8px 12px;
 
             font-size: 14px;
+
             font-weight: 600;
         }
 
@@ -283,11 +382,13 @@
 
         .example {
             border: 1px solid #edf1f5;
+
             background: #fbfcfe;
 
             border-radius: 16px;
 
             padding: 17px;
+
             margin-bottom: 12px;
         }
 
@@ -295,16 +396,31 @@
             margin-bottom: 0;
         }
 
+        .example-top {
+            display: flex;
+
+            align-items: flex-start;
+
+            justify-content: space-between;
+
+            gap: 12px;
+        }
+
         .example-chinese {
             font-size: 20px;
+
             font-weight: 700;
+
             color: #344054;
 
             line-height: 1.7;
+
+            flex: 1;
         }
 
         .example-pinyin {
             font-size: 15px;
+
             color: #6b7280;
 
             margin-top: 4px;
@@ -312,6 +428,7 @@
 
         .example-thai {
             font-size: 15px;
+
             color: #e083aa;
 
             margin-top: 5px;
@@ -323,7 +440,10 @@
 
         .related-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+            grid-template-columns:
+                repeat(auto-fill, minmax(150px, 1fr));
+
             gap: 11px;
         }
 
@@ -331,6 +451,7 @@
             text-decoration: none;
 
             background: #f8fbff;
+
             border: 1px solid #e3edf5;
 
             border-radius: 14px;
@@ -342,73 +463,95 @@
 
         .related-word:hover {
             transform: translateY(-2px);
+
             border-color: #b8d8ef;
-            box-shadow: 0 6px 18px rgba(65,105,140,0.08);
+
+            box-shadow:
+                0 6px 18px rgba(65,105,140,0.08);
         }
 
         .related-chinese {
             font-size: 21px;
+
             font-weight: 700;
+
             color: #477fa8;
         }
 
         .related-pinyin {
             font-size: 13px;
+
             color: #8b95a1;
+
             margin-top: 2px;
         }
 
         .related-thai {
             font-size: 13px;
+
             color: #df89ab;
+
             margin-top: 2px;
         }
 
         /* =========================
-           ERROR / LOADING
+           STATE
         ========================= */
 
         .state-box {
             background: white;
+
             border: 1px solid #e5edf5;
+
             border-radius: 22px;
 
             padding: 45px 25px;
+
             text-align: center;
 
-            box-shadow: 0 10px 30px rgba(65,105,140,0.07);
+            box-shadow:
+                0 10px 30px rgba(65,105,140,0.07);
         }
 
         .state-icon {
             font-size: 42px;
+
             margin-bottom: 12px;
         }
 
         .state-title {
             font-size: 20px;
+
             font-weight: 800;
+
             color: #475467;
+
             margin-bottom: 8px;
         }
 
         .state-text {
             color: #98a2b3;
+
             line-height: 1.7;
         }
 
         .home-btn {
             display: inline-block;
+
             margin-top: 18px;
 
             background: #6fa7d0;
+
             color: white;
 
             text-decoration: none;
 
             padding: 10px 18px;
+
             border-radius: 12px;
 
             font-weight: 700;
+
             font-size: 14px;
         }
 
@@ -437,11 +580,13 @@
 
             .container {
                 width: min(100% - 20px, 920px);
+
                 margin-top: 20px;
             }
 
             .word-card {
                 padding: 28px 18px;
+
                 border-radius: 21px;
             }
 
@@ -459,6 +604,7 @@
 
             .section {
                 padding: 19px;
+
                 border-radius: 18px;
             }
 
@@ -470,8 +616,13 @@
                 font-size: 18px;
             }
 
+            .example-top {
+                align-items: center;
+            }
+
             .related-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
         }
     </style>
@@ -480,6 +631,7 @@
 <body>
 
 <nav>
+
     <div class="nav-inner">
 
         <a href="index.html" class="logo">
@@ -487,28 +639,48 @@
         </a>
 
         <div class="nav-links">
-            <a href="index.html">🔎 ค้นหา</a>
-            <a href="hsk.html">📚 HSK</a>
+
+            <a href="index.html">
+                🔎 ค้นหา
+            </a>
+
+            <a href="hsk.html">
+                📚 HSK
+            </a>
+
         </div>
 
     </div>
+
 </nav>
 
 
 <main class="container">
 
-    <button class="back-btn" onclick="history.back()">
+    <button
+        class="back-btn"
+        onclick="history.back()"
+    >
         ← ย้อนกลับ
     </button>
+
 
     <div id="content">
 
         <div class="state-box">
-            <div class="state-icon">📖</div>
-            <div class="state-title">กำลังโหลดคำศัพท์...</div>
+
+            <div class="state-icon">
+                📖
+            </div>
+
+            <div class="state-title">
+                กำลังโหลดคำศัพท์...
+            </div>
+
             <div class="state-text">
                 กรุณารอสักครู่
             </div>
+
         </div>
 
     </div>
@@ -518,10 +690,255 @@
 
 <script>
 
-const params = new URLSearchParams(window.location.search);
-const wordId = params.get("id");
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const wordId =
+    params.get("id");
 
 let dictionary = [];
+
+
+/* =========================
+   SPEECH SYNTHESIS
+========================= */
+
+let currentUtterance = null;
+let currentButton = null;
+
+
+/*
+ * หาเสียงภาษาจีนที่เหมาะสม
+ * โดยพยายามใช้ zh-CN ก่อน
+ */
+function getChineseVoice() {
+
+    if (
+        !("speechSynthesis" in window)
+    ) {
+        return null;
+    }
+
+    const voices =
+        window.speechSynthesis
+            .getVoices();
+
+    if (!voices.length) {
+        return null;
+    }
+
+
+    /*
+     * ลำดับความสำคัญ
+     */
+
+    return (
+        voices.find(
+            voice =>
+                voice.lang
+                    .toLowerCase() === "zh-cn"
+        )
+
+        ||
+
+        voices.find(
+            voice =>
+                voice.lang
+                    .toLowerCase()
+                    .startsWith("zh-cn")
+        )
+
+        ||
+
+        voices.find(
+            voice =>
+                voice.lang
+                    .toLowerCase()
+                    .startsWith("zh")
+        )
+
+        ||
+
+        null
+    );
+}
+
+
+/*
+ * พูดภาษาจีน
+ */
+function speakChinese(text, button) {
+
+    if (
+        !("speechSynthesis" in window)
+    ) {
+
+        alert(
+            "เบราว์เซอร์นี้ไม่รองรับการอ่านออกเสียง"
+        );
+
+        return;
+    }
+
+
+    if (!text || !text.trim()) {
+        return;
+    }
+
+
+    /*
+     * ถ้ากำลังพูดอยู่
+     * ให้หยุดก่อน
+     */
+
+    if (
+        window.speechSynthesis.speaking
+    ) {
+
+        window.speechSynthesis.cancel();
+
+        if (currentButton) {
+
+            currentButton
+                .classList
+                .remove("speaking");
+
+        }
+
+        currentButton = null;
+        currentUtterance = null;
+
+        /*
+         * ถ้ากดปุ่มเดิม
+         * ให้หยุดอย่างเดียว
+         */
+
+        if (
+            button &&
+            button === currentButton
+        ) {
+            return;
+        }
+    }
+
+
+    const utterance =
+        new SpeechSynthesisUtterance(
+            text
+        );
+
+
+    /*
+     * ภาษาจีนกลาง
+     */
+
+    utterance.lang = "zh-CN";
+
+
+    /*
+     * เลือก voice
+     */
+
+    const voice =
+        getChineseVoice();
+
+    if (voice) {
+        utterance.voice = voice;
+    }
+
+
+    /*
+     * ความเร็ว
+     *
+     * 0.85 = เหมาะสำหรับผู้เรียน
+     */
+
+    utterance.rate = 0.85;
+
+
+    /*
+     * ระดับเสียง
+     */
+
+    utterance.pitch = 1;
+
+
+    currentUtterance =
+        utterance;
+
+    currentButton =
+        button;
+
+
+    if (button) {
+
+        button.classList.add(
+            "speaking"
+        );
+
+        button.innerHTML =
+            "🔊 กำลังพูด...";
+    }
+
+
+    utterance.onend = () => {
+
+        if (button) {
+
+            button.classList.remove(
+                "speaking"
+            );
+
+            button.innerHTML =
+                "🔊 ฟังเสียง";
+        }
+
+        currentUtterance = null;
+        currentButton = null;
+    };
+
+
+    utterance.onerror = () => {
+
+        if (button) {
+
+            button.classList.remove(
+                "speaking"
+            );
+
+            button.innerHTML =
+                "🔊 ฟังเสียง";
+        }
+
+        currentUtterance = null;
+        currentButton = null;
+    };
+
+
+    window.speechSynthesis
+        .speak(utterance);
+}
+
+
+/*
+ * โหลด voice
+ *
+ * บาง Browser จะโหลดเสียง
+ * หลังจากหน้าเว็บเปิดแล้ว
+ */
+
+if (
+    "speechSynthesis" in window
+) {
+
+    window.speechSynthesis
+        .onvoiceschanged = () => {
+            getChineseVoice();
+        };
+
+}
 
 
 /* =========================
@@ -567,7 +984,11 @@ function toArray(value) {
 
 async function loadDictionary() {
 
-    const content = document.getElementById("content");
+    const content =
+        document.getElementById(
+            "content"
+        );
+
 
     try {
 
@@ -582,9 +1003,11 @@ async function loadDictionary() {
         }
 
 
-        const response = await fetch(
-            "./dictionary.json?version=" + Date.now()
-        );
+        const response =
+            await fetch(
+                "./dictionary.json?version=" +
+                Date.now()
+            );
 
 
         if (!response.ok) {
@@ -596,7 +1019,8 @@ async function loadDictionary() {
         }
 
 
-        const text = await response.text();
+        const text =
+            await response.text();
 
 
         if (!text.trim()) {
@@ -610,7 +1034,8 @@ async function loadDictionary() {
 
         try {
 
-            dictionary = JSON.parse(text);
+            dictionary =
+                JSON.parse(text);
 
         } catch (error) {
 
@@ -630,10 +1055,12 @@ async function loadDictionary() {
         }
 
 
-        const word = dictionary.find(
-            item =>
-                String(item.id) === String(wordId)
-        );
+        const word =
+            dictionary.find(
+                item =>
+                    String(item.id) ===
+                    String(wordId)
+            );
 
 
         if (!word) {
@@ -669,11 +1096,17 @@ async function loadDictionary() {
 
 function renderWord(word) {
 
-    const meanings = toArray(word.meanings);
-    const pos = toArray(word.partOfSpeech);
-    const hsk = toArray(word.hsk);
+    const meanings =
+        toArray(word.meanings);
 
-    const examples = toArray(word.examples);
+    const pos =
+        toArray(word.partOfSpeech);
+
+    const hsk =
+        toArray(word.hsk);
+
+    const examples =
+        toArray(word.examples);
 
 
     /* =========================
@@ -682,68 +1115,112 @@ function renderWord(word) {
 
     let examplesHTML = "";
 
+
     if (examples.length > 0) {
 
-        examplesHTML = examples.map(example => {
+        examplesHTML =
+            examples
+                .map(
+                    (example, index) => {
 
-            const chinese =
-                example.chinese ??
-                example.sentence ??
-                "";
+                        const chinese =
+                            example.chinese ??
+                            example.sentence ??
+                            "";
 
-            const pinyin =
-                example.pinyin ??
-                "";
+                        const pinyin =
+                            example.pinyin ??
+                            "";
 
-            const thai =
-                example.thai ??
-                example.translation ??
-                "";
+                        const thai =
+                            example.thai ??
+                            example.translation ??
+                            "";
 
-            return `
-                <div class="example">
 
-                    ${
-                        chinese
-                        ? `
-                            <div class="example-chinese">
-                                ${escapeHTML(chinese)}
+                        return `
+
+                            <div class="example">
+
+                                <div class="example-top">
+
+                                    <div
+                                        class="example-chinese"
+                                    >
+                                        ${
+                                            escapeHTML(
+                                                chinese
+                                            )
+                                        }
+                                    </div>
+
+
+                                    ${
+                                        chinese
+                                        ? `
+                                            <button
+                                                class="speak-btn small"
+                                                onclick='speakChinese(
+                                                    ${JSON.stringify(chinese)},
+                                                    this
+                                                )'
+                                                type="button"
+                                            >
+                                                🔊 ฟังเสียง
+                                            </button>
+                                        `
+                                        : ""
+                                    }
+
+                                </div>
+
+
+                                ${
+                                    pinyin
+                                    ? `
+                                        <div
+                                            class="example-pinyin"
+                                        >
+                                            ${escapeHTML(
+                                                pinyin
+                                            )}
+                                        </div>
+                                    `
+                                    : ""
+                                }
+
+
+                                ${
+                                    thai
+                                    ? `
+                                        <div
+                                            class="example-thai"
+                                        >
+                                            ${escapeHTML(
+                                                thai
+                                            )}
+                                        </div>
+                                    `
+                                    : ""
+                                }
+
                             </div>
-                        `
-                        : ""
+
+                        `;
+
                     }
+                )
+                .join("");
 
-                    ${
-                        pinyin
-                        ? `
-                            <div class="example-pinyin">
-                                ${escapeHTML(pinyin)}
-                            </div>
-                        `
-                        : ""
-                    }
-
-                    ${
-                        thai
-                        ? `
-                            <div class="example-thai">
-                                ${escapeHTML(thai)}
-                            </div>
-                        `
-                        : ""
-                    }
-
-                </div>
-            `;
-
-        }).join("");
 
     } else {
 
         examplesHTML = `
+
             <div class="state-text">
                 ยังไม่มีตัวอย่างประโยค
             </div>
+
         `;
 
     }
@@ -759,65 +1236,96 @@ function renderWord(word) {
 
     let relatedHTML = "";
 
+
     if (relatedWords.length > 0) {
 
-        relatedHTML = relatedWords.map(item => {
+        relatedHTML =
+            relatedWords
+                .map(item => {
 
-            return `
-                <a
-                    class="related-word"
-                    href="word.html?id=${encodeURIComponent(item.id)}"
-                >
+                    return `
 
-                    <div class="related-chinese">
-                        ${escapeHTML(item.word)}
-                    </div>
+                        <a
+                            class="related-word"
+                            href="word.html?id=${encodeURIComponent(
+                                item.id
+                            )}"
+                        >
 
-                    ${
-                        item.pinyin
-                        ? `
-                            <div class="related-pinyin">
-                                ${escapeHTML(item.pinyin)}
+                            <div
+                                class="related-chinese"
+                            >
+                                ${escapeHTML(
+                                    item.word
+                                )}
                             </div>
-                        `
-                        : ""
-                    }
 
-                    ${
-                        item.thaiPronunciation
-                        ? `
-                            <div class="related-thai">
-                                ${escapeHTML(item.thaiPronunciation)}
-                            </div>
-                        `
-                        : ""
-                    }
 
-                </a>
-            `;
+                            ${
+                                item.pinyin
+                                ? `
+                                    <div
+                                        class="related-pinyin"
+                                    >
+                                        ${escapeHTML(
+                                            item.pinyin
+                                        )}
+                                    </div>
+                                `
+                                : ""
+                            }
 
-        }).join("");
+
+                            ${
+                                item.thaiPronunciation
+                                ? `
+                                    <div
+                                        class="related-thai"
+                                    >
+                                        ${escapeHTML(
+                                            item.thaiPronunciation
+                                        )}
+                                    </div>
+                                `
+                                : ""
+                            }
+
+                        </a>
+
+                    `;
+
+                })
+                .join("");
+
 
     } else {
 
         relatedHTML = `
+
             <div class="state-text">
                 ยังไม่มีคำที่เกี่ยวข้อง
             </div>
+
         `;
 
     }
 
 
     /* =========================
-       MAIN HTML
+       TITLE
     ========================= */
 
     document.title =
         `${word.word} | Mini-Dicto`;
 
 
-    document.getElementById("content").innerHTML = `
+    /* =========================
+       MAIN HTML
+    ========================= */
+
+    document.getElementById(
+        "content"
+    ).innerHTML = `
 
         <!-- WORD HEADER -->
 
@@ -827,22 +1335,51 @@ function renderWord(word) {
                 ${escapeHTML(word.word)}
             </div>
 
+
             ${
                 word.pinyin
                 ? `
                     <div class="pinyin">
-                        ${escapeHTML(word.pinyin)}
+                        ${escapeHTML(
+                            word.pinyin
+                        )}
                     </div>
                 `
                 : ""
             }
 
+
             ${
                 word.thaiPronunciation
                 ? `
-                    <div class="thai-pronunciation">
-                        คำอ่านไทย: ${escapeHTML(word.thaiPronunciation)}
+                    <div
+                        class="thai-pronunciation"
+                    >
+                        คำอ่านไทย:
+                        ${escapeHTML(
+                            word.thaiPronunciation
+                        )}
                     </div>
+                `
+                : ""
+            }
+
+
+            ${
+                word.word
+                ? `
+                    <button
+                        class="speak-btn"
+                        onclick='speakChinese(
+                            ${JSON.stringify(
+                                word.word
+                            )},
+                            this
+                        )'
+                        type="button"
+                    >
+                        🔊 ฟังเสียง
+                    </button>
                 `
                 : ""
             }
@@ -853,11 +1390,20 @@ function renderWord(word) {
                 ? `
                     <div class="hsk-list">
 
-                        ${hsk.map(level => `
-                            <span class="hsk-badge">
-                                HSK ${escapeHTML(level)}
-                            </span>
-                        `).join("")}
+                        ${hsk.map(
+                            level => `
+
+                                <span
+                                    class="hsk-badge"
+                                >
+                                    HSK
+                                    ${escapeHTML(
+                                        level
+                                    )}
+                                </span>
+
+                            `
+                        ).join("")}
 
                     </div>
                 `
@@ -874,7 +1420,9 @@ function renderWord(word) {
                     </div>
 
                     <div class="info-value">
-                        ${escapeHTML(word.pinyin || "-")}
+                        ${escapeHTML(
+                            word.pinyin || "-"
+                        )}
                     </div>
 
                 </div>
@@ -888,7 +1436,8 @@ function renderWord(word) {
 
                     <div class="info-value">
                         ${escapeHTML(
-                            word.thaiPronunciation || "-"
+                            word.thaiPronunciation ||
+                            "-"
                         )}
                     </div>
 
@@ -907,18 +1456,31 @@ function renderWord(word) {
                 💗 ความหมาย
             </div>
 
+
             <div class="meaning-list">
 
                 ${
                     meanings.length
 
-                    ? meanings.map(meaning => `
-                        <div class="meaning-item">
-                            ${escapeHTML(meaning)}
-                        </div>
-                    `).join("")
+                    ?
 
-                    : `
+                    meanings.map(
+                        meaning => `
+
+                            <div
+                                class="meaning-item"
+                            >
+                                ${escapeHTML(
+                                    meaning
+                                )}
+                            </div>
+
+                        `
+                    ).join("")
+
+                    :
+
+                    `
                         <div class="state-text">
                             ยังไม่มีข้อมูลความหมาย
                         </div>
@@ -938,18 +1500,29 @@ function renderWord(word) {
                 📝 ชนิดคำ
             </div>
 
+
             <div class="pos-list">
 
                 ${
                     pos.length
 
-                    ? pos.map(item => `
-                        <span class="pos">
-                            ${escapeHTML(item)}
-                        </span>
-                    `).join("")
+                    ?
 
-                    : `
+                    pos.map(
+                        item => `
+
+                            <span class="pos">
+                                ${escapeHTML(
+                                    item
+                                )}
+                            </span>
+
+                        `
+                    ).join("")
+
+                    :
+
+                    `
                         <div class="state-text">
                             ยังไม่มีข้อมูลชนิดคำ
                         </div>
@@ -982,6 +1555,7 @@ function renderWord(word) {
                 🔗 คำที่เกี่ยวข้อง
             </div>
 
+
             <div class="related-grid">
 
                 ${relatedHTML}
@@ -1004,13 +1578,24 @@ function getRelatedWords(currentWord) {
 
 
     const currentMeanings =
-        toArray(currentWord.meanings)
-            .map(x => String(x).toLowerCase());
+        toArray(
+            currentWord.meanings
+        )
+        .map(
+            x =>
+                String(x)
+                    .toLowerCase()
+        );
 
 
     const currentHSK =
-        toArray(currentWord.hsk)
-            .map(x => String(x));
+        toArray(
+            currentWord.hsk
+        )
+        .map(
+            x =>
+                String(x)
+        );
 
 
     dictionary.forEach(item => {
@@ -1030,12 +1615,16 @@ function getRelatedWords(currentWord) {
 
         const itemHSK =
             toArray(item.hsk)
-                .map(x => String(x));
+                .map(
+                    x =>
+                        String(x)
+                );
 
 
         const sameHSK =
             currentHSK.some(
-                level => itemHSK.includes(level)
+                level =>
+                    itemHSK.includes(level)
             );
 
 
@@ -1048,7 +1637,11 @@ function getRelatedWords(currentWord) {
 
         const itemMeanings =
             toArray(item.meanings)
-                .map(x => String(x).toLowerCase());
+                .map(
+                    x =>
+                        String(x)
+                            .toLowerCase()
+                );
 
 
         const sameMeaning =
@@ -1056,8 +1649,12 @@ function getRelatedWords(currentWord) {
                 meaning =>
                     itemMeanings.some(
                         itemMeaning =>
-                            itemMeaning.includes(meaning) ||
-                            meaning.includes(itemMeaning)
+                            itemMeaning.includes(
+                                meaning
+                            ) ||
+                            meaning.includes(
+                                itemMeaning
+                            )
                     )
             );
 
@@ -1087,7 +1684,10 @@ function getRelatedWords(currentWord) {
 
     return result
         .slice(0, 8)
-        .map(x => x.item);
+        .map(
+            x =>
+                x.item
+        );
 }
 
 
@@ -1097,7 +1697,9 @@ function getRelatedWords(currentWord) {
 
 function showError(title, text) {
 
-    document.getElementById("content").innerHTML = `
+    document.getElementById(
+        "content"
+    ).innerHTML = `
 
         <div class="state-box">
 
@@ -1105,13 +1707,16 @@ function showError(title, text) {
                 ⚠️
             </div>
 
+
             <div class="state-title">
                 ${escapeHTML(title)}
             </div>
 
+
             <div class="state-text">
                 ${escapeHTML(text)}
             </div>
+
 
             <a
                 href="index.html"
