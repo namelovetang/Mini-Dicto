@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mini-Dicto | พจนานุกรมจีน-ไทย</title>
+
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                "Noto Sans Thai",
+                "Noto Sans",
+                Arial,
+                sans-serif;
+
+            background: #f9f8ff;
+            color: #4d4d4d;
+
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            width: 100%;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            border-bottom: 1px solid #eeeafa;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+
+            min-height: 70px;
+
+            margin: auto;
+
+            padding: 12px 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+
+            font-weight: 800;
+
+            color: #756bd1;
+
+            letter-spacing: 0.3px;
+        }
+
+        .logo span {
+            color: #ef9ab4;
+        }
+
+        .nav-menu {
+            list-style: none;
+
+            display: flex;
+            align-items: center;
+
+            gap: 6px;
+        }
+
+        .nav-menu a {
+            display: block;
+
+            padding: 9px 14px;
+
+            border-radius: 12px;
+
+            color: #666;
+
+            font-size: 14px;
+
+            transition: 0.2s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: #f0edff;
+
+            color: #756bd1;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 70px 24px 55px;
+
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 7px 13px;
+
+            margin-bottom: 18px;
+
+            background: #fff0f5;
+
+            color: #d98298;
+
+            border-radius: 999px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            color: #514a91;
+
+            font-size: 44px;
+
+            font-weight: 800;
+
+            line-height: 1.2;
+
+            margin-bottom: 14px;
+        }
+
+        .hero h1 span {
+            color: #ef9ab4;
+        }
+
+        .hero p {
+            max-width: 600px;
+
+            margin: auto;
+
+            color: #888;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search-box {
+            max-width: 680px;
+
+            margin: 30px auto 0;
+
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+
+            height: 58px;
+
+            padding:
+                0 60px 0 20px;
+
+            border: 1px solid #e7e3f4;
+
+            border-radius: 18px;
+
+            background: #ffffff;
+
+            color: #444;
+
+            font-size: 15px;
+
+            outline: none;
+
+            box-shadow:
+                0 8px 25px rgba(80, 70, 140, 0.06);
+
+            transition: 0.2s ease;
+        }
+
+        .search-input::placeholder {
+            color: #aaa;
+        }
+
+        .search-input:focus {
+            border-color: #c8c1f2;
+
+            box-shadow:
+                0 8px 30px rgba(117, 107, 209, 0.12);
+        }
+
+        .search-icon {
+            position: absolute;
+
+            right: 20px;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 22px;
+
+            color: #8b83ca;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding:
+                10px 24px 70px;
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            margin-top: 30px;
+        }
+
+        .section-header {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            color: #514a91;
+
+            font-size: 21px;
+
+            font-weight: 800;
+        }
+
+        .section-more {
+            color: #8b83ca;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+        .section-more:hover {
+            color: #756bd1;
+        }
+
+
+        /* =========================
+           QUICK MENU
+        ========================= */
+
+        .quick-menu {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 16px;
+        }
+
+        .quick-card {
+            background: #fff;
+
+            border: 1px solid #eeeafa;
+
+            border-radius: 20px;
+
+            padding: 22px 18px;
+
+            min-height: 150px;
+
+            box-shadow:
+                0 7px 20px rgba(70, 60, 130, 0.05);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .quick-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 12px 28px rgba(70, 60, 130, 0.10);
+        }
+
+        .quick-icon {
+            width: 46px;
+            height: 46px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 14px;
+
+            background: #f1efff;
+
+            border-radius: 14px;
+
+            font-size: 23px;
+        }
+
+        .quick-title {
+            color: #514a91;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            margin-bottom: 5px;
+        }
+
+        .quick-desc {
+            color: #999;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           HSK CARD
+        ========================= */
+
+        .hsk-home-card {
+            background:
+                linear-gradient(
+                    135deg,
+                    #f1efff,
+                    #fff2f6
+                );
+
+            border: 1px solid #ebe7fb;
+
+            border-radius: 22px;
+
+            padding: 24px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            transition: 0.2s ease;
+        }
+
+        .hsk-home-card:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 28px rgba(100, 90, 160, 0.10);
+        }
+
+        .hsk-home-left {
+            display: flex;
+
+            align-items: center;
+
+            gap: 17px;
+        }
+
+        .hsk-home-icon {
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #fff;
+
+            border-radius: 17px;
+
+            font-size: 29px;
+        }
+
+        .hsk-home-title {
+            color: #514a91;
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+            margin-bottom: 4px;
+        }
+
+        .hsk-home-desc {
+            color: #888;
+
+            font-size: 13px;
+        }
+
+        .hsk-home-button {
+            flex-shrink: 0;
+
+            padding: 11px 17px;
+
+            background: #756bd1;
+
+            color: white;
+
+            border-radius: 12px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           WORD CARDS
+        ========================= */
+
+        .word-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 16px;
+        }
+
+        .word-card {
+            background: white;
+
+            border: 1px solid #eeeafa;
+
+            border-radius: 20px;
+
+            padding: 22px;
+
+            box-shadow:
+                0 7px 20px rgba(70, 60, 130, 0.05);
+
+            transition: 0.2s ease;
+        }
+
+        .word-card:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 11px 27px rgba(70, 60, 130, 0.10);
+        }
+
+        .word-chinese {
+            color: #514a91;
+
+            font-size: 29px;
+
+            font-weight: 800;
+
+            margin-bottom: 3px;
+        }
+
+        .word-pinyin {
+            color: #8b83ca;
+
+            font-size: 14px;
+
+            margin-bottom: 10px;
+        }
+
+        .word-thai {
+            color: #666;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+        .word-tag {
+            display: inline-block;
+
+            margin-top: 13px;
+
+            padding: 4px 9px;
+
+            background: #f4f2ff;
+
+            color: #8178c3;
+
+            border-radius: 8px;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           SEARCH RESULT
+        ========================= */
+
+        .search-result {
+            max-width: 680px;
+
+            margin: 10px auto 0;
+
+            display: none;
+
+            text-align: left;
+        }
+
+        .search-result.active {
+            display: block;
+        }
+
+        .result-box {
+            background: white;
+
+            border: 1px solid #eeeafa;
+
+            border-radius: 16px;
+
+            padding: 16px;
+
+            box-shadow:
+                0 8px 20px rgba(70, 60, 130, 0.07);
+        }
+
+        .result-title {
+            color: #514a91;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+        }
+
+        .result-text {
+            color: #888;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .footer {
+            padding:
+                30px 20px 40px;
+
+            text-align: center;
+
+            color: #aaa;
+
+            font-size: 12px;
+
+            border-top: 1px solid #eeeafa;
+
+            background: white;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .quick-menu {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .word-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .nav-container {
+                min-height: 62px;
+
+                padding:
+                    9px 16px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .nav-menu {
+                gap: 2px;
+            }
+
+            .nav-menu a {
+                padding:
+                    8px 9px;
+
+                font-size: 12px;
+            }
+
+            .hero {
+                padding:
+                    48px 16px 38px;
+            }
+
+            .hero-badge {
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 31px;
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            .search-input {
+                height: 54px;
+
+                border-radius: 16px;
+            }
+
+            .main {
+                padding:
+                    5px 16px 55px;
+            }
+
+            .section {
+                margin-top: 25px;
+            }
+
+            .section-title {
+                font-size: 19px;
+            }
+
+            .quick-menu {
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 12px;
+            }
+
+            .quick-card {
+                min-height: 140px;
+
+                padding: 18px 15px;
+
+                border-radius: 17px;
+            }
+
+            .quick-icon {
+                width: 42px;
+                height: 42px;
+
+                font-size: 20px;
+            }
+
+            .hsk-home-card {
+                padding: 18px;
+
+                border-radius: 19px;
+
+                align-items: flex-start;
+            }
+
+            .hsk-home-left {
+                gap: 12px;
+            }
+
+            .hsk-home-icon {
+                width: 48px;
+                height: 48px;
+
+                font-size: 23px;
+            }
+
+            .hsk-home-title {
+                font-size: 17px;
+            }
+
+            .hsk-home-desc {
+                font-size: 11px;
+            }
+
+            .hsk-home-button {
+                padding:
+                    9px 11px;
+
+                font-size: 11px;
+            }
+
+            .word-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                Mini<span>-Dicto</span>
+            </a>
+
+            <ul class="nav-menu">
+
+                <li>
+                    <a href="index.html" class="active">
+                        หน้าหลัก
+                    </a>
+                </li>
+
+                <li>
+                    <a href="hsk.html">
+                        HSK
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <header class="hero">
+
+        <div class="hero-badge">
+            🇨🇳 Chinese → Thai Dictionary
+        </div>
+
+        <h1>
+            Mini<span>-Dicto</span>
+        </h1>
+
+        <p>
+            พจนานุกรมภาษาจีน–ไทย
+            <br>
+            ค้นหาคำศัพท์ ดูความหมาย ตัวอย่างประโยค
+            และเรียนรู้การใช้คำแบบเข้าใจง่าย ✨
+        </p>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                class="search-input"
+                placeholder="ค้นหาคำศัพท์ เช่น 学习, xuéxí, เรียน..."
+                autocomplete="off"
+            >
+
+            <div class="search-icon">
+                🔍
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH RESULT -->
+
+        <div
+            id="searchResult"
+            class="search-result"
+        >
+
+            <div class="result-box">
+
+                <div class="result-title">
+                    ผลการค้นหา
+                </div>
+
+                <div
+                    id="resultText"
+                    class="result-text"
+                >
+                    พิมพ์คำศัพท์เพื่อค้นหา
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="main">
+
+
+        <!-- =========================
+             QUICK MENU
+        ========================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <h2 class="section-title">
+                    เมนูหลัก
+                </h2>
+
+            </div>
+
+
+            <div class="quick-menu">
+
+
+                <!-- HSK -->
+
+                <a
+                    href="hsk.html"
+                    class="quick-card"
+                >
+
+                    <div class="quick-icon">
+                        📚
+                    </div>
+
+                    <div class="quick-title">
+                        HSK
+                    </div>
+
+                    <div class="quick-desc">
+                        เลือกคำศัพท์ตามระดับ HSK 1–6
+                    </div>
+
+                </a>
+
+
+                <!-- Dictionary -->
+
+                <a
+                    href="#dictionary"
+                    class="quick-card"
+                >
+
+                    <div class="quick-icon">
+                        📖
+                    </div>
+
+                    <div class="quick-title">
+                        คำศัพท์
+                    </div>
+
+                    <div class="quick-desc">
+                        ค้นหาและเรียนรู้คำศัพท์ภาษาจีน
+                    </div>
+
+                </a>
+
+
+                <!-- Example -->
+
+                <a
+                    href="#recommended"
+                    class="quick-card"
+                >
+
+                    <div class="quick-icon">
+                        💬
+                    </div>
+
+                    <div class="quick-title">
+                        ตัวอย่างประโยค
+                    </div>
+
+                    <div class="quick-desc">
+                        เรียนรู้คำศัพท์ผ่านประโยคจริง
+                    </div>
+
+                </a>
+
+
+                <!-- Favorite -->
+
+                <a
+                    href="#"
+                    class="quick-card"
+                    onclick="alert('ระบบรายการโปรดจะเพิ่มในขั้นถัดไป 💕'); return false;"
+                >
+
+                    <div class="quick-icon">
+                        ♡
+                    </div>
+
+                    <div class="quick-title">
+                        รายการโปรด
+                    </div>
+
+                    <div class="quick-desc">
+                        เก็บคำศัพท์ที่อยากกลับมาทบทวน
+                    </div>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             HSK
+        ========================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <h2 class="section-title">
+                    📚 เรียนตามระดับ HSK
+                </h2>
+
+                <a
+                    href="hsk.html"
+                    class="section-more"
+                >
+                    ดูทั้งหมด →
+                </a>
+
+            </div>
+
+
+            <a
+                href="hsk.html"
+                class="hsk-home-card"
+            >
+
+                <div class="hsk-home-left">
+
+                    <div class="hsk-home-icon">
+                        📚
+                    </div>
+
+                    <div>
+
+                        <div class="hsk-home-title">
+                            HSK 1 – HSK 6
+                        </div>
+
+                        <div class="hsk-home-desc">
+                            เลือกระดับที่ต้องการเรียนรู้
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hsk-home-button">
+                    เลือกระดับ →
+                </div>
+
+            </a>
+
+        </section>
+
+
+
+        <!-- =========================
+             RECOMMENDED WORDS
+        ========================== -->
+
+        <section
+            class="section"
+            id="recommended"
+        >
+
+            <div class="section-header">
+
+                <h2 class="section-title">
+                    ✨ คำศัพท์แนะนำ
+                </h2>
+
+                <a
+                    href="#dictionary"
+                    class="section-more"
+                >
+                    ดูเพิ่มเติม →
+                </a>
+
+            </div>
+
+
+            <div class="word-grid">
+
+
+                <!-- WORD 1 -->
+
+                <a
+                    href="word.html?id=xuexi"
+                    class="word-card"
+                >
+
+                    <div class="word-chinese">
+                        学习
+                    </div>
+
+                    <div class="word-pinyin">
+                        xuéxí
+                    </div>
+
+                    <div class="word-thai">
+                        เรียน / เรียนรู้
+                    </div>
+
+                    <div class="word-tag">
+                        HSK 1
+                    </div>
+
+                </a>
+
+
+                <!-- WORD 2 -->
+
+                <a
+                    href="word.html?id=kuaile"
+                    class="word-card"
+                >
+
+                    <div class="word-chinese">
+                        快乐
+                    </div>
+
+                    <div class="word-pinyin">
+                        kuàilè
+                    </div>
+
+                    <div class="word-thai">
+                        มีความสุข
+                    </div>
+
+                    <div class="word-tag">
+                        HSK 1
+                    </div>
+
+                </a>
+
+
+                <!-- WORD 3 -->
+
+                <a
+                    href="word.html?id=xihuan"
+                    class="word-card"
+                >
+
+                    <div class="word-chinese">
+                        喜欢
+                    </div>
+
+                    <div class="word-pinyin">
+                        xǐhuan
+                    </div>
+
+                    <div class="word-thai">
+                        ชอบ
+                    </div>
+
+                    <div class="word-tag">
+                        HSK 1
+                    </div>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             DICTIONARY
+        ========================== -->
+
+        <section
+            class="section"
+            id="dictionary"
+        >
+
+            <div class="section-header">
+
+                <h2 class="section-title">
+                    📖 Mini-Dicto
+                </h2>
+
+            </div>
+
+
+            <div class="hsk-home-card">
+
+                <div class="hsk-home-left">
+
+                    <div class="hsk-home-icon">
+                        🔎
+                    </div>
+
+                    <div>
+
+                        <div class="hsk-home-title">
+                            ค้นหาคำศัพท์ภาษาจีน
+                        </div>
+
+                        <div class="hsk-home-desc">
+                            พิมพ์คำจีน พินอิน หรือความหมายภาษาไทย
+                            ในช่องค้นหาด้านบน
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        Mini-Dicto · Chinese–Thai Dictionary
+
+        <br>
+
+        เรียนภาษาจีนทีละคำ เข้าใจง่ายขึ้นทุกวัน 🌷
+
+    </footer>
+
+
+
+    <script>
+
+let dictionary = [];
+
+const searchInput = document.getElementById("searchInput");
+const searchResult = document.getElementById("searchResult");
+const resultText = document.getElementById("resultText");
+
+
+/* =========================
+   NORMALIZE TEXT
+   ========================= */
+
+function normalizeText(text) {
+
+    return String(text || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/ü/g, "u")
+        .trim();
+
+}
+
+
+/* =========================
+   ESCAPE HTML
+   ========================= */
+
+function escapeHTML(text) {
+
+    const div = document.createElement("div");
+
+    div.textContent = text ?? "";
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================
+   LOAD DICTIONARY
+   ========================= */
+
+async function loadDictionary() {
+
+    try {
+
+        const response =
+            await fetch("./dictionary.json");
+
+        if (!response.ok) {
+
+            throw new Error(
+                "ไม่สามารถโหลด dictionary.json"
+            );
+
+        }
+
+        dictionary =
+            await response.json();
+
+        console.log(
+            "โหลด dictionary สำเร็จ:",
+            dictionary
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Dictionary Error:",
+            error
+        );
+
+        searchResult.classList.add("active");
+
+        resultText.innerHTML = `
+            <div style="
+                text-align:center;
+                padding:15px;
+            ">
+
+                <div style="
+                    font-size:30px;
+                    margin-bottom:8px;
+                ">
+                    ⚠️
+                </div>
+
+                ไม่สามารถโหลดข้อมูลคำศัพท์ได้
+
+                <div style="
+                    font-size:12px;
+                    margin-top:8px;
+                    color:#aaa;
+                ">
+                    กรุณาตรวจสอบว่า
+                    dictionary.json
+                    อยู่ในโฟลเดอร์เดียวกับ index.html
+                </div>
+
+            </div>
+        `;
+
+    }
+
+}
+
+
+/* =========================
+   SEARCH
+   ========================= */
+
+searchInput.addEventListener(
+    "input",
+    function () {
+
+        const originalValue =
+            this.value.trim();
+
+        const value =
+            normalizeText(originalValue);
+
+
+        /* ไม่มีข้อความ */
+
+        if (!value) {
+
+            searchResult.classList.remove(
+                "active"
+            );
+
+            resultText.innerHTML =
+                "พิมพ์คำศัพท์เพื่อค้นหา";
+
+            return;
+
+        }
+
+
+        /* เปิดกล่องผลลัพธ์ */
+
+        searchResult.classList.add(
+            "active"
+        );
+
+
+        /* =========================
+           FILTER
+        ========================= */
+
+        const results =
+            dictionary.filter(item => {
+
+                const word =
+                    normalizeText(
+                        item.word
+                    );
+
+                const pinyin =
+                    normalizeText(
+                        item.pinyin
+                    );
+
+                const thaiPronunciation =
+                    normalizeText(
+                        item.thaiPronunciation
+                    );
+
+                const meanings =
+                    normalizeText(
+                        (item.meanings || [])
+                            .join(" ")
+                    );
+
+                const hsk =
+                    (item.hsk || [])
+                        .map(String);
+
+
+                /* ค้นหา HSK */
+
+                const hskSearch =
+                    value
+                        .replace(/\s+/g, "")
+                        .replace(/^hsk/, "");
+
+
+                const matchHSK =
+                    hskSearch &&
+                    hsk.includes(hskSearch);
+
+
+                return (
+
+                    word.includes(value) ||
+
+                    pinyin.includes(value) ||
+
+                    thaiPronunciation.includes(value) ||
+
+                    meanings.includes(value) ||
+
+                    matchHSK
+
+                );
+
+            });
+
+
+        /* =========================
+           NO RESULT
+        ========================= */
+
+        if (results.length === 0) {
+
+            resultText.innerHTML = `
+
+                <div style="
+                    text-align:center;
+                    padding:20px;
+                ">
+
+                    <div style="
+                        font-size:32px;
+                        margin-bottom:8px;
+                    ">
+                        🔍
+                    </div>
+
+                    <div>
+                        ไม่พบคำศัพท์
+                    </div>
+
+                    <div style="
+                        margin-top:5px;
+                        color:#aaa;
+                    ">
+                        "${escapeHTML(
+                            originalValue
+                        )}"
+                    </div>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        /* =========================
+           RESULT COUNT
+        ========================= */
+
+        const countHTML = `
+
+            <div style="
+                padding:8px 14px 12px;
+                color:#999;
+                font-size:12px;
+                border-bottom:1px solid #eeeafa;
+            ">
+
+                พบ ${results.length} คำศัพท์
+
+            </div>
+
+        `;
+
+
+        /* =========================
+           SHOW RESULTS
+        ========================= */
+
+        const resultsHTML =
+            results.map(item => {
+
+                const meanings =
+                    (item.meanings || [])
+                        .join(" / ");
+
+
+                const hsk =
+                    (item.hsk || [])
+                        .map(
+                            level =>
+                                `HSK ${level}`
+                        )
+                        .join(", ");
+
+
+                return `
+
+                    <a
+                        href="word.html?id=${encodeURIComponent(
+                            item.id
+                        )}"
+
+                        style="
+                            display:block;
+                            padding:14px;
+                            border-bottom:1px solid #eeeafa;
+                            transition:0.2s;
+                        "
+
+                        onmouseover="
+                            this.style.background='#f8f6ff'
+                        "
+
+                        onmouseout="
+                            this.style.background='white'
+                        "
+                    >
+
+                        <div style="
+                            display:flex;
+                            justify-content:space-between;
+                            align-items:flex-start;
+                            gap:15px;
+                        ">
+
+                            <div>
+
+                                <div style="
+                                    font-size:22px;
+                                    font-weight:800;
+                                    color:#514a91;
+                                ">
+                                    ${escapeHTML(
+                                        item.word
+                                    )}
+                                </div>
+
+
+                                <div style="
+                                    color:#8b83ca;
+                                    font-size:13px;
+                                    margin-top:2px;
+                                ">
+                                    ${escapeHTML(
+                                        item.pinyin || ""
+                                    )}
+                                </div>
+
+
+                                <div style="
+                                    color:#777;
+                                    font-size:12px;
+                                    margin-top:3px;
+                                ">
+                                    ${escapeHTML(
+                                        item.thaiPronunciation || ""
+                                    )}
+                                </div>
+
+
+                                <div style="
+                                    color:#666;
+                                    font-size:13px;
+                                    margin-top:5px;
+                                ">
+                                    ${escapeHTML(
+                                        meanings
+                                    )}
+                                </div>
+
+                            </div>
+
+
+                            <div style="
+                                white-space:nowrap;
+                                padding:4px 8px;
+                                background:#f4f2ff;
+                                color:#8178c3;
+                                border-radius:8px;
+                                font-size:10px;
+                            ">
+                                ${escapeHTML(hsk)}
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                `;
+
+            }).join("");
+
+
+        resultText.innerHTML =
+            countHTML + resultsHTML;
+
+    }
+);
+
+
+/* =========================
+   START
+   ========================= */
+
+loadDictionary();
+
+</script>
