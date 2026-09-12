@@ -1,60 +1,114 @@
-const DEFAULT_BRANCH = "main";
-const SESSION_TTL = 8 * 60 * 60; // 8 ชั่วโมง
+const BRANCH = "main";
 
 export default {
   async fetch(request, env) {
-    const corsHeaders = getCorsHeaders(request, env);
+    const cors = corsHeaders(request, env);
 
-    // =========================
-    // CORS
-    // =========================
+    // CORS preflight
     if (request.method === "OPTIONS") {
       return new Response(null, {
         status: 204,
-        headers: corsHeaders
+        headers: cors,
       });
     }
 
-    // =========================
-    // GET
-    // =========================
-    if (request.method === "GET") {
-      return jsonResponse(
-        {
-          success: true,
-          message: "Mini-Dicto API is working"
-        },
-        200,
-        corsHeaders
-      );
-    }
-
-    // =========================
-    // POST
-    // =========================
-    if (request.method !== "POST") {
-      return jsonResponse(
-        {
-          success: false,
-          message: "Method not allowed"
-        },
-        405,
-        corsHeaders
-      );
-    }
-
     try {
-      const data = await request.json();
-      const action = data.action;
+      const url = new URL(request.url);
+
+      // Health check
+      if (request.method === "GET") {
+        return json(
+          {
+            success: true,
+            message: "Mini-Dicto API is running",
+          },
+          200,
+          cors
+        );
+      }
+
+      if (request.method !== "POST") {
+        return json(
+          {
+            success: false,
+            message: "Method not allowed",
+          },
+          405,
+          cors
+        );
+      }
+
+      const body = await request.json();
+      const action = body.action;
 
       // =========================
       // LOGIN
       // =========================
       if (action === "login") {
-        return await handleLogin(
-          data,
-          env,
-          corsHeaders
+        const username = String(body.username || "");
+        const password = String(body.password || "");
+
+        if (
+          username !== String(env.ADMIN_USERNAME || "") ||
+          password !== String(env.ADMIN_PASSWORD || "")
+        ) {
+          return json(
+            {
+              success: false,
+              message: "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง",
+            },
+            401,
+            cors
+          );
+        }
+
+        const token = await createToken(
+          username,
+          String(env.ADMIN_SECRET || "")
+        );
+
+        return json(
+          {
+            success: true,
+            token,
+            username,
+          },
+          200,
+          cors
+        );
+      }
+
+      // =========================
+      // AUTHENTICATION
+      // =========================
+      const token = getBearerToken(request);
+
+      if (!token) {
+        return json(
+          {
+            success: false,
+            authenticated: false,
+            message: "กรุณาเข้าสู่ระบบ",
+          },
+          401,
+          cors
+        );
+      }
+
+      const auth = await verifyToken(
+        token,
+        String(env.ADMIN_SECRET || "")
+      );
+
+      if (!auth.valid) {
+        return json(
+          {
+            success: false,
+            authenticated: false,
+            message: "Session หมดอายุ กรุณาเข้าสู่ระบบใหม่",
+          },
+          401,
+          cors
         );
       }
 
@@ -62,31 +116,14 @@ export default {
       // SESSION
       // =========================
       if (action === "session") {
-        const session = await verifySession(
-          request,
-          env
-        );
-
-        if (!session) {
-          return jsonResponse(
-            {
-              success: false,
-              authenticated: false,
-              message: "ยังไม่ได้เข้าสู่ระบบ"
-            },
-            401,
-            corsHeaders
-          );
-        }
-
-        return jsonResponse(
+        return json(
           {
             success: true,
             authenticated: true,
-            username: session.username
+            username: auth.username,
           },
           200,
-          corsHeaders
+          cors
         );
       }
 
@@ -94,32 +131,12 @@ export default {
       // LOGOUT
       // =========================
       if (action === "logout") {
-        return jsonResponse(
+        return json(
           {
             success: true,
-            message: "ออกจากระบบแล้ว"
           },
           200,
-          corsHeaders
-        );
-      }
-
-      // =========================
-      // ทุก action ต่อจากนี้ต้อง Login
-      // =========================
-      const session = await verifySession(
-        request,
-        env
-      );
-
-      if (!session) {
-        return jsonResponse(
-          {
-            success: false,
-            message: "กรุณาเข้าสู่ระบบก่อน"
-          },
-          401,
-          corsHeaders
+          cors
         );
       }
 
@@ -127,15 +144,15 @@ export default {
       // LIST
       // =========================
       if (action === "list") {
-        const result = await readDictionary(env);
+        const dictionary = await loadDictionary(env);
 
-        return jsonResponse(
+        return json(
           {
             success: true,
-            dictionary: result.dictionary
+            dictionary,
           },
           200,
-          corsHeaders
+          cors
         );
       }
 
@@ -143,10 +160,70 @@ export default {
       // ADD
       // =========================
       if (action === "add") {
-        return await handleAdd(
-          data,
+        const dictionary = await loadDictionary(env);
+
+        const newWord = normalizeWord({
+          ...body,
+          id: crypto.randomUUID(),
+        });
+
+        if (!newWord.word) {
+          return json(
+            {
+              success: false,
+              message: "กรุณากรอกคำศัพท์",
+            },
+            400,
+            cors
+          );
+        }
+
+        if (newWord.hsk.length === 0) {
+          return json(
+            {
+              success: false,
+              message: "กรุณาเลือกระดับ HSK",
+            },
+            400,
+            cors
+          );
+        }
+
+        // Check duplicate
+        const duplicate = dictionary.some(
+          (item) =>
+            item.word === newWord.word &&
+            item.hsk.some((level) =>
+              newWord.hsk.includes(level)
+            )
+        );
+
+        if (duplicate) {
+          return json(
+            {
+              success: false,
+              message: "มีคำศัพท์นี้ในระดับ HSK นี้แล้ว",
+            },
+            409,
+            cors
+          );
+        }
+
+        dictionary.push(newWord);
+
+        await saveDictionary(
           env,
-          corsHeaders
+          dictionary,
+          `Add word: ${newWord.word}`
+        );
+
+        return json(
+          {
+            success: true,
+            word: newWord,
+          },
+          200,
+          cors
         );
       }
 
@@ -154,10 +231,99 @@ export default {
       // UPDATE
       // =========================
       if (action === "update") {
-        return await handleUpdate(
-          data,
+        const dictionary = await loadDictionary(env);
+
+        const id = String(body.id || "");
+
+        if (!id) {
+          return json(
+            {
+              success: false,
+              message: "ไม่พบ ID ของคำศัพท์",
+            },
+            400,
+            cors
+          );
+        }
+
+        const index = dictionary.findIndex(
+          (item) => String(item.id) === id
+        );
+
+        if (index === -1) {
+          return json(
+            {
+              success: false,
+              message: "ไม่พบคำศัพท์ที่ต้องการแก้ไข",
+            },
+            404,
+            cors
+          );
+        }
+
+        const updatedWord = normalizeWord({
+          ...body,
+          id,
+        });
+
+        if (!updatedWord.word) {
+          return json(
+            {
+              success: false,
+              message: "กรุณากรอกคำศัพท์",
+            },
+            400,
+            cors
+          );
+        }
+
+        if (updatedWord.hsk.length === 0) {
+          return json(
+            {
+              success: false,
+              message: "กรุณาเลือกระดับ HSK",
+            },
+            400,
+            cors
+          );
+        }
+
+        // Check duplicate except itself
+        const duplicate = dictionary.some(
+          (item, i) =>
+            i !== index &&
+            item.word === updatedWord.word &&
+            item.hsk.some((level) =>
+              updatedWord.hsk.includes(level)
+            )
+        );
+
+        if (duplicate) {
+          return json(
+            {
+              success: false,
+              message: "มีคำศัพท์นี้ในระดับ HSK นี้แล้ว",
+            },
+            409,
+            cors
+          );
+        }
+
+        dictionary[index] = updatedWord;
+
+        await saveDictionary(
           env,
-          corsHeaders
+          dictionary,
+          `Update word: ${updatedWord.word}`
+        );
+
+        return json(
+          {
+            success: true,
+            word: updatedWord,
+          },
+          200,
+          cors
         );
       }
 
@@ -165,36 +331,77 @@ export default {
       // DELETE
       // =========================
       if (action === "delete") {
-        return await handleDelete(
-          data,
+        const dictionary = await loadDictionary(env);
+
+        const id = String(body.id || "");
+
+        if (!id) {
+          return json(
+            {
+              success: false,
+              message: "ไม่พบ ID ของคำศัพท์",
+            },
+            400,
+            cors
+          );
+        }
+
+        const index = dictionary.findIndex(
+          (item) => String(item.id) === id
+        );
+
+        if (index === -1) {
+          return json(
+            {
+              success: false,
+              message: "ไม่พบคำศัพท์ที่ต้องการลบ",
+            },
+            404,
+            cors
+          );
+        }
+
+        const deleted = dictionary[index];
+
+        dictionary.splice(index, 1);
+
+        await saveDictionary(
           env,
-          corsHeaders
+          dictionary,
+          `Delete word: ${deleted.word}`
+        );
+
+        return json(
+          {
+            success: true,
+            word: deleted,
+          },
+          200,
+          cors
         );
       }
 
-      return jsonResponse(
+      return json(
         {
           success: false,
-          message: `ไม่รู้จัก action: ${action}`
+          message: "ไม่รู้จัก action: " + action,
         },
         400,
-        corsHeaders
+        cors
       );
-
     } catch (error) {
       console.error(error);
 
-      return jsonResponse(
+      return json(
         {
           success: false,
-          message: "เกิดข้อผิดพลาดใน Worker",
-          error: error.message
+          message: error.message || "เกิดข้อผิดพลาดใน Server",
         },
         500,
-        corsHeaders
+        cors
       );
     }
-  }
+  },
 };
 
 
@@ -202,232 +409,157 @@ export default {
 // CORS
 // =====================================================
 
-function getCorsHeaders(request, env) {
-  const origin = request.headers.get("Origin");
-  const allowedOrigin =
-    env.ALLOWED_ORIGIN ||
-    "https://namelovetang.github.io";
+function corsHeaders(request, env) {
+  const origin = request.headers.get("Origin") || "";
+  const allowed = String(env.ALLOWED_ORIGIN || "*");
 
-  const headers = {
+  const allowOrigin =
+    allowed === "*" || origin === allowed
+      ? allowed
+      : "";
+
+  return {
+    ...(allowOrigin
+      ? {
+          "Access-Control-Allow-Origin": allowOrigin,
+        }
+      : {}),
     "Access-Control-Allow-Methods":
       "GET, POST, OPTIONS",
-
     "Access-Control-Allow-Headers":
       "Content-Type, Authorization",
-
-    "Access-Control-Max-Age":
-      "86400"
+    "Access-Control-Max-Age": "86400",
+    Vary: "Origin",
+    "Content-Type": "application/json; charset=utf-8",
   };
-
-  if (origin === allowedOrigin) {
-    headers["Access-Control-Allow-Origin"] =
-      allowedOrigin;
-  }
-
-  return headers;
 }
 
 
 // =====================================================
-// LOGIN
+// JSON RESPONSE
 // =====================================================
 
-async function handleLogin(
-  data,
-  env,
-  corsHeaders
-) {
-  if (
-    !env.ADMIN_USERNAME ||
-    !env.ADMIN_PASSWORD ||
-    !env.ADMIN_SECRET
-  ) {
-    return jsonResponse(
-      {
-        success: false,
-        message:
-          "Cloudflare ยังตั้งค่า ADMIN_USERNAME / ADMIN_PASSWORD / ADMIN_SECRET ไม่ครบ"
-      },
-      500,
-      corsHeaders
-    );
-  }
-
-  const username =
-    String(data.username || "").trim();
-
-  const password =
-    String(data.password || "");
-
-  if (
-    username !== env.ADMIN_USERNAME ||
-    password !== env.ADMIN_PASSWORD
-  ) {
-    return jsonResponse(
-      {
-        success: false,
-        message: "Username หรือ Password ไม่ถูกต้อง"
-      },
-      401,
-      corsHeaders
-    );
-  }
-
-  const token =
-    await createSessionToken(
-      username,
-      env.ADMIN_SECRET
-    );
-
-  return jsonResponse(
+function json(data, status = 200, cors = {}) {
+  return new Response(
+    JSON.stringify(data),
     {
-      success: true,
-      message: "เข้าสู่ระบบสำเร็จ",
-      token,
-      username
-    },
-    200,
-    corsHeaders
+      status,
+      headers: {
+        ...cors,
+        "Content-Type":
+          "application/json; charset=utf-8",
+      },
+    }
   );
 }
 
 
 // =====================================================
-// SESSION TOKEN
+// AUTH
 // =====================================================
 
-async function createSessionToken(
-  username,
-  secret
-) {
+function getBearerToken(request) {
+  const header =
+    request.headers.get("Authorization") || "";
+
+  if (!header.startsWith("Bearer ")) {
+    return null;
+  }
+
+  return header.slice(7).trim();
+}
+
+
+async function createToken(username, secret) {
   const payload = {
-    username,
+    u: username,
     exp:
       Math.floor(Date.now() / 1000) +
-      SESSION_TTL
+      8 * 60 * 60,
   };
 
-  const payloadString =
-    JSON.stringify(payload);
+  const payload64 = base64urlEncode(
+    new TextEncoder().encode(
+      JSON.stringify(payload)
+    )
+  );
 
-  const payloadBase64 =
-    bytesToBase64Url(
-      new TextEncoder().encode(
-        payloadString
-      )
-    );
+  const signature = await signHmac(
+    payload64,
+    secret
+  );
 
-  const signature =
-    await createHmac(
-      payloadBase64,
+  return `${payload64}.${signature}`;
+}
+
+
+async function verifyToken(token, secret) {
+  try {
+    const parts = token.split(".");
+
+    if (parts.length !== 2) {
+      return {
+        valid: false,
+      };
+    }
+
+    const [payload64, signature] = parts;
+
+    const expected = await signHmac(
+      payload64,
       secret
     );
 
-  return `${payloadBase64}.${signature}`;
-}
-
-
-async function verifySession(
-  request,
-  env
-) {
-  if (!env.ADMIN_SECRET) {
-    return null;
-  }
-
-  const authorization =
-    request.headers.get(
-      "Authorization"
-    );
-
-  if (!authorization) {
-    return null;
-  }
-
-  if (
-    !authorization.startsWith(
-      "Bearer "
-    )
-  ) {
-    return null;
-  }
-
-  const token =
-    authorization.substring(7);
-
-  const parts =
-    token.split(".");
-
-  if (parts.length !== 2) {
-    return null;
-  }
-
-  const payloadBase64 =
-    parts[0];
-
-  const signature =
-    parts[1];
-
-  try {
-    const expectedSignature =
-      await createHmac(
-        payloadBase64,
-        env.ADMIN_SECRET
-      );
-
-    const valid =
-      await safeEqual(
-        signature,
-        expectedSignature
-      );
-
-    if (!valid) {
-      return null;
+    if (!constantTimeEqual(signature, expected)) {
+      return {
+        valid: false,
+      };
     }
 
-    const payloadBytes =
-      base64UrlToBytes(
-        payloadBase64
-      );
+    const payload = JSON.parse(
+      new TextDecoder().decode(
+        base64urlDecode(payload64)
+      )
+    );
 
-    const payload =
-      JSON.parse(
-        new TextDecoder().decode(
-          payloadBytes
-        )
-      );
+    if (!payload.u || !payload.exp) {
+      return {
+        valid: false,
+      };
+    }
 
     if (
-      !payload.exp ||
-      payload.exp <
-        Math.floor(Date.now() / 1000)
+      Number(payload.exp) <
+      Math.floor(Date.now() / 1000)
     ) {
-      return null;
+      return {
+        valid: false,
+      };
     }
 
-    return payload;
-
+    return {
+      valid: true,
+      username: payload.u,
+    };
   } catch {
-    return null;
+    return {
+      valid: false,
+    };
   }
 }
 
 
-async function createHmac(
-  text,
-  secret
-) {
-  const key =
-    await crypto.subtle.importKey(
-      "raw",
-      new TextEncoder().encode(secret),
-      {
-        name: "HMAC",
-        hash: "SHA-256"
-      },
-      false,
-      ["sign"]
-    );
+async function signHmac(text, secret) {
+  const key = await crypto.subtle.importKey(
+    "raw",
+    new TextEncoder().encode(secret),
+    {
+      name: "HMAC",
+      hash: "SHA-256",
+    },
+    false,
+    ["sign"]
+  );
 
   const signature =
     await crypto.subtle.sign(
@@ -436,46 +568,34 @@ async function createHmac(
       new TextEncoder().encode(text)
     );
 
-  return bytesToBase64Url(
+  return base64urlEncode(
     new Uint8Array(signature)
   );
 }
 
 
-async function safeEqual(
-  a,
-  b
-) {
-  const aBytes =
-    new TextEncoder().encode(a);
-
-  const bBytes =
-    new TextEncoder().encode(b);
-
-  if (
-    aBytes.length !==
-    bBytes.length
-  ) {
+function constantTimeEqual(a, b) {
+  if (a.length !== b.length) {
     return false;
   }
 
   let result = 0;
 
-  for (
-    let i = 0;
-    i < aBytes.length;
-    i++
-  ) {
+  for (let i = 0; i < a.length; i++) {
     result |=
-      aBytes[i] ^
-      bBytes[i];
+      a.charCodeAt(i) ^
+      b.charCodeAt(i);
   }
 
   return result === 0;
 }
 
 
-function bytesToBase64Url(bytes) {
+// =====================================================
+// BASE64URL
+// =====================================================
+
+function base64urlEncode(bytes) {
   let binary = "";
 
   for (const byte of bytes) {
@@ -489,167 +609,201 @@ function bytesToBase64Url(bytes) {
 }
 
 
-function base64UrlToBytes(value) {
-  let base64 =
-    value
-      .replace(/-/g, "+")
-      .replace(/_/g, "/");
+function base64urlDecode(text) {
+  let base64 = text
+    .replace(/-/g, "+")
+    .replace(/_/g, "/");
 
-  while (
-    base64.length % 4 !== 0
-  ) {
+  while (base64.length % 4) {
     base64 += "=";
   }
 
-  const binary =
-    atob(base64);
+  const binary = atob(base64);
 
   return Uint8Array.from(
     binary,
-    char => char.charCodeAt(0)
+    (char) => char.charCodeAt(0)
   );
 }
 
 
 // =====================================================
-// GITHUB CONFIG
+// GITHUB
 // =====================================================
 
-function getGithubConfig(env) {
+function githubConfig(env) {
   return {
     owner:
-      env.GITHUB_OWNER ||
-      "namelovetang",
+      env.GITHUB_OWNER || "namelovetang",
 
     repo:
-      env.GITHUB_REPO ||
-      "Mini-Dicto",
+      env.GITHUB_REPO || "Mini-Dicto",
 
     file:
-      env.GITHUB_FILE ||
-      "dictionary.json",
+      env.GITHUB_FILE || "dictionary.json",
 
-    branch:
-      env.GITHUB_BRANCH ||
-      DEFAULT_BRANCH,
-
-    token:
-      env.GITHUB_TOKEN
+    branch: BRANCH,
   };
 }
 
 
-// =====================================================
-// READ DICTIONARY
-// =====================================================
+function githubHeaders(env) {
+  return {
+    Authorization:
+      `Bearer ${env.GITHUB_TOKEN}`,
 
-async function readDictionary(env) {
-  const config =
-    getGithubConfig(env);
+    Accept:
+      "application/vnd.github+json",
 
-  if (!config.token) {
-    throw new Error(
-      "ยังไม่ได้ตั้งค่า GITHUB_TOKEN"
-    );
-  }
+    "X-GitHub-Api-Version":
+      "2022-11-28",
+
+    "User-Agent":
+      "Mini-Dicto",
+  };
+}
+
+
+async function getGithubFile(env) {
+  const config = githubConfig(env);
 
   const url =
     `https://api.github.com/repos/` +
     `${config.owner}/` +
     `${config.repo}/` +
     `contents/` +
-    `${config.file}?ref=${encodeURIComponent(config.branch)}`;
+    `${encodeURIComponent(config.file)}` +
+    `?ref=${encodeURIComponent(config.branch)}`;
 
-  const response =
-    await fetch(url, {
-      method: "GET",
-      headers: {
-        "Authorization":
-          `Bearer ${config.token}`,
-
-        "Accept":
-          "application/vnd.github+json",
-
-        "X-GitHub-Api-Version":
-          "2022-11-28",
-
-        "User-Agent":
-          "Mini-Dicto"
-      }
-    });
-
-  const text =
-    await response.text();
+  const response = await fetch(url, {
+    method: "GET",
+    headers: githubHeaders(env),
+  });
 
   if (!response.ok) {
+    const text = await response.text();
+
     throw new Error(
-      `GitHub อ่าน dictionary.json ไม่สำเร็จ: ${text}`
+      `GitHub GET failed (${response.status}): ${text}`
     );
   }
 
-  const file =
-    JSON.parse(text);
+  const data = await response.json();
 
-  if (!file.content) {
-    throw new Error(
-      "GitHub ไม่ได้ส่งเนื้อหา dictionary.json กลับมา"
-    );
-  }
-
-  const binary =
-    atob(
-      file.content.replace(/\n/g, "")
-    );
-
-  const bytes =
-    Uint8Array.from(
-      binary,
-      char =>
-        char.charCodeAt(0)
-    );
-
-  const decoded =
-    new TextDecoder().decode(bytes);
-
-  const parsed =
-    JSON.parse(decoded);
-
-  const dictionary =
-    normalizeDictionary(parsed);
-
-  return {
-    dictionary,
-    sha: file.sha
-  };
+  return data;
 }
 
 
 // =====================================================
-// NORMALIZE DICTIONARY
+// LOAD DICTIONARY
 // =====================================================
 
-function normalizeDictionary(
-  parsed
-) {
-  // รูปแบบใหม่:
-  //
-  // [
-  //   {
-  //     id: "...",
-  //     word: "...",
-  //     hsk: [1]
-  //   }
-  // ]
+async function loadDictionary(env) {
+  const file = await getGithubFile(env);
 
-  if (Array.isArray(parsed)) {
-    return parsed.map(
-      item =>
-        normalizeWord(item)
+  if (!file.content) {
+    throw new Error(
+      "ไม่พบ content ของ dictionary.json"
     );
   }
 
+  const bytes =
+    base64ToBytes(file.content);
 
-  // รองรับรูปแบบเก่า:
+  const text =
+    new TextDecoder().decode(bytes);
+
+  return parseDictionary(text);
+}
+
+
+// =====================================================
+// SAVE DICTIONARY
+// =====================================================
+
+async function saveDictionary(
+  env,
+  dictionary,
+  message
+) {
+  const config = githubConfig(env);
+
+  // Get fresh SHA before updating
+  const file =
+    await getGithubFile(env);
+
+  const cleanDictionary =
+    dictionary.map(normalizeWord);
+
+  const text =
+    JSON.stringify(
+      cleanDictionary,
+      null,
+      2
+    ) + "\n";
+
+  const bytes =
+    new TextEncoder().encode(text);
+
+  const content =
+    bytesToBase64(bytes);
+
+  const url =
+    `https://api.github.com/repos/` +
+    `${config.owner}/` +
+    `${config.repo}/` +
+    `contents/` +
+    `${encodeURIComponent(config.file)}`;
+
+  const response = await fetch(url, {
+    method: "PUT",
+
+    headers: {
+      ...githubHeaders(env),
+      "Content-Type":
+        "application/json",
+    },
+
+    body: JSON.stringify({
+      message,
+      content,
+      sha: file.sha,
+      branch: config.branch,
+    }),
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+
+    throw new Error(
+      `GitHub PUT failed (${response.status}): ${text}`
+    );
+  }
+
+  return await response.json();
+}
+
+
+// =====================================================
+// DICTIONARY PARSER
+// =====================================================
+
+function parseDictionary(text) {
+  const parsed = JSON.parse(text);
+
+  // New format:
+  // [
+  //   {...},
+  //   {...}
+  // ]
+
+  if (Array.isArray(parsed)) {
+    return parsed.map((item) =>
+      normalizeWord(item)
+    );
+  }
+
+  // Legacy format:
   //
   // {
   //   "1": [...],
@@ -657,40 +811,32 @@ function normalizeDictionary(
   //   "3": [...]
   // }
 
+  const flat = [];
+
   if (
     parsed &&
     typeof parsed === "object"
   ) {
-    const result = [];
-
-    for (
-      const [key, items]
-      of Object.entries(parsed)
-    ) {
-      if (
-        !Array.isArray(items)
-      ) {
-        continue;
-      }
+    for (const [key, items] of Object.entries(
+      parsed
+    )) {
+      const match =
+        String(key).match(/\d+/);
 
       const level =
-        Number(
-          String(key)
-            .replace(/^HSK/i, "")
-        );
+        match
+          ? Number(match[0])
+          : null;
 
       if (
-        !Number.isInteger(level) ||
-        level < 1 ||
-        level > 6
+        !Array.isArray(items) ||
+        !level
       ) {
         continue;
       }
 
-      for (
-        const item of items
-      ) {
-        result.push(
+      for (const item of items) {
+        flat.push(
           normalizeWord(
             item,
             level
@@ -698,11 +844,9 @@ function normalizeDictionary(
         );
       }
     }
-
-    return result;
   }
 
-  return [];
+  return flat;
 }
 
 
@@ -712,674 +856,146 @@ function normalizeDictionary(
 
 function normalizeWord(
   item,
-  fallbackLevel = null
+  fallbackHsk = null
 ) {
-  const hsk =
-    normalizeHsk(
-      item?.hsk ??
-      fallbackLevel
-    );
+  item = item || {};
 
-  let id =
-    item?.id;
+  const word =
+    String(item.word ?? "").trim();
 
-  if (!id) {
-    id =
-      createFallbackId(
-        item?.word || "",
-        hsk
+  const rawHsk =
+    item.hsk ?? fallbackHsk;
+
+  let hsk = [];
+
+  if (Array.isArray(rawHsk)) {
+    hsk = rawHsk
+      .map(Number)
+      .filter(
+        (n) =>
+          Number.isInteger(n) &&
+          n >= 1 &&
+          n <= 6
       );
+  } else if (
+    rawHsk !== null &&
+    rawHsk !== undefined &&
+    rawHsk !== ""
+  ) {
+    const n = Number(rawHsk);
+
+    if (
+      Number.isInteger(n) &&
+      n >= 1 &&
+      n <= 6
+    ) {
+      hsk = [n];
+    }
   }
+
+  const id =
+    item.id ||
+    encodeURIComponent(
+      `${word}|${hsk.join("-")}`
+    );
 
   return {
     id,
 
-    word:
-      String(
-        item?.word || ""
-      ),
+    word,
 
     pinyin:
-      String(
-        item?.pinyin || ""
-      ),
+      String(item.pinyin ?? "").trim(),
 
     thaiPronunciation:
       String(
-        item?.thaiPronunciation ||
-        ""
-      ),
+        item.thaiPronunciation ?? ""
+      ).trim(),
 
     meanings:
-      Array.isArray(
-        item?.meanings
-      )
+      Array.isArray(item.meanings)
         ? item.meanings
-        : item?.meanings
-          ? [String(item.meanings)]
+            .map(String)
+            .map((x) => x.trim())
+            .filter(Boolean)
+        : item.meanings
+          ? String(item.meanings)
+              .split(",")
+              .map((x) => x.trim())
+              .filter(Boolean)
           : [],
 
     partOfSpeech:
-      Array.isArray(
-        item?.partOfSpeech
-      )
+      Array.isArray(item.partOfSpeech)
         ? item.partOfSpeech
-        : item?.partOfSpeech
+            .map(String)
+            .map((x) => x.trim())
+            .filter(Boolean)
+        : item.partOfSpeech
           ? [String(item.partOfSpeech)]
           : [],
 
     hsk,
 
     examples:
-      Array.isArray(
-        item?.examples
-      )
-        ? item.examples
-        : []
+      Array.isArray(item.examples)
+        ? item.examples.map(
+            normalizeExample
+          )
+        : [],
   };
 }
 
 
-function normalizeHsk(value) {
-  if (Array.isArray(value)) {
-    return value
-      .map(Number)
-      .filter(
-        level =>
-          Number.isInteger(level) &&
-          level >= 1 &&
-          level <= 6
-      );
-  }
+// =====================================================
+// NORMALIZE EXAMPLE
+// =====================================================
 
-  if (
-    value !== undefined &&
-    value !== null &&
-    value !== ""
-  ) {
-    const level =
-      Number(value);
+function normalizeExample(example) {
+  example = example || {};
 
-    if (
-      Number.isInteger(level) &&
-      level >= 1 &&
-      level <= 6
-    ) {
-      return [level];
-    }
-  }
+  return {
+    chinese:
+      String(
+        example.chinese ?? ""
+      ).trim(),
 
-  return [];
-}
+    pinyin:
+      String(
+        example.pinyin ?? ""
+      ).trim(),
 
-
-function createFallbackId(
-  word,
-  hsk
-) {
-  return encodeURIComponent(
-    `${word}|${hsk.join(",")}`
-  );
+    thai:
+      String(
+        example.thai ?? ""
+      ).trim(),
+  };
 }
 
 
 // =====================================================
-// SAVE DICTIONARY TO GITHUB
+// BASE64 FOR GITHUB
 // =====================================================
 
-async function saveDictionary(
-  dictionary,
-  sha,
-  message,
-  env
-) {
-  const config =
-    getGithubConfig(env);
-
-  const url =
-    `https://api.github.com/repos/` +
-    `${config.owner}/` +
-    `${config.repo}/` +
-    `contents/` +
-    `${config.file}`;
-
-  const json =
-    JSON.stringify(
-      dictionary,
-      null,
-      2
-    );
-
-  const bytes =
-    new TextEncoder().encode(json);
-
+function bytesToBase64(bytes) {
   let binary = "";
 
-  for (
-    const byte of bytes
-  ) {
-    binary += String.fromCharCode(
-      byte
-    );
+  for (const byte of bytes) {
+    binary += String.fromCharCode(byte);
   }
 
-  const base64Content =
-    btoa(binary);
-
-  const response =
-    await fetch(url, {
-      method: "PUT",
-
-      headers: {
-        "Authorization":
-          `Bearer ${config.token}`,
-
-        "Accept":
-          "application/vnd.github+json",
-
-        "Content-Type":
-          "application/json",
-
-        "X-GitHub-Api-Version":
-          "2022-11-28",
-
-        "User-Agent":
-          "Mini-Dicto"
-      },
-
-      body: JSON.stringify({
-        message,
-        content:
-          base64Content,
-
-        sha,
-
-        branch:
-          config.branch
-      })
-    });
-
-  const text =
-    await response.text();
-
-  if (!response.ok) {
-    throw new Error(
-      `GitHub บันทึกไม่สำเร็จ: ${text}`
-    );
-  }
-
-  return JSON.parse(text);
+  return btoa(binary);
 }
 
 
-// =====================================================
-// ADD
-// =====================================================
-
-async function handleAdd(
-  data,
-  env,
-  corsHeaders
-) {
-  const word =
-    String(
-      data.word || ""
-    ).trim();
-
-  const pinyin =
-    String(
-      data.pinyin || ""
-    ).trim();
-
-  const thaiPronunciation =
-    String(
-      data.thaiPronunciation || ""
-    ).trim();
-
-  const meanings =
-    Array.isArray(data.meanings)
-      ? data.meanings
-      : [];
-
-  const partOfSpeech =
-    Array.isArray(
-      data.partOfSpeech
-    )
-      ? data.partOfSpeech
-      : [];
-
-  const hsk =
-    normalizeHsk(data.hsk);
-
-  const examples =
-    Array.isArray(data.examples)
-      ? data.examples
-      : [];
-
-
-  if (!word) {
-    return jsonResponse(
-      {
-        success: false,
-        message:
-          "กรุณากรอกคำศัพท์"
-      },
-      400,
-      corsHeaders
-    );
-  }
-
-
-  if (!pinyin) {
-    return jsonResponse(
-      {
-        success: false,
-        message:
-          "กรุณากรอก Pinyin"
-      },
-      400,
-      corsHeaders
-    );
-  }
-
-
-  if (
-    meanings.length === 0
-  ) {
-    return jsonResponse(
-      {
-        success: false,
-        message:
-          "กรุณากรอกความหมาย"
-      },
-      400,
-      corsHeaders
-    );
-  }
-
-
-  if (
-    hsk.length === 0
-  ) {
-    return jsonResponse(
-      {
-        success: false,
-        message:
-          "กรุณาเลือกระดับ HSK"
-      },
-      400,
-      corsHeaders
-    );
-  }
-
-
-  const result =
-    await readDictionary(env);
-
-  const dictionary =
-    result.dictionary;
-
-
-  const duplicate =
-    dictionary.some(item =>
-      item.word === word &&
-      item.hsk.some(
-        level =>
-          hsk.includes(level)
-      )
+function base64ToBytes(base64) {
+  const binary =
+    atob(
+      base64.replace(/\n/g, "")
     );
 
-
-  if (duplicate) {
-    return jsonResponse(
-      {
-        success: false,
-        message:
-          `คำว่า "${word}" มีอยู่แล้วใน HSK ที่เลือก`
-      },
-      409,
-      corsHeaders
-    );
-  }
-
-
-  const newWord = {
-    id:
-      crypto.randomUUID(),
-
-    word,
-
-    pinyin,
-
-    thaiPronunciation,
-
-    meanings,
-
-    partOfSpeech,
-
-    hsk,
-
-    examples
-  };
-
-
-  dictionary.push(
-    newWord
-  );
-
-
-  await saveDictionary(
-    dictionary,
-    result.sha,
-    `Add ${word}`,
-    env
-  );
-
-
-  return jsonResponse(
-    {
-      success: true,
-      message:
-        `เพิ่ม "${word}" สำเร็จ`,
-      word:
-        newWord
-    },
-    200,
-    corsHeaders
-  );
-}
-
-
-// =====================================================
-// UPDATE
-// =====================================================
-
-async function handleUpdate(
-  data,
-  env,
-  corsHeaders
-) {
-  const id =
-    String(
-      data.id || ""
-    );
-
-  if (!id) {
-    return jsonResponse(
-      {
-        success: false,
-        message:
-          "ไม่พบ ID ของคำศัพท์"
-      },
-      400,
-      corsHeaders
-    );
-  }
-
-
-  const result =
-    await readDictionary(env);
-
-  const dictionary =
-    result.dictionary;
-
-
-  const index =
-    dictionary.findIndex(
-      item =>
-        item.id === id
-    );
-
-
-  if (index === -1) {
-    return jsonResponse(
-      {
-        success: false,
-        message:
-          "ไม่พบคำศัพท์ที่ต้องการแก้ไข"
-      },
-      404,
-      corsHeaders
-    );
-  }
-
-
-  const oldWord =
-    dictionary[index];
-
-
-  const word =
-    String(
-      data.word || ""
-    ).trim();
-
-  const pinyin =
-    String(
-      data.pinyin || ""
-    ).trim();
-
-  const thaiPronunciation =
-    String(
-      data.thaiPronunciation || ""
-    ).trim();
-
-  const meanings =
-    Array.isArray(data.meanings)
-      ? data.meanings
-      : [];
-
-  const partOfSpeech =
-    Array.isArray(
-      data.partOfSpeech
-    )
-      ? data.partOfSpeech
-      : [];
-
-  const hsk =
-    normalizeHsk(data.hsk);
-
-  const examples =
-    Array.isArray(data.examples)
-      ? data.examples
-      : [];
-
-
-  if (
-    !word ||
-    !pinyin ||
-    meanings.length === 0 ||
-    hsk.length === 0
-  ) {
-    return jsonResponse(
-      {
-        success: false,
-        message:
-          "กรุณากรอกข้อมูลให้ครบ"
-      },
-      400,
-      corsHeaders
-    );
-  }
-
-
-  const duplicate =
-    dictionary.some(
-      (item, itemIndex) =>
-        itemIndex !== index &&
-        item.word === word &&
-        item.hsk.some(
-          level =>
-            hsk.includes(level)
-        )
-    );
-
-
-  if (duplicate) {
-    return jsonResponse(
-      {
-        success: false,
-        message:
-          `คำว่า "${word}" มีอยู่แล้วใน HSK ที่เลือก`
-      },
-      409,
-      corsHeaders
-    );
-  }
-
-
-  const updatedWord = {
-    id:
-      oldWord.id,
-
-    word,
-
-    pinyin,
-
-    thaiPronunciation,
-
-    meanings,
-
-    partOfSpeech,
-
-    hsk,
-
-    examples
-  };
-
-
-  dictionary[index] =
-    updatedWord;
-
-
-  await saveDictionary(
-    dictionary,
-    result.sha,
-    `Update ${word}`,
-    env
-  );
-
-
-  return jsonResponse(
-    {
-      success: true,
-      message:
-        `แก้ไข "${word}" สำเร็จ`,
-      word:
-        updatedWord
-    },
-    200,
-    corsHeaders
-  );
-}
-
-
-// =====================================================
-// DELETE
-// =====================================================
-
-async function handleDelete(
-  data,
-  env,
-  corsHeaders
-) {
-  const id =
-    String(
-      data.id || ""
-    );
-
-
-  if (!id) {
-    return jsonResponse(
-      {
-        success: false,
-        message:
-          "ไม่พบ ID"
-      },
-      400,
-      corsHeaders
-    );
-  }
-
-
-  const result =
-    await readDictionary(env);
-
-  const dictionary =
-    result.dictionary;
-
-
-  const index =
-    dictionary.findIndex(
-      item =>
-        item.id === id
-    );
-
-
-  if (index === -1) {
-    return jsonResponse(
-      {
-        success: false,
-        message:
-          "ไม่พบคำศัพท์ที่ต้องการลบ"
-      },
-      404,
-      corsHeaders
-    );
-  }
-
-
-  const deletedWord =
-    dictionary[index];
-
-
-  dictionary.splice(
-    index,
-    1
-  );
-
-
-  await saveDictionary(
-    dictionary,
-    result.sha,
-    `Delete ${deletedWord.word}`,
-    env
-  );
-
-
-  return jsonResponse(
-    {
-      success: true,
-      message:
-        `ลบ "${deletedWord.word}" สำเร็จ`,
-      word:
-        deletedWord
-    },
-    200,
-    corsHeaders
-  );
-}
-
-
-// =====================================================
-// JSON RESPONSE
-// =====================================================
-
-function jsonResponse(
-  data,
-  status,
-  corsHeaders
-) {
-  return new Response(
-    JSON.stringify(data),
-    {
-      status,
-
-      headers: {
-        ...corsHeaders,
-
-        "Content-Type":
-          "application/json"
-      }
-    }
+  return Uint8Array.from(
+    binary,
+    (char) => char.charCodeAt(0)
   );
 }
