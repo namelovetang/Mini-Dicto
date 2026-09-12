@@ -1,0 +1,3459 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Mini-Dicto Admin</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+      background: #f5f7fb;
+      color: #333;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1200px, 94%);
+      margin: 0 auto;
+    }
+
+    /* =========================
+       LOGIN
+    ========================= */
+
+    #loginPage {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 430px;
+      background: white;
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    .login-logo {
+      text-align: center;
+      font-size: 42px;
+      margin-bottom: 8px;
+    }
+
+    .login-title {
+      text-align: center;
+      margin: 0;
+      font-size: 26px;
+      color: #333;
+    }
+
+    .login-subtitle {
+      text-align: center;
+      color: #888;
+      margin: 8px 0 28px;
+    }
+
+    /* =========================
+       FORM
+    ========================= */
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: white;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #7c8cff;
+      box-shadow: 0 0 0 3px rgba(124, 140, 255, 0.12);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    .btn {
+      border: none;
+      border-radius: 10px;
+      padding: 11px 18px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: #7487ff;
+      color: white;
+    }
+
+    .btn-success {
+      background: #55b88a;
+      color: white;
+    }
+
+    .btn-danger {
+      background: #e86b7a;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #eee;
+      color: #555;
+    }
+
+    .btn-warning {
+      background: #f2b94b;
+      color: white;
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    .btn-small {
+      padding: 7px 11px;
+      font-size: 13px;
+    }
+
+    /* =========================
+       ADMIN
+    ========================= */
+
+    #adminPage {
+      display: none;
+      min-height: 100vh;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .brand span {
+      color: #7487ff;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .username {
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+      padding: 30px 0 60px;
+    }
+
+    .page-title {
+      margin-bottom: 25px;
+    }
+
+    .page-title h1 {
+      margin: 0 0 5px;
+      font-size: 28px;
+    }
+
+    .page-title p {
+      margin: 0;
+      color: #888;
+    }
+
+    /* =========================
+       STATS
+    ========================= */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 25px;
+    }
+
+    .stat-card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+    }
+
+    .stat-label {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 7px;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    /* =========================
+       CARD
+    ========================= */
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 20px;
+    }
+
+    /* =========================
+       ADD FORM
+    ========================= */
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .examples {
+      border: 1px solid #eee;
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 10px;
+      background: #fafafa;
+    }
+
+    .example-item {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 12px;
+    }
+
+    .example-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .example-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .example-number {
+      font-weight: 700;
+    }
+
+    .meaning-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .meaning-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .meaning-row input {
+      flex: 1;
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    .search-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .search-row input {
+      flex: 1;
+    }
+
+    /* =========================
+       TABLE
+    ========================= */
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+    }
+
+    th,
+    td {
+      padding: 13px 10px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #fafafa;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    td {
+      font-size: 14px;
+    }
+
+    .word-cell {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .pinyin {
+      color: #777;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 7px;
+      background: #eef0ff;
+      color: #5c6bd6;
+      font-size: 12px;
+      margin: 2px;
+    }
+
+    .meaning {
+      margin-bottom: 4px;
+    }
+
+    .example {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #eee;
+    }
+
+    .example:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .example-cn {
+      font-weight: 600;
+    }
+
+    .example-pinyin {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .example-thai {
+      color: #555;
+      font-size: 13px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 100;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .modal.show {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .modal-content {
+      width: min(850px, 100%);
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      margin-top: 30px;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .modal-header h2 {
+      margin: 0;
+    }
+
+    .close-btn {
+      border: none;
+      background: #eee;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      font-size: 20px;
+    }
+
+    /* =========================
+       MESSAGE
+    ========================= */
+
+    #message {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 200;
+      max-width: 380px;
+      display: none;
+    }
+
+    .message-box {
+      padding: 14px 18px;
+      border-radius: 12px;
+      color: white;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .message-success {
+      background: #55b88a;
+    }
+
+    .message-error {
+      background: #e86b7a;
+    }
+
+    .message-info {
+      background: #7487ff;
+    }
+
+    /* =========================
+       LOADING
+    ========================= */
+
+    .loading {
+      text-align: center;
+      padding: 35px;
+      color: #888;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 40px;
+      color: #999;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 850px) {
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .stat-card {
+        padding: 15px;
+      }
+
+      .stat-value {
+        font-size: 23px;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      .header-inner {
+        min-height: 60px;
+      }
+
+      .username {
+        display: none;
+      }
+
+      .search-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       LOGIN PAGE
+  ========================== -->
+
+  <section id="loginPage">
+
+    <div class="login-card">
+
+      <div class="login-logo">📚</div>
+
+      <h1 class="login-title">
+        Mini-Dicto
+      </h1>
+
+      <p class="login-subtitle">
+        Dictionary Admin
+      </p>
+
+      <form id="loginForm">
+
+        <div class="form-group">
+          <label for="loginUsername">
+            Username
+          </label>
+
+          <input
+            type="text"
+            id="loginUsername"
+            autocomplete="username"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">
+            Password
+          </label>
+
+          <input
+            type="password"
+            id="loginPassword"
+            autocomplete="current-password"
+            required
+          >
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary btn-block"
+          id="loginButton"
+        >
+          เข้าสู่ระบบ
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ADMIN PAGE
+  ========================== -->
+
+  <section id="adminPage">
+
+    <header>
+
+      <div class="container header-inner">
+
+        <div class="brand">
+          📚 <span>Mini-Dicto</span> Admin
+        </div>
+
+        <div class="header-right">
+
+          <span
+            class="username"
+            id="currentUsername"
+          ></span>
+
+          <button
+            class="btn btn-secondary btn-small"
+            onclick="logout()"
+          >
+            ออกจากระบบ
+          </button>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <main>
+
+      <div class="container">
+
+        <div class="page-title">
+
+          <h1>
+            จัดการพจนานุกรม
+          </h1>
+
+          <p>
+            เพิ่ม แก้ไข ลบ และค้นหาคำศัพท์ใน Mini-Dicto
+          </p>
+
+        </div>
+
+
+        <!-- =========================
+             STATS
+        ========================== -->
+
+        <div class="stats">
+
+          <div class="stat-card">
+
+            <div class="stat-label">
+              คำศัพท์ทั้งหมด
+            </div>
+
+            <div
+              class="stat-value"
+              id="totalWords"
+            >
+              0
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-label">
+              HSK 1
+            </div>
+
+            <div
+              class="stat-value"
+              id="hsk1Count"
+            >
+              0
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-label">
+              HSK 2
+            </div>
+
+            <div
+              class="stat-value"
+              id="hsk2Count"
+            >
+              0
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-label">
+              HSK 1–6
+            </div>
+
+            <div
+              class="stat-value"
+              id="allHskCount"
+            >
+              0
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+             ADD WORD
+        ========================== -->
+
+        <div class="card">
+
+          <h2 class="card-title">
+            ➕ เพิ่มคำศัพท์
+          </h2>
+
+          <form id="addWordForm">
+
+            <div class="form-grid">
+
+              <div class="form-group">
+
+                <label for="word">
+                  คำศัพท์จีน
+                </label>
+
+                <input
+                  type="text"
+                  id="word"
+                  placeholder="例如：爱"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="pinyin">
+                  Pinyin
+                </label>
+
+                <input
+                  type="text"
+                  id="pinyin"
+                  placeholder="例如：ài"
+                  required
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="thaiPronunciation">
+                  คำอ่านไทย
+                </label>
+
+                <input
+                  type="text"
+                  id="thaiPronunciation"
+                  placeholder="เช่น อ้าย"
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="hsk">
+                  ระดับ HSK
+                </label>
+
+                <select
+                  id="hsk"
+                  required
+                >
+                  <option value="">
+                    -- เลือก HSK --
+                  </option>
+
+                  <option value="1">
+                    HSK 1
+                  </option>
+
+                  <option value="2">
+                    HSK 2
+                  </option>
+
+                  <option value="3">
+                    HSK 3
+                  </option>
+
+                  <option value="4">
+                    HSK 4
+                  </option>
+
+                  <option value="5">
+                    HSK 5
+                  </option>
+
+                  <option value="6">
+                    HSK 6
+                  </option>
+                </select>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="partOfSpeech">
+                  ชนิดคำ
+                </label>
+
+                <input
+                  type="text"
+                  id="partOfSpeech"
+                  placeholder="เช่น 动词"
+                >
+
+              </div>
+
+
+              <div class="form-group full">
+
+                <label>
+                  ความหมาย
+                </label>
+
+                <div
+                  class="meaning-list"
+                  id="meaningList"
+                >
+
+                  <div class="meaning-row">
+
+                    <input
+                      type="text"
+                      class="meaning-input"
+                      placeholder="เช่น รัก"
+                    >
+
+                    <button
+                      type="button"
+                      class="btn btn-danger btn-small"
+                      onclick="removeMeaning(this)"
+                    >
+                      ลบ
+                    </button>
+
+                  </div>
+
+                </div>
+
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-small"
+                  style="margin-top:10px"
+                  onclick="addMeaning()"
+                >
+                  + เพิ่มความหมาย
+                </button>
+
+              </div>
+
+
+              <!-- EXAMPLES -->
+
+              <div class="form-group full">
+
+                <label>
+                  ตัวอย่างประโยค
+                </label>
+
+                <div
+                  class="examples"
+                  id="examplesList"
+                >
+
+                  <div class="example-item">
+
+                    <div class="example-header">
+
+                      <span class="example-number">
+                        ตัวอย่างที่ 1
+                      </span>
+
+                      <button
+                        type="button"
+                        class="btn btn-danger btn-small"
+                        onclick="removeExample(this)"
+                      >
+                        ลบ
+                      </button>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                      <label>
+                        中文
+                      </label>
+
+                      <input
+                        type="text"
+                        class="example-chinese"
+                        placeholder="我爱你。"
+                      >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                      <label>
+                        Pinyin
+                      </label>
+
+                      <input
+                        type="text"
+                        class="example-pinyin"
+                        placeholder="Wǒ ài nǐ."
+                      >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                      <label>
+                        ไทย
+                      </label>
+
+                      <input
+                        type="text"
+                        class="example-thai"
+                        placeholder="ฉันรักคุณ"
+                      >
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-small"
+                  onclick="addExample()"
+                >
+                  + เพิ่มตัวอย่าง
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+              <button
+                type="submit"
+                class="btn btn-success"
+                id="addButton"
+              >
+                💾 บันทึกคำศัพท์
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="resetAddForm()"
+              >
+                ล้างข้อมูล
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+
+        <!-- =========================
+             DICTIONARY LIST
+        ========================== -->
+
+        <div class="card">
+
+          <h2 class="card-title">
+            📖 รายการคำศัพท์
+          </h2>
+
+
+          <div class="search-row">
+
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="ค้นหาคำศัพท์ / pinyin / ความหมาย..."
+              oninput="renderDictionary()"
+            >
+
+            <select
+              id="filterHsk"
+              onchange="renderDictionary()"
+              style="max-width:180px"
+            >
+
+              <option value="">
+                ทุกระดับ
+              </option>
+
+              <option value="1">
+                HSK 1
+              </option>
+
+              <option value="2">
+                HSK 2
+              </option>
+
+              <option value="3">
+                HSK 3
+              </option>
+
+              <option value="4">
+                HSK 4
+              </option>
+
+              <option value="5">
+                HSK 5
+              </option>
+
+              <option value="6">
+                HSK 6
+              </option>
+
+            </select>
+
+            <button
+              class="btn btn-primary"
+              onclick="loadDictionary()"
+            >
+              🔄 รีเฟรช
+            </button>
+
+          </div>
+
+
+          <div
+            id="dictionaryContainer"
+            class="table-wrapper"
+          >
+
+            <div class="loading">
+              กำลังโหลดข้อมูล...
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </section>
+
+
+  <!-- =========================
+       EDIT MODAL
+  ========================== -->
+
+  <div
+    class="modal"
+    id="editModal"
+  >
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <h2>
+          ✏️ แก้ไขคำศัพท์
+        </h2>
+
+        <button
+          class="close-btn"
+          onclick="closeEditModal()"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <form id="editWordForm">
+
+        <input
+          type="hidden"
+          id="editId"
+        >
+
+
+        <div class="form-grid">
+
+          <div class="form-group">
+
+            <label>
+              คำศัพท์จีน
+            </label>
+
+            <input
+              type="text"
+              id="editWord"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Pinyin
+            </label>
+
+            <input
+              type="text"
+              id="editPinyin"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              คำอ่านไทย
+            </label>
+
+            <input
+              type="text"
+              id="editThaiPronunciation"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              HSK
+            </label>
+
+            <select
+              id="editHsk"
+              required
+            >
+
+              <option value="1">
+                HSK 1
+              </option>
+
+              <option value="2">
+                HSK 2
+              </option>
+
+              <option value="3">
+                HSK 3
+              </option>
+
+              <option value="4">
+                HSK 4
+              </option>
+
+              <option value="5">
+                HSK 5
+              </option>
+
+              <option value="6">
+                HSK 6
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              ชนิดคำ
+            </label>
+
+            <input
+              type="text"
+              id="editPartOfSpeech"
+            >
+
+          </div>
+
+
+          <div class="form-group full">
+
+            <label>
+              ความหมาย
+            </label>
+
+            <div
+              class="meaning-list"
+              id="editMeaningList"
+            ></div>
+
+            <button
+              type="button"
+              class="btn btn-secondary btn-small"
+              style="margin-top:10px"
+              onclick="addEditMeaning()"
+            >
+              + เพิ่มความหมาย
+            </button>
+
+          </div>
+
+
+          <div class="form-group full">
+
+            <label>
+              ตัวอย่างประโยค
+            </label>
+
+            <div
+              class="examples"
+              id="editExamplesList"
+            ></div>
+
+            <button
+              type="button"
+              class="btn btn-secondary btn-small"
+              onclick="addEditExample()"
+            >
+              + เพิ่มตัวอย่าง
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="form-actions">
+
+          <button
+            type="submit"
+            class="btn btn-success"
+            id="editButton"
+          >
+            💾 บันทึกการแก้ไข
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="closeEditModal()"
+          >
+            ยกเลิก
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       MESSAGE
+  ========================== -->
+
+  <div id="message"></div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    /* =====================================================
+       API CONFIG
+    ===================================================== */
+
+    const API_URL =
+      "https://mini-dicto-api.namelovetang.workers.dev";
+
+
+    /* =====================================================
+       STATE
+    ===================================================== */
+
+    let authToken =
+      sessionStorage.getItem("miniDictoToken") || "";
+
+    let currentUsername = "";
+
+    let dictionary = [];
+
+    let editingWord = null;
+
+
+    /* =====================================================
+       API REQUEST
+    ===================================================== */
+
+    async function apiRequest(action, data = {}) {
+
+      const headers = {
+        "Content-Type": "application/json"
+      };
+
+      if (authToken) {
+        headers.Authorization =
+          `Bearer ${authToken}`;
+      }
+
+      let response;
+
+      try {
+
+        response = await fetch(API_URL, {
+
+          method: "POST",
+
+          headers,
+
+          body: JSON.stringify({
+            action,
+            ...data
+          })
+
+        });
+
+      } catch (error) {
+
+        throw new Error(
+          "ไม่สามารถเชื่อมต่อกับ Server ได้"
+        );
+
+      }
+
+
+      let result;
+
+      try {
+
+        result = await response.json();
+
+      } catch (error) {
+
+        throw new Error(
+          "Server ส่งข้อมูลกลับมาไม่ถูกต้อง"
+        );
+
+      }
+
+
+      /* =========================
+         LOGIN SUCCESS
+      ========================== */
+
+      if (
+        action === "login" &&
+        response.ok &&
+        result.success &&
+        result.token
+      ) {
+
+        authToken = result.token;
+
+        sessionStorage.setItem(
+          "miniDictoToken",
+          authToken
+        );
+
+      }
+
+
+      /* =========================
+         LOGOUT
+      ========================== */
+
+      if (action === "logout") {
+
+        authToken = "";
+
+        sessionStorage.removeItem(
+          "miniDictoToken"
+        );
+
+      }
+
+
+      /* =========================
+         UNAUTHORIZED
+      ========================== */
+
+      if (response.status === 401) {
+
+        authToken = "";
+
+        sessionStorage.removeItem(
+          "miniDictoToken"
+        );
+
+        showLoginPage();
+
+      }
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          result.message ||
+          "เกิดข้อผิดพลาด"
+        );
+
+      }
+
+
+      return result;
+    }
+
+
+    /* =====================================================
+       LOGIN
+    ===================================================== */
+
+    document
+      .getElementById("loginForm")
+      .addEventListener(
+        "submit",
+        async function(event) {
+
+          event.preventDefault();
+
+          const username =
+            document
+              .getElementById("loginUsername")
+              .value
+              .trim();
+
+          const password =
+            document
+              .getElementById("loginPassword")
+              .value;
+
+
+          const button =
+            document.getElementById(
+              "loginButton"
+            );
+
+          button.disabled = true;
+
+          button.textContent =
+            "กำลังเข้าสู่ระบบ...";
+
+
+          try {
+
+            const result =
+              await apiRequest(
+                "login",
+                {
+                  username,
+                  password
+                }
+              );
+
+
+            currentUsername =
+              result.username ||
+              username;
+
+
+            document
+              .getElementById(
+                "currentUsername"
+              )
+              .textContent =
+              currentUsername;
+
+
+            showAdminPage();
+
+            await loadDictionary();
+
+            showMessage(
+              "เข้าสู่ระบบสำเร็จ",
+              "success"
+            );
+
+          } catch (error) {
+
+            showMessage(
+              error.message,
+              "error"
+            );
+
+          } finally {
+
+            button.disabled = false;
+
+            button.textContent =
+              "เข้าสู่ระบบ";
+
+          }
+
+        }
+      );
+
+
+    /* =====================================================
+       SESSION CHECK
+    ===================================================== */
+
+    async function checkSession() {
+
+      if (!authToken) {
+
+        showLoginPage();
+
+        return;
+
+      }
+
+
+      try {
+
+        const result =
+          await apiRequest(
+            "session"
+          );
+
+
+        if (
+          result.success &&
+          result.authenticated
+        ) {
+
+          currentUsername =
+            result.username || "";
+
+          document
+            .getElementById(
+              "currentUsername"
+            )
+            .textContent =
+            currentUsername;
+
+          showAdminPage();
+
+          await loadDictionary();
+
+        } else {
+
+          showLoginPage();
+
+        }
+
+      } catch (error) {
+
+        showLoginPage();
+
+      }
+
+    }
+
+
+    /* =====================================================
+       SHOW PAGES
+    ===================================================== */
+
+    function showLoginPage() {
+
+      document
+        .getElementById("loginPage")
+        .style.display = "flex";
+
+      document
+        .getElementById("adminPage")
+        .style.display = "none";
+
+    }
+
+
+    function showAdminPage() {
+
+      document
+        .getElementById("loginPage")
+        .style.display = "none";
+
+      document
+        .getElementById("adminPage")
+        .style.display = "block";
+
+    }
+
+
+    /* =====================================================
+       LOGOUT
+    ===================================================== */
+
+    async function logout() {
+
+      try {
+
+        await apiRequest(
+          "logout"
+        );
+
+      } catch (error) {
+
+        /* ignore */
+
+      } finally {
+
+        authToken = "";
+
+        sessionStorage.removeItem(
+          "miniDictoToken"
+        );
+
+        dictionary = [];
+
+        showLoginPage();
+
+        document
+          .getElementById(
+            "loginPassword"
+          )
+          .value = "";
+
+      }
+
+    }
+
+
+    /* =====================================================
+       LOAD DICTIONARY
+    ===================================================== */
+
+    async function loadDictionary() {
+
+      const container =
+        document.getElementById(
+          "dictionaryContainer"
+        );
+
+      container.innerHTML =
+        `<div class="loading">
+          กำลังโหลดข้อมูล...
+        </div>`;
+
+
+      try {
+
+        const result =
+          await apiRequest(
+            "list"
+          );
+
+
+        dictionary =
+          Array.isArray(
+            result.dictionary
+          )
+            ? result.dictionary
+            : [];
+
+
+        updateStats();
+
+        renderDictionary();
+
+      } catch (error) {
+
+        container.innerHTML =
+          `<div class="empty">
+            ไม่สามารถโหลดข้อมูลได้
+            <br>
+            <small>
+              ${escapeHTML(error.message)}
+            </small>
+          </div>`;
+
+        showMessage(
+          error.message,
+          "error"
+        );
+
+      }
+
+    }
+
+
+    /* =====================================================
+       UPDATE STATS
+    ===================================================== */
+
+    function updateStats() {
+
+      document
+        .getElementById(
+          "totalWords"
+        )
+        .textContent =
+        dictionary.length;
+
+
+      const hsk1 =
+        dictionary.filter(item =>
+          Array.isArray(item.hsk) &&
+          item.hsk.includes(1)
+        ).length;
+
+
+      const hsk2 =
+        dictionary.filter(item =>
+          Array.isArray(item.hsk) &&
+          item.hsk.includes(2)
+        ).length;
+
+
+      const allHsk =
+        dictionary.filter(item =>
+          Array.isArray(item.hsk) &&
+          item.hsk.length > 0
+        ).length;
+
+
+      document
+        .getElementById(
+          "hsk1Count"
+        )
+        .textContent =
+        hsk1;
+
+
+      document
+        .getElementById(
+          "hsk2Count"
+        )
+        .textContent =
+        hsk2;
+
+
+      document
+        .getElementById(
+          "allHskCount"
+        )
+        .textContent =
+        allHsk;
+
+    }
+
+
+    /* =====================================================
+       RENDER DICTIONARY
+    ===================================================== */
+
+    function renderDictionary() {
+
+      const container =
+        document.getElementById(
+          "dictionaryContainer"
+        );
+
+
+      const search =
+        document
+          .getElementById(
+            "searchInput"
+          )
+          .value
+          .trim()
+          .toLowerCase();
+
+
+      const hskFilter =
+        document
+          .getElementById(
+            "filterHsk"
+          )
+          .value;
+
+
+      let filtered =
+        dictionary.filter(item => {
+
+          const word =
+            String(
+              item.word || ""
+            ).toLowerCase();
+
+
+          const pinyin =
+            String(
+              item.pinyin || ""
+            ).toLowerCase();
+
+
+          const thai =
+            String(
+              item.thaiPronunciation || ""
+            ).toLowerCase();
+
+
+          const meanings =
+            Array.isArray(item.meanings)
+              ? item.meanings.join(" ")
+              : String(
+                  item.meanings || ""
+                );
+
+
+          const matchesSearch =
+            !search ||
+            word.includes(search) ||
+            pinyin.includes(search) ||
+            thai.includes(search) ||
+            meanings
+              .toLowerCase()
+              .includes(search);
+
+
+          const matchesHsk =
+            !hskFilter ||
+            (
+              Array.isArray(item.hsk) &&
+              item.hsk.includes(
+                Number(hskFilter)
+              )
+            );
+
+
+          return (
+            matchesSearch &&
+            matchesHsk
+          );
+
+        });
+
+
+      if (!filtered.length) {
+
+        container.innerHTML =
+          `<div class="empty">
+            ไม่พบคำศัพท์
+          </div>`;
+
+        return;
+
+      }
+
+
+      let html = `
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>
+                คำศัพท์
+              </th>
+
+              <th>
+                ความหมาย
+              </th>
+
+              <th>
+                HSK
+              </th>
+
+              <th>
+                ชนิดคำ
+              </th>
+
+              <th>
+                ตัวอย่าง
+              </th>
+
+              <th>
+                จัดการ
+              </th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+      `;
+
+
+      for (const item of filtered) {
+
+        html += `
+
+          <tr>
+
+            <td>
+
+              <div class="word-cell">
+                ${escapeHTML(
+                  item.word || ""
+                )}
+              </div>
+
+              <div class="pinyin">
+                ${escapeHTML(
+                  item.pinyin || ""
+                )}
+              </div>
+
+              <div>
+                ${escapeHTML(
+                  item.thaiPronunciation || ""
+                )}
+              </div>
+
+            </td>
+
+
+            <td>
+
+              ${
+                Array.isArray(item.meanings)
+                  ? item.meanings
+                      .map(
+                        meaning =>
+                          `<div class="meaning">
+                            ${escapeHTML(
+                              meaning
+                            )}
+                          </div>`
+                      )
+                      .join("")
+                  : ""
+              }
+
+            </td>
+
+
+            <td>
+
+              ${
+                Array.isArray(item.hsk)
+                  ? item.hsk
+                      .map(
+                        level =>
+                          `<span class="tag">
+                            HSK ${level}
+                          </span>`
+                      )
+                      .join("")
+                  : ""
+              }
+
+            </td>
+
+
+            <td>
+
+              ${
+                Array.isArray(
+                  item.partOfSpeech
+                )
+                  ? item.partOfSpeech
+                      .map(
+                        pos =>
+                          `<span class="tag">
+                            ${escapeHTML(
+                              pos
+                            )}
+                          </span>`
+                      )
+                      .join("")
+                  : ""
+              }
+
+            </td>
+
+
+            <td>
+
+              ${
+                Array.isArray(item.examples)
+                  ? item.examples
+                      .map(
+                        example => `
+
+                          <div class="example">
+
+                            <div class="example-cn">
+                              ${escapeHTML(
+                                example.chinese || ""
+                              )}
+                            </div>
+
+                            <div class="example-pinyin">
+                              ${escapeHTML(
+                                example.pinyin || ""
+                              )}
+                            </div>
+
+                            <div class="example-thai">
+                              ${escapeHTML(
+                                example.thai || ""
+                              )}
+                            </div>
+
+                          </div>
+
+                        `
+                      )
+                      .join("")
+                  : ""
+              }
+
+            </td>
+
+
+            <td>
+
+              <div class="actions">
+
+                <button
+                  class="btn btn-warning btn-small"
+                  onclick="openEditModal('${escapeJS(
+                    item.id
+                  )}')"
+                >
+                  แก้ไข
+                </button>
+
+                <button
+                  class="btn btn-danger btn-small"
+                  onclick="deleteWord('${escapeJS(
+                    item.id
+                  )}')"
+                >
+                  ลบ
+                </button>
+
+              </div>
+
+            </td>
+
+          </tr>
+
+        `;
+
+      }
+
+
+      html += `
+
+          </tbody>
+
+        </table>
+
+      `;
+
+
+      container.innerHTML =
+        html;
+
+    }
+
+
+    /* =====================================================
+       ADD MEANING
+    ===================================================== */
+
+    function addMeaning(value = "") {
+
+      const list =
+        document.getElementById(
+          "meaningList"
+        );
+
+
+      const row =
+        document.createElement(
+          "div"
+        );
+
+      row.className =
+        "meaning-row";
+
+
+      row.innerHTML = `
+
+        <input
+          type="text"
+          class="meaning-input"
+          placeholder="เช่น รัก"
+          value="${escapeHTML(value)}"
+        >
+
+        <button
+          type="button"
+          class="btn btn-danger btn-small"
+          onclick="removeMeaning(this)"
+        >
+          ลบ
+        </button>
+
+      `;
+
+
+      list.appendChild(row);
+
+    }
+
+
+    function removeMeaning(button) {
+
+      const rows =
+        document.querySelectorAll(
+          "#meaningList .meaning-row"
+        );
+
+
+      if (rows.length <= 1) {
+
+        button
+          .parentElement
+          .querySelector("input")
+          .value = "";
+
+        return;
+
+      }
+
+
+      button
+        .parentElement
+        .remove();
+
+    }
+
+
+    /* =====================================================
+       ADD EXAMPLE
+    ===================================================== */
+
+    function addExample(
+      chinese = "",
+      pinyin = "",
+      thai = ""
+    ) {
+
+      const list =
+        document.getElementById(
+          "examplesList"
+        );
+
+
+      const number =
+        list.children.length + 1;
+
+
+      const div =
+        document.createElement(
+          "div"
+        );
+
+      div.className =
+        "example-item";
+
+
+      div.innerHTML = `
+
+        <div class="example-header">
+
+          <span class="example-number">
+            ตัวอย่างที่ ${number}
+          </span>
+
+          <button
+            type="button"
+            class="btn btn-danger btn-small"
+            onclick="removeExample(this)"
+          >
+            ลบ
+          </button>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            中文
+          </label>
+
+          <input
+            type="text"
+            class="example-chinese"
+            value="${escapeHTML(chinese)}"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Pinyin
+          </label>
+
+          <input
+            type="text"
+            class="example-pinyin"
+            value="${escapeHTML(pinyin)}"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            ไทย
+          </label>
+
+          <input
+            type="text"
+            class="example-thai"
+            value="${escapeHTML(thai)}"
+          >
+
+        </div>
+
+      `;
+
+
+      list.appendChild(div);
+
+    }
+
+
+    function removeExample(button) {
+
+      button
+        .closest(".example-item")
+        .remove();
+
+
+      renumberExamples();
+
+    }
+
+
+    function renumberExamples() {
+
+      const items =
+        document.querySelectorAll(
+          "#examplesList .example-item"
+        );
+
+
+      items.forEach(
+        (item, index) => {
+
+          item
+            .querySelector(
+              ".example-number"
+            )
+            .textContent =
+            `ตัวอย่างที่ ${index + 1}`;
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       ADD WORD FORM
+    ===================================================== */
+
+    document
+      .getElementById(
+        "addWordForm"
+      )
+      .addEventListener(
+        "submit",
+        async function(event) {
+
+          event.preventDefault();
+
+
+          const word =
+            document
+              .getElementById("word")
+              .value
+              .trim();
+
+
+          const pinyin =
+            document
+              .getElementById("pinyin")
+              .value
+              .trim();
+
+
+          const thaiPronunciation =
+            document
+              .getElementById(
+                "thaiPronunciation"
+              )
+              .value
+              .trim();
+
+
+          const hsk =
+            Number(
+              document
+                .getElementById("hsk")
+                .value
+            );
+
+
+          const partOfSpeech =
+            document
+              .getElementById(
+                "partOfSpeech"
+              )
+              .value
+              .trim();
+
+
+          const meanings =
+            Array.from(
+              document.querySelectorAll(
+                "#meaningList .meaning-input"
+              )
+            )
+              .map(
+                input =>
+                  input.value.trim()
+              )
+              .filter(Boolean);
+
+
+          const examples =
+            Array.from(
+              document.querySelectorAll(
+                "#examplesList .example-item"
+              )
+            )
+              .map(item => ({
+
+                chinese:
+                  item
+                    .querySelector(
+                      ".example-chinese"
+                    )
+                    .value
+                    .trim(),
+
+                pinyin:
+                  item
+                    .querySelector(
+                      ".example-pinyin"
+                    )
+                    .value
+                    .trim(),
+
+                thai:
+                  item
+                    .querySelector(
+                      ".example-thai"
+                    )
+                    .value
+                    .trim()
+
+              }))
+              .filter(
+                item =>
+                  item.chinese ||
+                  item.pinyin ||
+                  item.thai
+              );
+
+
+          if (!word) {
+
+            showMessage(
+              "กรุณากรอกคำศัพท์จีน",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          if (!pinyin) {
+
+            showMessage(
+              "กรุณากรอก Pinyin",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          if (!hsk) {
+
+            showMessage(
+              "กรุณาเลือกระดับ HSK",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          const button =
+            document.getElementById(
+              "addButton"
+            );
+
+
+          button.disabled = true;
+
+          button.textContent =
+            "กำลังบันทึก...";
+
+
+          try {
+
+            const result =
+              await apiRequest(
+                "add",
+                {
+
+                  word,
+
+                  pinyin,
+
+                  thaiPronunciation,
+
+                  meanings,
+
+                  partOfSpeech:
+                    partOfSpeech
+                      ? [partOfSpeech]
+                      : [],
+
+                  hsk: [hsk],
+
+                  examples
+
+                }
+              );
+
+
+            showMessage(
+              `เพิ่มคำว่า "${word}" สำเร็จ`,
+              "success"
+            );
+
+
+            resetAddForm();
+
+            await loadDictionary();
+
+          } catch (error) {
+
+            showMessage(
+              error.message,
+              "error"
+            );
+
+          } finally {
+
+            button.disabled = false;
+
+            button.textContent =
+              "💾 บันทึกคำศัพท์";
+
+          }
+
+        }
+      );
+
+
+    /* =====================================================
+       RESET ADD FORM
+    ===================================================== */
+
+    function resetAddForm() {
+
+      document
+        .getElementById(
+          "addWordForm"
+        )
+        .reset();
+
+
+      document
+        .getElementById(
+          "meaningList"
+        )
+        .innerHTML = `
+
+          <div class="meaning-row">
+
+            <input
+              type="text"
+              class="meaning-input"
+              placeholder="เช่น รัก"
+            >
+
+            <button
+              type="button"
+              class="btn btn-danger btn-small"
+              onclick="removeMeaning(this)"
+            >
+              ลบ
+            </button>
+
+          </div>
+
+      `;
+
+
+      document
+        .getElementById(
+          "examplesList"
+        )
+        .innerHTML = "";
+
+
+      addExample();
+
+    }
+
+
+    /* =====================================================
+       OPEN EDIT MODAL
+    ===================================================== */
+
+    function openEditModal(id) {
+
+      const item =
+        dictionary.find(
+          word =>
+            String(word.id) ===
+            String(id)
+        );
+
+
+      if (!item) {
+
+        showMessage(
+          "ไม่พบคำศัพท์นี้",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      editingWord = item;
+
+
+      document
+        .getElementById(
+          "editId"
+        )
+        .value =
+        item.id;
+
+
+      document
+        .getElementById(
+          "editWord"
+        )
+        .value =
+        item.word || "";
+
+
+      document
+        .getElementById(
+          "editPinyin"
+        )
+        .value =
+        item.pinyin || "";
+
+
+      document
+        .getElementById(
+          "editThaiPronunciation"
+        )
+        .value =
+        item.thaiPronunciation || "";
+
+
+      document
+        .getElementById(
+          "editHsk"
+        )
+        .value =
+        Array.isArray(item.hsk) &&
+        item.hsk.length
+          ? item.hsk[0]
+          : 1;
+
+
+      document
+        .getElementById(
+          "editPartOfSpeech"
+        )
+        .value =
+        Array.isArray(
+          item.partOfSpeech
+        )
+          ? item.partOfSpeech.join(", ")
+          : "";
+
+
+      /* MEANINGS */
+
+      const meaningList =
+        document.getElementById(
+          "editMeaningList"
+        );
+
+
+      meaningList.innerHTML = "";
+
+
+      const meanings =
+        Array.isArray(item.meanings)
+          ? item.meanings
+          : [];
+
+
+      if (meanings.length) {
+
+        meanings.forEach(
+          meaning =>
+            addEditMeaning(
+              meaning
+            )
+        );
+
+      } else {
+
+        addEditMeaning();
+
+      }
+
+
+      /* EXAMPLES */
+
+      const examplesList =
+        document.getElementById(
+          "editExamplesList"
+        );
+
+
+      examplesList.innerHTML = "";
+
+
+      const examples =
+        Array.isArray(item.examples)
+          ? item.examples
+          : [];
+
+
+      examples.forEach(
+        example =>
+          addEditExample(
+            example.chinese || "",
+            example.pinyin || "",
+            example.thai || ""
+          )
+      );
+
+
+      document
+        .getElementById(
+          "editModal"
+        )
+        .classList.add(
+          "show"
+        );
+
+    }
+
+
+    /* =====================================================
+       CLOSE EDIT MODAL
+    ===================================================== */
+
+    function closeEditModal() {
+
+      document
+        .getElementById(
+          "editModal"
+        )
+        .classList.remove(
+          "show"
+        );
+
+
+      editingWord = null;
+
+    }
+
+
+    /* =====================================================
+       EDIT MEANING
+    ===================================================== */
+
+    function addEditMeaning(
+      value = ""
+    ) {
+
+      const list =
+        document.getElementById(
+          "editMeaningList"
+        );
+
+
+      const row =
+        document.createElement(
+          "div"
+        );
+
+
+      row.className =
+        "meaning-row";
+
+
+      row.innerHTML = `
+
+        <input
+          type="text"
+          class="edit-meaning-input"
+          placeholder="ความหมาย"
+          value="${escapeHTML(value)}"
+        >
+
+        <button
+          type="button"
+          class="btn btn-danger btn-small"
+          onclick="removeEditMeaning(this)"
+        >
+          ลบ
+        </button>
+
+      `;
+
+
+      list.appendChild(row);
+
+    }
+
+
+    function removeEditMeaning(
+      button
+    ) {
+
+      const rows =
+        document.querySelectorAll(
+          "#editMeaningList .meaning-row"
+        );
+
+
+      if (rows.length <= 1) {
+
+        button
+          .parentElement
+          .querySelector("input")
+          .value = "";
+
+        return;
+
+      }
+
+
+      button
+        .parentElement
+        .remove();
+
+    }
+
+
+    /* =====================================================
+       EDIT EXAMPLE
+    ===================================================== */
+
+    function addEditExample(
+      chinese = "",
+      pinyin = "",
+      thai = ""
+    ) {
+
+      const list =
+        document.getElementById(
+          "editExamplesList"
+        );
+
+
+      const number =
+        list.children.length + 1;
+
+
+      const div =
+        document.createElement(
+          "div"
+        );
+
+
+      div.className =
+        "example-item";
+
+
+      div.innerHTML = `
+
+        <div class="example-header">
+
+          <span class="example-number">
+            ตัวอย่างที่ ${number}
+          </span>
+
+          <button
+            type="button"
+            class="btn btn-danger btn-small"
+            onclick="removeEditExample(this)"
+          >
+            ลบ
+          </button>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            中文
+          </label>
+
+          <input
+            type="text"
+            class="edit-example-chinese"
+            value="${escapeHTML(chinese)}"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Pinyin
+          </label>
+
+          <input
+            type="text"
+            class="edit-example-pinyin"
+            value="${escapeHTML(pinyin)}"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            ไทย
+          </label>
+
+          <input
+            type="text"
+            class="edit-example-thai"
+            value="${escapeHTML(thai)}"
+          >
+
+        </div>
+
+      `;
+
+
+      list.appendChild(div);
+
+    }
+
+
+    function removeEditExample(
+      button
+    ) {
+
+      button
+        .closest(".example-item")
+        .remove();
+
+
+      renumberEditExamples();
+
+    }
+
+
+    function renumberEditExamples() {
+
+      const items =
+        document.querySelectorAll(
+          "#editExamplesList .example-item"
+        );
+
+
+      items.forEach(
+        (item, index) => {
+
+          item
+            .querySelector(
+              ".example-number"
+            )
+            .textContent =
+            `ตัวอย่างที่ ${index + 1}`;
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       EDIT FORM SUBMIT
+    ===================================================== */
+
+    document
+      .getElementById(
+        "editWordForm"
+      )
+      .addEventListener(
+        "submit",
+        async function(event) {
+
+          event.preventDefault();
+
+
+          if (!editingWord) {
+
+            return;
+
+          }
+
+
+          const id =
+            document
+              .getElementById(
+                "editId"
+              )
+              .value;
+
+
+          const word =
+            document
+              .getElementById(
+                "editWord"
+              )
+              .value
+              .trim();
+
+
+          const pinyin =
+            document
+              .getElementById(
+                "editPinyin"
+              )
+              .value
+              .trim();
+
+
+          const thaiPronunciation =
+            document
+              .getElementById(
+                "editThaiPronunciation"
+              )
+              .value
+              .trim();
+
+
+          const hsk =
+            Number(
+              document
+                .getElementById(
+                  "editHsk"
+                )
+                .value
+            );
+
+
+          const partOfSpeech =
+            document
+              .getElementById(
+                "editPartOfSpeech"
+              )
+              .value
+              .split(",")
+              .map(
+                item =>
+                  item.trim()
+              )
+              .filter(Boolean);
+
+
+          const meanings =
+            Array.from(
+              document.querySelectorAll(
+                "#editMeaningList .edit-meaning-input"
+              )
+            )
+              .map(
+                input =>
+                  input.value.trim()
+              )
+              .filter(Boolean);
+
+
+          const examples =
+            Array.from(
+              document.querySelectorAll(
+                "#editExamplesList .example-item"
+              )
+            )
+              .map(item => ({
+
+                chinese:
+                  item
+                    .querySelector(
+                      ".edit-example-chinese"
+                    )
+                    .value
+                    .trim(),
+
+                pinyin:
+                  item
+                    .querySelector(
+                      ".edit-example-pinyin"
+                    )
+                    .value
+                    .trim(),
+
+                thai:
+                  item
+                    .querySelector(
+                      ".edit-example-thai"
+                    )
+                    .value
+                    .trim()
+
+              }))
+              .filter(
+                item =>
+                  item.chinese ||
+                  item.pinyin ||
+                  item.thai
+              );
+
+
+          const button =
+            document.getElementById(
+              "editButton"
+            );
+
+
+          button.disabled = true;
+
+          button.textContent =
+            "กำลังบันทึก...";
+
+
+          try {
+
+            const result =
+              await apiRequest(
+                "update",
+                {
+
+                  id,
+
+                  word,
+
+                  pinyin,
+
+                  thaiPronunciation,
+
+                  meanings,
+
+                  partOfSpeech,
+
+                  hsk: [hsk],
+
+                  examples
+
+                }
+              );
+
+
+            showMessage(
+              `แก้ไข "${word}" สำเร็จ`,
+              "success"
+            );
+
+
+            closeEditModal();
+
+            await loadDictionary();
+
+          } catch (error) {
+
+            showMessage(
+              error.message,
+              "error"
+            );
+
+          } finally {
+
+            button.disabled = false;
+
+            button.textContent =
+              "💾 บันทึกการแก้ไข";
+
+          }
+
+        }
+      );
+
+
+    /* =====================================================
+       DELETE WORD
+    ===================================================== */
+
+    async function deleteWord(id) {
+
+      const item =
+        dictionary.find(
+          word =>
+            String(word.id) ===
+            String(id)
+        );
+
+
+      if (!item) {
+
+        showMessage(
+          "ไม่พบคำศัพท์นี้",
+          "error"
+        );
+
+        return;
+
+      }
+
+
+      const confirmed =
+        confirm(
+          `ต้องการลบคำว่า "${item.word}" ใช่หรือไม่?\n\nการลบจะบันทึกลง dictionary.json`
+        );
+
+
+      if (!confirmed) {
+
+        return;
+
+      }
+
+
+      try {
+
+        await apiRequest(
+          "delete",
+          {
+            id
+          }
+        );
+
+
+        showMessage(
+          `ลบ "${item.word}" สำเร็จ`,
+          "success"
+        );
+
+
+        await loadDictionary();
+
+      } catch (error) {
+
+        showMessage(
+          error.message,
+          "error"
+        );
+
+      }
+
+    }
+
+
+    /* =====================================================
+       ESCAPE HTML
+    ===================================================== */
+
+    function escapeHTML(
+      text
+    ) {
+
+      return String(
+        text ?? ""
+      )
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+        .replace(
+          /</g,
+          "&lt;"
+        )
+        .replace(
+          />/g,
+          "&gt;"
+        )
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+        .replace(
+          /'/g,
+          "&#039;"
+        );
+
+    }
+
+
+    /* =====================================================
+       ESCAPE JAVASCRIPT
+    ===================================================== */
+
+    function escapeJS(
+      text
+    ) {
+
+      return String(
+        text ?? ""
+      )
+        .replace(
+          /\\/g,
+          "\\\\"
+        )
+        .replace(
+          /'/g,
+          "\\'"
+        );
+
+    }
+
+
+    /* =====================================================
+       MESSAGE
+    ===================================================== */
+
+    let messageTimer = null;
+
+
+    function showMessage(
+      text,
+      type = "info"
+    ) {
+
+      const message =
+        document.getElementById(
+          "message"
+        );
+
+
+      message.innerHTML = `
+
+        <div
+          class="message-box message-${type}"
+        >
+          ${escapeHTML(text)}
+        </div>
+
+      `;
+
+
+      message.style.display =
+        "block";
+
+
+      clearTimeout(
+        messageTimer
+      );
+
+
+      messageTimer =
+        setTimeout(
+          () => {
+
+            message.style.display =
+              "none";
+
+          },
+          3500
+        );
+
+    }
+
+
+    /* =====================================================
+       CLOSE MODAL WHEN CLICK OUTSIDE
+    ===================================================== */
+
+    document
+      .getElementById(
+        "editModal"
+      )
+      .addEventListener(
+        "click",
+        function(event) {
+
+          if (
+            event.target ===
+            this
+          ) {
+
+            closeEditModal();
+
+          }
+
+        }
+      );
+
+
+    /* =====================================================
+       START
+    ===================================================== */
+
+    checkSession();
+
+  </script>
+
+</body>
+</html>
