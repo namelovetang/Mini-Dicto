@@ -1,8 +1,4622 @@
-{
-  "HSK1": [],
-  "HSK2": [],
-  "HSK3": [],
-  "HSK4": [],
-  "HSK5": [],
-  "HSK6": []
-}
+[
+  {
+    "id": "ai-u7231",
+    "word": "爱",
+    "pinyin": "ài",
+    "thaiPronunciation": "อ้าย",
+    "meanings": [
+      "รัก",
+      "ชอบ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ba-u516b",
+    "word": "八",
+    "pinyin": "bā",
+    "thaiPronunciation": "ปา",
+    "meanings": [
+      "แปด"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "baba-u7238-u7238",
+    "word": "爸爸",
+    "pinyin": "bàba",
+    "thaiPronunciation": "ป้าปะ",
+    "meanings": [
+      "พ่อ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ba-u5427",
+    "word": "吧",
+    "pinyin": "ba",
+    "thaiPronunciation": "ปา",
+    "meanings": [
+      "เถอะ",
+      "สิ",
+      "มั้ง"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "baitian-u767d-u5929",
+    "word": "白天",
+    "pinyin": "báitiān",
+    "thaiPronunciation": "ป๋ายเทียน",
+    "meanings": [
+      "ตอนกลางวัน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "bai-u767e",
+    "word": "百",
+    "pinyin": "bǎi",
+    "thaiPronunciation": "ไป่",
+    "meanings": [
+      "ร้อย"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ban-u534a",
+    "word": "半",
+    "pinyin": "bàn",
+    "thaiPronunciation": "ป้าน",
+    "meanings": [
+      "ครึ่ง"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "baozi-u5305-u5b50",
+    "word": "包子",
+    "pinyin": "bāozi",
+    "thaiPronunciation": "เปาซึ",
+    "meanings": [
+      "ซาลาเปา"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "beizi-u676f-u5b50",
+    "word": "杯子",
+    "pinyin": "bēizi",
+    "thaiPronunciation": "เปยซึ",
+    "meanings": [
+      "แก้ว",
+      "ถ้วย"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ben-u672c",
+    "word": "本",
+    "pinyin": "běn",
+    "thaiPronunciation": "เปิ่น",
+    "meanings": [
+      "เล่ม"
+    ],
+    "partOfSpeech": [
+      "คำลักษณนาม (量词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "bian-u8fb9",
+    "word": "边",
+    "pinyin": "biān",
+    "thaiPronunciation": "เปียน",
+    "meanings": [
+      "ด้าน",
+      "ข้าง"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "bing-u75c5",
+    "word": "病",
+    "pinyin": "bìng",
+    "thaiPronunciation": "ปิ้ง",
+    "meanings": [
+      "ป่วย",
+      "โรค"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)",
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "bu-u4e0d",
+    "word": "不",
+    "pinyin": "bù",
+    "thaiPronunciation": "ปู้",
+    "meanings": [
+      "ไม่"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "bukeqi-u4e0d-u5ba2-u6c14",
+    "word": "不客气",
+    "pinyin": "bú kèqi",
+    "thaiPronunciation": "ปู้ เค่อฉิ",
+    "meanings": [
+      "ไม่ต้องเกรงใจ",
+      "ยินดี"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "buyao-u4e0d-u8981",
+    "word": "不要",
+    "pinyin": "bú yào",
+    "thaiPronunciation": "ปู้ เย่า",
+    "meanings": [
+      "อย่า",
+      "ไม่เอา"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "cai-u83dc",
+    "word": "菜",
+    "pinyin": "cài",
+    "thaiPronunciation": "ไฉ่",
+    "meanings": [
+      "ผัก",
+      "อาหาร"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "cha-u8336",
+    "word": "茶",
+    "pinyin": "chá",
+    "thaiPronunciation": "ชา",
+    "meanings": [
+      "ชา",
+      "น้ำชา"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "chang-u5531",
+    "word": "唱",
+    "pinyin": "chàng",
+    "thaiPronunciation": "ช่าง",
+    "meanings": [
+      "ร้อง (เพลง)"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "chaoshi-u8d85-u5e02",
+    "word": "超市",
+    "pinyin": "chāoshì",
+    "thaiPronunciation": "เชาซื่อ",
+    "meanings": [
+      "ซูเปอร์มาร์เก็ต"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "che-u8f66",
+    "word": "车",
+    "pinyin": "chē",
+    "thaiPronunciation": "เชอ",
+    "meanings": [
+      "รถ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "chi-u5403",
+    "word": "吃",
+    "pinyin": "chī",
+    "thaiPronunciation": "ชือ",
+    "meanings": [
+      "กิน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "chuzuche-u51fa-u79df-u8f66",
+    "word": "出租车",
+    "pinyin": "chūzūchē",
+    "thaiPronunciation": "ชูจูเชอ",
+    "meanings": [
+      "รถแท็กซี่"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "chuan-u7a7f",
+    "word": "穿",
+    "pinyin": "chuān",
+    "thaiPronunciation": "ชวน",
+    "meanings": [
+      "ใส่",
+      "สวม"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "dadianhua-u6253-u7535-u8bdd",
+    "word": "打电话",
+    "pinyin": "dǎ diànhuà",
+    "thaiPronunciation": "ต้า เตี้ยนฮั่ว",
+    "meanings": [
+      "โทรศัพท์"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "da-u5927",
+    "word": "大",
+    "pinyin": "dà",
+    "thaiPronunciation": "ต้า",
+    "meanings": [
+      "ใหญ่"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "dajia-u5927-u5bb6",
+    "word": "大家",
+    "pinyin": "dàjiā",
+    "thaiPronunciation": "ต้าเจีย",
+    "meanings": [
+      "ทุกคน"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "daxue-u5927-u5b66",
+    "word": "大学",
+    "pinyin": "dàxué",
+    "thaiPronunciation": "ต้าเสวีย",
+    "meanings": [
+      "มหาวิทยาลัย"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "daxuesheng-u5927-u5b66-u751f",
+    "word": "大学生",
+    "pinyin": "dàxuésheng",
+    "thaiPronunciation": "ต้าเสวียเชิง",
+    "meanings": [
+      "นักศึกษามหาวิทยาลัย"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "dao-u5230",
+    "word": "到",
+    "pinyin": "dào",
+    "thaiPronunciation": "เต้า",
+    "meanings": [
+      "ถึง"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "de-u7684",
+    "word": "的",
+    "pinyin": "de",
+    "thaiPronunciation": "เตอะ",
+    "meanings": [
+      "ของ",
+      "ที่"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "di-u7b2c",
+    "word": "第",
+    "pinyin": "dì",
+    "thaiPronunciation": "ตี้",
+    "meanings": [
+      "ที่ (ลำดับ)"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "didi-u5f1f-u5f1f",
+    "word": "弟弟",
+    "pinyin": "dìdi",
+    "thaiPronunciation": "ตี้ดิ",
+    "meanings": [
+      "น้องชาย"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "dian-u70b9",
+    "word": "点",
+    "pinyin": "diǎn",
+    "thaiPronunciation": "เตี่ยน",
+    "meanings": [
+      "โมง",
+      "จุด",
+      "สั่ง"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)",
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "dian-u5e97",
+    "word": "店",
+    "pinyin": "diàn",
+    "thaiPronunciation": "เตี้ยน",
+    "meanings": [
+      "ร้าน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "dianhua-u7535-u8bdd",
+    "word": "电话",
+    "pinyin": "diànhuà",
+    "thaiPronunciation": "เตี้ยนฮั่ว",
+    "meanings": [
+      "โทรศัพท์"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "diannao-u7535-u8111",
+    "word": "电脑",
+    "pinyin": "diànnǎo",
+    "thaiPronunciation": "เตี้ยนเหน่า",
+    "meanings": [
+      "คอมพิวเตอร์"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "dianshi-u7535-u89c6",
+    "word": "电视",
+    "pinyin": "diànshì",
+    "thaiPronunciation": "เตี้ยนซื่อ",
+    "meanings": [
+      "โทรทัศน์"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "dianying-u7535-u5f71",
+    "word": "电影",
+    "pinyin": "diànyǐng",
+    "thaiPronunciation": "เตี้ยนยิ่ wash",
+    "meanings": [
+      "ภาพยนตร์"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "dianyingyuan-u7535-u5f71-u9662",
+    "word": "电影院",
+    "pinyin": "diànyǐngyuàn",
+    "thaiPronunciation": "เตี้ยนยิ่งยวน",
+    "meanings": [
+      "โรงภาพยนตร์"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "dongxi-u4e1c-u897f",
+    "word": "东西",
+    "pinyin": "dōngxi",
+    "thaiPronunciation": "ตงสิ",
+    "meanings": [
+      "สิ่งของ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "dou-u90fd",
+    "word": "都",
+    "pinyin": "dōu",
+    "thaiPronunciation": "โตว",
+    "meanings": [
+      "ทั้งหมด",
+      "ก็"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "du-u8bfb",
+    "word": "读",
+    "pinyin": "dú",
+    "thaiPronunciation": "ตู๋",
+    "meanings": [
+      "อ่าน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "dushu-u8bfb-u4e66",
+    "word": "读书",
+    "pinyin": "dú shū",
+    "thaiPronunciation": "ตู๋ ซู",
+    "meanings": [
+      "อ่านหนังสือ",
+      "เรียนหนังสือ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "dui-u5bf9",
+    "word": "对",
+    "pinyin": "duì",
+    "thaiPronunciation": "ตุ้ย",
+    "meanings": [
+      "ถูกต้อง",
+      "ต่อ"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)",
+      "คำบุพบท (介词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "duibuqi-u5bf9-u4e0d-u8d77",
+    "word": "对不起",
+    "pinyin": "duìbuqǐ",
+    "thaiPronunciation": "ตุ้ยปุ้ฉี่",
+    "meanings": [
+      "ขอโทษ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "duo-u591a",
+    "word": "多",
+    "pinyin": "duō",
+    "thaiPronunciation": "ตัว",
+    "meanings": [
+      "มาก",
+      "เท่าไหร่"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)",
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "duoshao-u591a-u5c11",
+    "word": "多少",
+    "pinyin": "duōshao",
+    "thaiPronunciation": "ตัวเชา",
+    "meanings": [
+      "เท่าไหร่"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "erzi-u513f-u5b50",
+    "word": "儿子",
+    "pinyin": "érzi",
+    "thaiPronunciation": "เอ๋อร์ซึ",
+    "meanings": [
+      "ลูกชาย"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "er-u4e8c",
+    "word": "二",
+    "pinyin": "èr",
+    "thaiPronunciation": "เอ้อร์",
+    "meanings": [
+      "สอง"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "fan-u996d",
+    "word": "饭",
+    "pinyin": "fàn",
+    "thaiPronunciation": "ฟ้าน",
+    "meanings": [
+      "ข้าว",
+      "อาหาร"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "fandian-u996d-u5e97",
+    "word": "饭店",
+    "pinyin": "fàndiàn",
+    "thaiPronunciation": "ฟ้านเตี้ยน",
+    "meanings": [
+      "ร้านอาหาร",
+      "โรงแรม"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "fangjian-u623f-u95f4",
+    "word": "房间",
+    "pinyin": "fángjiān",
+    "thaiPronunciation": "ฝางเจียน",
+    "meanings": [
+      "ห้อง"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "feichang-u975e-u5e38",
+    "word": "非常",
+    "pinyin": "fēicháng",
+    "thaiPronunciation": "เฟยฉาง",
+    "meanings": [
+      "มากๆ"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "feiji-u98de-u673a",
+    "word": "飞机",
+    "pinyin": "fēijī",
+    "thaiPronunciation": "เฟยจี",
+    "meanings": [
+      "เครื่องบิน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "fen-u5206",
+    "word": "分",
+    "pinyin": "fēn",
+    "thaiPronunciation": "เฟิน",
+    "meanings": [
+      "นาที",
+      "คะแนน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)",
+      "คำลักษณนาม (量词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "fenzhong-u5206-u949f",
+    "word": "分钟",
+    "pinyin": "fēnzhōng",
+    "thaiPronunciation": "เฟินจง",
+    "meanings": [
+      "นาที"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "gaoxing-u9ad8-u5174",
+    "word": "高兴",
+    "pinyin": "gāoxìng",
+    "thaiPronunciation": "เกาซิ่ง",
+    "meanings": [
+      "ดีใจ",
+      "มีความสุข"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ge-u6b4c",
+    "word": "歌",
+    "pinyin": "gē",
+    "thaiPronunciation": "เกอ",
+    "meanings": [
+      "เพลง"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "gege-u54e5-u54e5",
+    "word": "哥哥",
+    "pinyin": "gēge",
+    "thaiPronunciation": "เกอเกอะ",
+    "meanings": [
+      "พี่ชาย"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ge-u4e2a",
+    "word": "个",
+    "pinyin": "gè",
+    "thaiPronunciation": "เก้อ",
+    "meanings": [
+      "คน",
+      "อัน",
+      "ชิ้น (ลักษณนามทั่วไป)"
+    ],
+    "partOfSpeech": [
+      "คำลักษณนาม (量词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "gei-u7ed9",
+    "word": "给",
+    "pinyin": "gěi",
+    "thaiPronunciation": "เก่ย",
+    "meanings": [
+      "ให้",
+      "แก่"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)",
+      "คำบุพบท (介词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "gongsi-u516c-u53f8",
+    "word": "公司",
+    "pinyin": "gōngsī",
+    "thaiPronunciation": "กงซือ",
+    "meanings": [
+      "บริษัท"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "gongzuo-u5de5-u4f5c",
+    "word": "工作",
+    "pinyin": "gōngzuò",
+    "thaiPronunciation": "กงจั้ว",
+    "meanings": [
+      "ทำงาน",
+      "งาน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)",
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "gou-u72d7",
+    "word": "狗",
+    "pinyin": "gǒu",
+    "thaiPronunciation": "โก่ ว",
+    "meanings": [
+      "สุนัข"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "gui-u8d35",
+    "word": "贵",
+    "pinyin": "guì",
+    "thaiPronunciation": "กู้ย",
+    "meanings": [
+      "แพง"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "guo-u56fd",
+    "word": "国",
+    "pinyin": "guó",
+    "thaiPronunciation": "กั๋ว",
+    "meanings": [
+      "ประเทศ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "hai-u8fd8",
+    "word": "还",
+    "pinyin": "hái",
+    "thaiPronunciation": "หาย",
+    "meanings": [
+      "ยัง",
+      "ยังคง"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "haizi-u5b69-u5b50",
+    "word": "孩子",
+    "pinyin": "háizi",
+    "thaiPronunciation": "หายซึ",
+    "meanings": [
+      "เด็ก",
+      "ลูก"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "hanyu-u6c49-u8bed",
+    "word": "汉语",
+    "pinyin": "hànyǔ",
+    "thaiPronunciation": "ฮั่นยวี่",
+    "meanings": [
+      "ภาษาจีน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "hanzi-u6c49-u5b57",
+    "word": "汉字",
+    "pinyin": "hànzì",
+    "thaiPronunciation": "ฮั่นซื่อ",
+    "meanings": [
+      "ตัวอักษรจีน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "hao-u597d",
+    "word": "好",
+    "pinyin": "hǎo",
+    "thaiPronunciation": "ห่าว",
+    "meanings": [
+      "ดี"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "haochi-u597d-u5403",
+    "word": "好吃",
+    "pinyin": "hǎochī",
+    "thaiPronunciation": "ห่าวชือ",
+    "meanings": [
+      "อร่อย"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "haokan-u597d-u770b",
+    "word": "好看",
+    "pinyin": "hǎokàn",
+    "thaiPronunciation": "ห่าวค่าน",
+    "meanings": [
+      "สวย",
+      "สวยงาม",
+      "น่าดู"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "haoting-u597d-u542c",
+    "word": "好听",
+    "pinyin": "hǎotīng",
+    "thaiPronunciation": "ห่าวทิง",
+    "meanings": [
+      "ไพเราะ",
+      "ฟังดูดี"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "haowanr-u597d-u73a9-u513f",
+    "word": "好玩儿",
+    "pinyin": "hǎowánr",
+    "thaiPronunciation": "ห่าวว่านเอ๋อร์",
+    "meanings": [
+      "สนุก"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "hao-u53f7",
+    "word": "号",
+    "pinyin": "hào",
+    "thaiPronunciation": "ฮ่าว",
+    "meanings": [
+      "วันที่",
+      "หมายเลข"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)",
+      "คำลักษณนาม (量词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "he-u559d",
+    "word": "喝",
+    "pinyin": "hē",
+    "thaiPronunciation": "เฮอ",
+    "meanings": [
+      "ดื่ม"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "he-u548c",
+    "word": "和",
+    "pinyin": "hé",
+    "thaiPronunciation": "เหอ",
+    "meanings": [
+      "และ",
+      "กับ"
+    ],
+    "partOfSpeech": [
+      "คำสันธาน (连词)",
+      "คำบุพบท (介词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "hen-u5f88",
+    "word": "很",
+    "pinyin": "hěn",
+    "thaiPronunciation": "เฮิ่น",
+    "meanings": [
+      "มาก"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "hou-u540e",
+    "word": "后",
+    "pinyin": "hòu",
+    "thaiPronunciation": "โฮ่ว",
+    "meanings": [
+      "หลัง",
+      "ต่อมา"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "hui-u56de",
+    "word": "回",
+    "pinyin": "huí",
+    "thaiPronunciation": "หุย",
+    "meanings": [
+      "กลับ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "hui-u4f1a",
+    "word": "会",
+    "pinyin": "huì",
+    "thaiPronunciation": "ห้วย",
+    "meanings": [
+      "เป็น",
+      "สามารถ",
+      "จะ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "huoche-u706b-u8f66",
+    "word": "火车",
+    "pinyin": "huǒchē",
+    "thaiPronunciation": "หั่วเชอ",
+    "meanings": [
+      "รถไฟ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "jidan-u9e21-u86cb",
+    "word": "鸡蛋",
+    "pinyin": "jīdàn",
+    "thaiPronunciation": "จีต้าน",
+    "meanings": [
+      "ไข่ไก่"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ji-u51e0",
+    "word": "几",
+    "pinyin": "jǐ",
+    "thaiPronunciation": "จี่",
+    "meanings": [
+      "กี่",
+      "เท่าไหร่"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "jia-u5bb6",
+    "word": "家",
+    "pinyin": "jiā",
+    "thaiPronunciation": "เจีย",
+    "meanings": [
+      "บ้าน",
+      "ครอบครัว"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "jiaren-u5bb6-u4eba",
+    "word": "家人",
+    "pinyin": "jiārén",
+    "thaiPronunciation": "เจียเหริน",
+    "meanings": [
+      "คนในครอบครัว"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "jian-u89c1",
+    "word": "见",
+    "pinyin": "jiàn",
+    "thaiPronunciation": "เจี้ยน",
+    "meanings": [
+      "เจอ",
+      "พบ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "jian-u4ef6",
+    "word": "件",
+    "pinyin": "jiàn",
+    "thaiPronunciation": "เจี้ยน",
+    "meanings": [
+      "ชิ้น",
+      "ตัว (เสื้อผ้า)"
+    ],
+    "partOfSpeech": [
+      "คำลักษณนาม (量词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "jiaozi-u997a-u5b50",
+    "word": "饺子",
+    "pinyin": "jiǎozi",
+    "thaiPronunciation": "เจี่ยวซึ",
+    "meanings": [
+      "เกี๊ยว"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "jiao-u53eb",
+    "word": "叫",
+    "pinyin": "jiào",
+    "thaiPronunciation": "เจี้ยว",
+    "meanings": [
+      "ชื่อ",
+      "เรียก"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "jiejie-u59d0-u59d0",
+    "word": "姐姐",
+    "pinyin": "jiějie",
+    "thaiPronunciation": "เจี่ยเจีย",
+    "meanings": [
+      "พี่สาว"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "jinnian-u4eca-u5e74",
+    "word": "今年",
+    "pinyin": "jīnnián",
+    "thaiPronunciation": "จินเนียน",
+    "meanings": [
+      "ปีนี้"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "jintian-u4eca-u5929",
+    "word": "今天",
+    "pinyin": "jīntiān",
+    "thaiPronunciation": "จินเทียน",
+    "meanings": [
+      "วันนี้"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "jiu-u4e5d",
+    "word": "九",
+    "pinyin": "jiǔ",
+    "thaiPronunciation": "จิ่ว",
+    "meanings": [
+      "เก้า"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "juede-u89c9-u5f97",
+    "word": "觉得",
+    "pinyin": "juéde",
+    "thaiPronunciation": "เจว๋เดอ",
+    "meanings": [
+      "รู้สึกว่า",
+      "คิดว่า"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "kai-u5f00",
+    "word": "开",
+    "pinyin": "kāi",
+    "thaiPronunciation": "ไค",
+    "meanings": [
+      "เปิด",
+      "ขับ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "kaiche-u5f00-u8f66",
+    "word": "开车",
+    "pinyin": "kāi chē",
+    "thaiPronunciation": "ไค เชอ",
+    "meanings": [
+      "ขับรถ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "kan-u770b",
+    "word": "看",
+    "pinyin": "kàn",
+    "thaiPronunciation": "ค่าน",
+    "meanings": [
+      "ดู",
+      "อ่าน",
+      "มอง"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "kanbing-u770b-u75c5",
+    "word": "看病",
+    "pinyin": "kàn bìng",
+    "thaiPronunciation": "ค่าน ปิ้ง",
+    "meanings": [
+      "ไปหาหมอ",
+      "ตรวจโรค"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "kanjian-u770b-u89c1",
+    "word": "看见",
+    "pinyin": "kànjiàn",
+    "thaiPronunciation": "ค่านเจี้ยน",
+    "meanings": [
+      "มองเห็น"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "keyi-u53ef-u4ee5",
+    "word": "可以",
+    "pinyin": "kěyǐ",
+    "thaiPronunciation": "เค่ออี่",
+    "meanings": [
+      "ได้",
+      "สามารถ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ke-u8bfe",
+    "word": "课",
+    "pinyin": "kè",
+    "thaiPronunciation": "เค่อ",
+    "meanings": [
+      "บทเรียน",
+      "วิชา"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "kou-u53e3",
+    "word": "口",
+    "pinyin": "kǒu",
+    "thaiPronunciation": "โข่ว",
+    "meanings": [
+      "ปาก",
+      "คน (สมาชิกในครอบครัว)"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)",
+      "คำลักษณนาม (量词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "kuai-u5757",
+    "word": "块",
+    "pinyin": "kuài",
+    "thaiPronunciation": "คว้าย",
+    "meanings": [
+      "หยวน (หน่วยเงิน)",
+      "ชิ้น"
+    ],
+    "partOfSpeech": [
+      "คำลักษณนาม (量词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "lai-u6765",
+    "word": "来",
+    "pinyin": "lái",
+    "thaiPronunciation": "เล้า",
+    "meanings": [
+      "มา"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "laoshi-u8001-u5e08",
+    "word": "老师",
+    "pinyin": "lǎoshī",
+    "thaiPronunciation": "เหล่าซือ",
+    "meanings": [
+      "ครู",
+      "อาจารย์"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "le-u4e86",
+    "word": "了",
+    "pinyin": "le",
+    "thaiPronunciation": "เลอ",
+    "meanings": [
+      "แล้ว"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "leng-u51b7",
+    "word": "冷",
+    "pinyin": "lěng",
+    "thaiPronunciation": "เหลิ่ง",
+    "meanings": [
+      "หนาว",
+      "เย็น"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "li-u91cc",
+    "word": "里",
+    "pinyin": "lǐ",
+    "thaiPronunciation": "หลี่",
+    "meanings": [
+      "ข้างใน",
+      "ใน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "liang-u4e24",
+    "word": "两",
+    "pinyin": "liǎng",
+    "thaiPronunciation": "เหลี่ยง",
+    "meanings": [
+      "สอง (ใช้กับลักษณนาม)"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ling-u96f6",
+    "word": "零",
+    "pinyin": "líng",
+    "thaiPronunciation": "ลิง",
+    "meanings": [
+      "ศูนย์"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "liu-u516d",
+    "word": "六",
+    "pinyin": "liù",
+    "thaiPronunciation": "ลิ่ว",
+    "meanings": [
+      "หก"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "mama-u5988-u5988",
+    "word": "妈妈",
+    "pinyin": "māma",
+    "thaiPronunciation": "มาหม่า",
+    "meanings": [
+      "แม่"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ma-u5417",
+    "word": "吗",
+    "pinyin": "ma",
+    "thaiPronunciation": "มา",
+    "meanings": [
+      "ไหม"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "mai-u4e70",
+    "word": "买",
+    "pinyin": "mǎi",
+    "thaiPronunciation": "ไหม",
+    "meanings": [
+      "ซื้อ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "mai-u5356",
+    "word": "卖",
+    "pinyin": "mài",
+    "thaiPronunciation": "หม้าย",
+    "meanings": [
+      "ขาย"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "mang-u5fd9",
+    "word": "忙",
+    "pinyin": "máng",
+    "thaiPronunciation": "หมาง",
+    "meanings": [
+      "ยุ่ง"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "mao-u732b",
+    "word": "猫",
+    "pinyin": "māo",
+    "thaiPronunciation": "แมว",
+    "meanings": [
+      "แมว"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "meiguanxi-u6ca1-u5173-u7cfb",
+    "word": "没关系",
+    "pinyin": "méi guānxi",
+    "thaiPronunciation": "เหมย์ กวานสิ",
+    "meanings": [
+      "ไม่เป็นไร"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "meishi-u6ca1-u4e8b",
+    "word": "没事",
+    "pinyin": "méi shì",
+    "thaiPronunciation": "เหมย์ ซื่อ",
+    "meanings": [
+      "ไม่เป็นไร",
+      "ไม่มีปัญหา"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "meiyou-u6ca1-u6709",
+    "word": "没有",
+    "pinyin": "méiyǒu",
+    "thaiPronunciation": "เหมย์โหย่ว",
+    "meanings": [
+      "ไม่มี"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "meimei-u59b9-u59b9",
+    "word": "妹妹",
+    "pinyin": "mèimei",
+    "thaiPronunciation": "เม่ยเมย",
+    "meanings": [
+      "น้องสาว"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "men-u4eec",
+    "word": "们",
+    "pinyin": "men",
+    "thaiPronunciation": "เมิน",
+    "meanings": [
+      "พวก (พหูพจน์)"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "mifan-u7c73-u996d",
+    "word": "米饭",
+    "pinyin": "mǐfàn",
+    "thaiPronunciation": "หมี่ฟ้าน",
+    "meanings": [
+      "ข้าวสวย"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "mianbao-u9762-u5305",
+    "word": "面包",
+    "pinyin": "miànbāo",
+    "thaiPronunciation": "เมี่ยนเปา",
+    "meanings": [
+      "ขนมปัง"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "miantiaor-u9762-u6761-u513f",
+    "word": "面条儿",
+    "pinyin": "miàntiáor",
+    "thaiPronunciation": "เมี่ยนเถียวเอ๋อร์",
+    "meanings": [
+      "ก๋วยเตี๋ยว",
+      "บะหมี่"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "mingnian-u660e-u5e74",
+    "word": "明年",
+    "pinyin": "míngnián",
+    "thaiPronunciation": "หมิงเนียน",
+    "meanings": [
+      "ปีหน้า"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "mingtian-u660e-u5929",
+    "word": "明天",
+    "pinyin": "míngtiān",
+    "thaiPronunciation": "หมิงเทียน",
+    "meanings": [
+      "พรุ่งนี้"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "mingzi-u540d-u5b57",
+    "word": "名字",
+    "pinyin": "míngzi",
+    "thaiPronunciation": "หมิงซึ",
+    "meanings": [
+      "ชื่อ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "na-u54ea",
+    "word": "哪",
+    "pinyin": "nǎ",
+    "thaiPronunciation": "หน่า",
+    "meanings": [
+      "ไหน"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nage-u54ea-u4e2a",
+    "word": "哪个",
+    "pinyin": "nǎge",
+    "thaiPronunciation": "หน่าเก้อ",
+    "meanings": [
+      "อันไหน",
+      "คนไหน"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nali-u54ea-u91cc",
+    "word": "哪里",
+    "pinyin": "nǎli",
+    "thaiPronunciation": "หน่าหลี่",
+    "meanings": [
+      "ที่ไหน"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nar-u54ea-u513f",
+    "word": "哪儿",
+    "pinyin": "nǎr",
+    "thaiPronunciation": "หน่าเอ๋อร์",
+    "meanings": [
+      "ที่ไหน"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "naxie-u54ea-u4e9b",
+    "word": "哪些",
+    "pinyin": "nǎxiē",
+    "thaiPronunciation": "หน่าเซีย",
+    "meanings": [
+      "เหล่าไหน",
+      "อันไหนบ้าง"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "na-u90a3",
+    "word": "那",
+    "pinyin": "nà",
+    "thaiPronunciation": "น้า",
+    "meanings": [
+      "นั่น",
+      "นั้น"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nabian-u90a3-u8fb9",
+    "word": "那边",
+    "pinyin": "nàbiān",
+    "thaiPronunciation": "น้าเปียน",
+    "meanings": [
+      "ทางโน้น",
+      "ตรงนั้น"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nage-u90a3-u4e2a",
+    "word": "那个",
+    "pinyin": "nàge",
+    "thaiPronunciation": "น้าเก้อ",
+    "meanings": [
+      "อันนั้น",
+      "คนนั้น"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nali-u90a3-u91cc",
+    "word": "那里",
+    "pinyin": "nàli",
+    "thaiPronunciation": "น้าหลี่",
+    "meanings": [
+      "ที่นั่น"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nar-u90a3-u513f",
+    "word": "那儿",
+    "pinyin": "nàr",
+    "thaiPronunciation": "น้าเอ๋อร์",
+    "meanings": [
+      "ที่นั่น"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "naxie-u90a3-u4e9b",
+    "word": "那些",
+    "pinyin": "nàxiē",
+    "thaiPronunciation": "น้าเซีย",
+    "meanings": [
+      "เหล่านั้น"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nan-u7537",
+    "word": "男",
+    "pinyin": "nán",
+    "thaiPronunciation": "นาน",
+    "meanings": [
+      "ชาย"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nanpengyou-u7537-u670b-u53cb",
+    "word": "男朋友",
+    "pinyin": "nánpéngyou",
+    "thaiPronunciation": "นานเผิงโหย่ว",
+    "meanings": [
+      "แฟน (ผู้ชาย)"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ne-u5462",
+    "word": "呢",
+    "pinyin": "ne",
+    "thaiPronunciation": "เนอ",
+    "meanings": [
+      "ล่ะ"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "neng-u80fd",
+    "word": "能",
+    "pinyin": "néng",
+    "thaiPronunciation": "เหนิง",
+    "meanings": [
+      "สามารถ",
+      "ได้"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ni-u4f60",
+    "word": "你",
+    "pinyin": "nǐ",
+    "thaiPronunciation": "หนี่",
+    "meanings": [
+      "คุณ",
+      "เธอ"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nihao-u4f60-u597d",
+    "word": "你好",
+    "pinyin": "nǐ hǎo",
+    "thaiPronunciation": "หนี่ ห่าว",
+    "meanings": [
+      "สวัสดี"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nimen-u4f60-u4eec",
+    "word": "你们",
+    "pinyin": "nǐmen",
+    "thaiPronunciation": "หนี่เมิน",
+    "meanings": [
+      "พวกคุณ"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nian-u5e74",
+    "word": "年",
+    "pinyin": "nián",
+    "thaiPronunciation": "เนียน",
+    "meanings": [
+      "ปี"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nin-u60a8",
+    "word": "您",
+    "pinyin": "nín",
+    "thaiPronunciation": "หนิน",
+    "meanings": [
+      "ท่าน"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "niunai-u725b-u5976",
+    "word": "牛奶",
+    "pinyin": "niúnǎi",
+    "thaiPronunciation": "เหนียวเหนัย",
+    "meanings": [
+      "นมสด"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nv-u5973",
+    "word": "女",
+    "pinyin": "nǚ",
+    "thaiPronunciation": "นวี่",
+    "meanings": [
+      "หญิง"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nver-u5973-u513f",
+    "word": "女儿",
+    "pinyin": "nǚ'ér",
+    "thaiPronunciation": "นวี่เอ๋อร์",
+    "meanings": [
+      "ลูกสาว"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nvpengyou-u5973-u670b-u53cb",
+    "word": "女朋友",
+    "pinyin": "nǚpéngyou",
+    "thaiPronunciation": "นวี่เผิงโหย่ว",
+    "meanings": [
+      "แฟน (ผู้หญิง)"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "nvshi-u5973-u58eb",
+    "word": "女士",
+    "pinyin": "nǚshì",
+    "thaiPronunciation": "นวี่ซื่อ",
+    "meanings": [
+      "สุภาพสตรี",
+      "คุณผู้หญิง"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "pengyou-u670b-u53cb",
+    "word": "朋友",
+    "pinyin": "péngyou",
+    "thaiPronunciation": "เผิงโหย่ว",
+    "meanings": [
+      "เพื่อน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "pianyi-u4fbf-u5b9c",
+    "word": "便宜",
+    "pinyin": "piányi",
+    "thaiPronunciation": "เพียนยิ",
+    "meanings": [
+      "ถูก (ราคา)"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "piaoliang-u6f02-u4eae",
+    "word": "漂亮",
+    "pinyin": "piàoliang",
+    "thaiPronunciation": "เพี้ยวเหลียง",
+    "meanings": [
+      "สวย"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "pingguo-u82f9-u679c",
+    "word": "苹果",
+    "pinyin": "píngguǒ",
+    "thaiPronunciation": "พิงกั่ว",
+    "meanings": [
+      "แอปเปิ้ล"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "qi-u4e03",
+    "word": "七",
+    "pinyin": "qī",
+    "thaiPronunciation": "ชี",
+    "meanings": [
+      "เจ็ด"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "qichuang-u8d77-u5e8a",
+    "word": "起床",
+    "pinyin": "qǐ chuáng",
+    "thaiPronunciation": "ฉี่ ฉวาง",
+    "meanings": [
+      "ตื่นนอน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "qian-u5343",
+    "word": "千",
+    "pinyin": "qiān",
+    "thaiPronunciation": "เชียน",
+    "meanings": [
+      "พัน"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "qian-u524d",
+    "word": "前",
+    "pinyin": "qián",
+    "thaiPronunciation": "เชียน",
+    "meanings": [
+      "หน้า",
+      "ก่อน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "qian-u94b1",
+    "word": "钱",
+    "pinyin": "qián",
+    "thaiPronunciation": "เชียน",
+    "meanings": [
+      "เงิน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "qing-u8bf7",
+    "word": "请",
+    "pinyin": "qǐng",
+    "thaiPronunciation": "ฉิ่ง",
+    "meanings": [
+      "เชิญ",
+      "กรุณา",
+      "เลี้ยง"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "qingwen-u8bf7-u95ee",
+    "word": "请问",
+    "pinyin": "qǐngwèn",
+    "thaiPronunciation": "ฉิ่งเวิ่น",
+    "meanings": [
+      "ขอถามหน่อย"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "qu-u53bb",
+    "word": "去",
+    "pinyin": "qù",
+    "thaiPronunciation": "ชวี่",
+    "meanings": [
+      "ไป"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "qunian-u53bb-u5e74",
+    "word": "去年",
+    "pinyin": "qùnián",
+    "thaiPronunciation": "ชวี่เนียน",
+    "meanings": [
+      "ปีที่แล้ว"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "re-u70ed",
+    "word": "热",
+    "pinyin": "rè",
+    "thaiPronunciation": "เร่อ",
+    "meanings": [
+      "ร้อน"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ren-u4eba",
+    "word": "人",
+    "pinyin": "rén",
+    "thaiPronunciation": "เหริน",
+    "meanings": [
+      "คน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "renshi-u8ba4-u8bc6",
+    "word": "认识",
+    "pinyin": "rènshi",
+    "thaiPronunciation": "เริ่นสิ",
+    "meanings": [
+      "รู้จัก"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ri-u65e5",
+    "word": "日",
+    "pinyin": "rì",
+    "thaiPronunciation": "รื้อ",
+    "meanings": [
+      "วัน",
+      "พระอาทิตย์"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "san-u4e09",
+    "word": "三",
+    "pinyin": "sān",
+    "thaiPronunciation": "ซาน",
+    "meanings": [
+      "สาม"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shangdian-u5546-u5e97",
+    "word": "商店",
+    "pinyin": "shāngdiàn",
+    "thaiPronunciation": "ชางเตี้ยน",
+    "meanings": [
+      "ร้านค้า"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shang-u4e0a",
+    "word": "上",
+    "pinyin": "shàng",
+    "thaiPronunciation": "ช่าง",
+    "meanings": [
+      "บน",
+      "ขึ้น"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)",
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shangban-u4e0a-u73ed",
+    "word": "上班",
+    "pinyin": "shàng bān",
+    "thaiPronunciation": "ช่าง ปาน",
+    "meanings": [
+      "เข้าทำงาน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shangke-u4e0a-u8bfe",
+    "word": "上课",
+    "pinyin": "shàng kè",
+    "thaiPronunciation": "ช่าง เค่อ",
+    "meanings": [
+      "เข้าเรียน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shangwu-u4e0a-u5348",
+    "word": "上午",
+    "pinyin": "shàngwǔ",
+    "thaiPronunciation": "ช่างอู่",
+    "meanings": [
+      "ตอนเช้า",
+      "ตอนสาย"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shangxue-u4e0a-u5b66",
+    "word": "上学",
+    "pinyin": "shàng xué",
+    "thaiPronunciation": "ช่าง เสวีย",
+    "meanings": [
+      "ไปโรงเรียน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shao-u5c11",
+    "word": "少",
+    "pinyin": "shǎo",
+    "thaiPronunciation": "เชา",
+    "meanings": [
+      "น้อย"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shei-u8c01",
+    "word": "谁",
+    "pinyin": "shéi",
+    "thaiPronunciation": "เฉย",
+    "meanings": [
+      "ใคร"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shenme-u4ec0-u4e48",
+    "word": "什么",
+    "pinyin": "shénme",
+    "thaiPronunciation": "เสินเมอะ",
+    "meanings": [
+      "อะไร"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shengbing-u751f-u75c5",
+    "word": "生病",
+    "pinyin": "shēng bìng",
+    "thaiPronunciation": "เซิง ปิ้ง",
+    "meanings": [
+      "ป่วย"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shi-u5341",
+    "word": "十",
+    "pinyin": "shí",
+    "thaiPronunciation": "ซื่อ",
+    "meanings": [
+      "สิบ"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shihou-u65f6-u5019",
+    "word": "时候",
+    "pinyin": "shíhou",
+    "thaiPronunciation": "ซื่อโฮ่ว",
+    "meanings": [
+      "ตอน",
+      "เวลา"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shijian-u65f6-u95f4",
+    "word": "时间",
+    "pinyin": "shíjiān",
+    "thaiPronunciation": "ซื่อเจียน",
+    "meanings": [
+      "เวลา"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shi-u4e8b",
+    "word": "事",
+    "pinyin": "shì",
+    "thaiPronunciation": "ซื่อ",
+    "meanings": [
+      "เรื่อง",
+      "ธุระ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shi-u662f",
+    "word": "是",
+    "pinyin": "shì",
+    "thaiPronunciation": "ซื่อ",
+    "meanings": [
+      "เป็น",
+      "คือ",
+      "ใช่"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shouji-u624b-u673a",
+    "word": "手机",
+    "pinyin": "shǒujī",
+    "thaiPronunciation": "โส่วจี",
+    "meanings": [
+      "โทรศัพท์มือถือ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shu-u4e66",
+    "word": "书",
+    "pinyin": "shū",
+    "thaiPronunciation": "ซู",
+    "meanings": [
+      "หนังสือ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shudian-u4e66-u5e97",
+    "word": "书店",
+    "pinyin": "shūdiàn",
+    "thaiPronunciation": "ซูเตี้ยน",
+    "meanings": [
+      "ร้านหนังสือ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shui-u6c34",
+    "word": "水",
+    "pinyin": "shuǐ",
+    "thaiPronunciation": "สุ่ย",
+    "meanings": [
+      "น้ำ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shuiguo-u6c34-u679c",
+    "word": "水果",
+    "pinyin": "shuǐguǒ",
+    "thaiPronunciation": "สุ่ยกั่ว",
+    "meanings": [
+      "ผลไม้"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shui-u7761",
+    "word": "睡",
+    "pinyin": "shuì",
+    "thaiPronunciation": "สุ้ย",
+    "meanings": [
+      "นอน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shuijiao-u7761-u89c9",
+    "word": "睡觉",
+    "pinyin": "shuì jiào",
+    "thaiPronunciation": "สุ้ย เจี้ยว",
+    "meanings": [
+      "นอนหลับ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shuo-u8bf4",
+    "word": "说",
+    "pinyin": "shuō",
+    "thaiPronunciation": "ซัว",
+    "meanings": [
+      "พูด"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "shuohua-u8bf4-u8bdd",
+    "word": "说话",
+    "pinyin": "shuō huà",
+    "thaiPronunciation": "ซัว ฮั่ว",
+    "meanings": [
+      "พูดคุย"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "si-u56db",
+    "word": "四",
+    "pinyin": "sì",
+    "thaiPronunciation": "ซื่อ",
+    "meanings": [
+      "สี่"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "sui-u5c81",
+    "word": "岁",
+    "pinyin": "suì",
+    "thaiPronunciation": "ซุ้ย",
+    "meanings": [
+      "ขวบ",
+      "ปี (อายุ)"
+    ],
+    "partOfSpeech": [
+      "คำลักษณนาม (量词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ta-u4ed6",
+    "word": "他",
+    "pinyin": "tā",
+    "thaiPronunciation": "ทา",
+    "meanings": [
+      "เขา (ผู้ชาย)"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ta-u5b83",
+    "word": "它",
+    "pinyin": "tā",
+    "thaiPronunciation": "ทา",
+    "meanings": [
+      "มัน"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ta-u5979",
+    "word": "她",
+    "pinyin": "tā",
+    "thaiPronunciation": "ทา",
+    "meanings": [
+      "เธอ",
+      "เขา (ผู้หญิง)"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "tamen-u4ed6-u4eec",
+    "word": "他们",
+    "pinyin": "tāmen",
+    "thaiPronunciation": "ทาเมิน",
+    "meanings": [
+      "พวกเขา"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "tamen-u5b83-u4eec",
+    "word": "它们",
+    "pinyin": "tāmen",
+    "thaiPronunciation": "ทาเมิน",
+    "meanings": [
+      "พวกมัน"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "tamen-u5979-u4eec",
+    "word": "她们",
+    "pinyin": "tāmen",
+    "thaiPronunciation": "ทาเมิน",
+    "meanings": [
+      "พวกเธอ"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "tai-u592a",
+    "word": "太",
+    "pinyin": "tài",
+    "thaiPronunciation": "ท้าย",
+    "meanings": [
+      "เกินไป"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "tian-u5929",
+    "word": "天",
+    "pinyin": "tiān",
+    "thaiPronunciation": "เทียน",
+    "meanings": [
+      "วัน",
+      "ท้องฟ้า"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "tianqi-u5929-u6c14",
+    "word": "天气",
+    "pinyin": "tiānqì",
+    "thaiPronunciation": "เทียนฉี่",
+    "meanings": [
+      "อากาศ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ting-u542c",
+    "word": "听",
+    "pinyin": "tīng",
+    "thaiPronunciation": "ทิง",
+    "meanings": [
+      "ฟัง"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "tingjian-u542c-u89c1",
+    "word": "听见",
+    "pinyin": "tīngjiàn",
+    "thaiPronunciation": "ทิงเจี้ยน",
+    "meanings": [
+      "ได้ยิน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "tongxue-u540c-u5b66",
+    "word": "同学",
+    "pinyin": "tóngxué",
+    "thaiPronunciation": "ถงเสวีย",
+    "meanings": [
+      "เพื่อนนักเรียน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "wai-u5916",
+    "word": "外",
+    "pinyin": "wài",
+    "thaiPronunciation": "คว่าย",
+    "meanings": [
+      "ข้างนอก",
+      "นอก"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "waibian-u5916-u8fb9",
+    "word": "外边",
+    "pinyin": "wàibiān",
+    "thaiPronunciation": "คว่ายเปียน",
+    "meanings": [
+      "ข้างนอก"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "wan-u73a9",
+    "word": "玩",
+    "pinyin": "wán",
+    "thaiPronunciation": "ว่าน",
+    "meanings": [
+      "เล่น",
+      "เที่ยว"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "wan-u665a",
+    "word": "晚",
+    "pinyin": "wǎn",
+    "thaiPronunciation": "ว่าน",
+    "meanings": [
+      "สาย",
+      "ดึก",
+      "เย็น"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "wanfan-u665a-u996d",
+    "word": "晚饭",
+    "pinyin": "wǎnfàn",
+    "thaiPronunciation": "ว่านฟ้าน",
+    "meanings": [
+      "อาหารเย็น"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "wanshang-u665a-u4e0a",
+    "word": "晚上",
+    "pinyin": "wǎnshang",
+    "thaiPronunciation": "ว่านซาง",
+    "meanings": [
+      "ตอนเย็น",
+      "ตอนค่ำ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "wei-u5582",
+    "word": "喂",
+    "pinyin": "wèi",
+    "thaiPronunciation": "เว่ย",
+    "meanings": [
+      "ฮัลโหล"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "wen-u95ee",
+    "word": "问",
+    "pinyin": "wèn",
+    "thaiPronunciation": "เวน",
+    "meanings": [
+      "ถาม"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "wenti-u95ee-u9898",
+    "word": "问题",
+    "pinyin": "wèntí",
+    "thaiPronunciation": "เวนที",
+    "meanings": [
+      "คำถาม",
+      "ปัญหา"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "wo-u6211",
+    "word": "我",
+    "pinyin": "wǒ",
+    "thaiPronunciation": "หว่อ",
+    "meanings": [
+      "ฉัน",
+      "ผม"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "women-u6211-u4eec",
+    "word": "我们",
+    "pinyin": "wǒmen",
+    "thaiPronunciation": "หว่อเมิน",
+    "meanings": [
+      "พวกเรา"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "wu-u4e94",
+    "word": "五",
+    "pinyin": "wǔ",
+    "thaiPronunciation": "อู่",
+    "meanings": [
+      "ห้า"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "wufan-u5348-u996d",
+    "word": "午饭",
+    "pinyin": "wǔfàn",
+    "thaiPronunciation": "อู่ฟ้าน",
+    "meanings": [
+      "อาหารเที่ยง"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xihuan-u559c-u6b22",
+    "word": "喜欢",
+    "pinyin": "xǐhuan",
+    "thaiPronunciation": "สีฮวน",
+    "meanings": [
+      "ชอบ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xia-u4e0b",
+    "word": "下",
+    "pinyin": "xià",
+    "thaiPronunciation": "เซี่ย",
+    "meanings": [
+      "ล่าง",
+      "ตก",
+      "ลง"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)",
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xiayu-u4e0b-u96e8",
+    "word": "下雨",
+    "pinyin": "xià yǔ",
+    "thaiPronunciation": "เซี่ย ยวี่",
+    "meanings": [
+      "ฝนตก"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xiaban-u4e0b-u73ed",
+    "word": "下班",
+    "pinyin": "xià bān",
+    "thaiPronunciation": "เซี่ย ปาน",
+    "meanings": [
+      "เลิกงาน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xiake-u4e0b-u8bfe",
+    "word": "下课",
+    "pinyin": "xià kè",
+    "thaiPronunciation": "เซี่ย เค่อ",
+    "meanings": [
+      "เลิกเรียน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xiawu-u4e0b-u5348",
+    "word": "下午",
+    "pinyin": "xiàwǔ",
+    "thaiPronunciation": "เซี่ยอู่",
+    "meanings": [
+      "ตอนบ่าย"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xiansheng-u5148-u751f",
+    "word": "先生",
+    "pinyin": "xiānsheng",
+    "thaiPronunciation": "เซียนเชิง",
+    "meanings": [
+      "คุณผู้ชาย",
+      "คุณสามี"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xianzai-u73b0-u5728",
+    "word": "现在",
+    "pinyin": "xiànzài",
+    "thaiPronunciation": "เซี่ยนจ้าย",
+    "meanings": [
+      "ตอนนี้"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xiang-u60f3",
+    "word": "想",
+    "pinyin": "xiǎng",
+    "thaiPronunciation": "เสี่ยง",
+    "meanings": [
+      "คิด",
+      "อยาก",
+      "คิดถึง"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xiao-u5c0f",
+    "word": "小",
+    "pinyin": "xiǎo",
+    "thaiPronunciation": "เสี่ยว",
+    "meanings": [
+      "เล็ก"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xiaopengyou-u5c0f-u670b-u53cb",
+    "word": "小朋友",
+    "pinyin": "xiǎopéngyǒu",
+    "thaiPronunciation": "เสี่ยวเผิงโหย่ว",
+    "meanings": [
+      "เด็กๆ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xiaoshi-u5c0f-u65f6",
+    "word": "小时",
+    "pinyin": "xiǎoshí",
+    "thaiPronunciation": "เสี่ยวซื่อ",
+    "meanings": [
+      "ชั่วโมง"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xiaoxue-u5c0f-u5b66",
+    "word": "小学",
+    "pinyin": "xiǎoxué",
+    "thaiPronunciation": "เสี่ยวเสวีย",
+    "meanings": [
+      "โรงเรียนประถม"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xiaoxuesheng-u5c0f-u5b66-u751f",
+    "word": "小学生",
+    "pinyin": "xiǎoxuéshēng",
+    "thaiPronunciation": "เสี่ยวเสวียเชิง",
+    "meanings": [
+      "นักเรียนประถม"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xie-u4e9b",
+    "word": "些",
+    "pinyin": "xiē",
+    "thaiPronunciation": "เซีย",
+    "meanings": [
+      "เล็กน้อย",
+      "บ้าง"
+    ],
+    "partOfSpeech": [
+      "คำลักษณนาม (量词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xie-u5199",
+    "word": "写",
+    "pinyin": "xiě",
+    "thaiPronunciation": "เสี่ย",
+    "meanings": [
+      "เขียน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xiexie-u8c22-u8c22",
+    "word": "谢谢",
+    "pinyin": "xièxie",
+    "thaiPronunciation": "เสี่ยเสี่ย",
+    "meanings": [
+      "ขอบคุณ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xin-u65b0",
+    "word": "新",
+    "pinyin": "xīn",
+    "thaiPronunciation": "ซิน",
+    "meanings": [
+      "ใหม่"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xingqi-u661f-u671f",
+    "word": "星期",
+    "pinyin": "xīngqī",
+    "thaiPronunciation": "ซิงชี",
+    "meanings": [
+      "สัปดาห์"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xingqiri-u661f-u671f-u65e5",
+    "word": "星期日",
+    "pinyin": "xīngqīrì",
+    "thaiPronunciation": "ซิงชีรื้อ",
+    "meanings": [
+      "วันอาทิตย์"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xingqitian-u661f-u671f-u5929",
+    "word": "星期天",
+    "pinyin": "xīngqītiān",
+    "thaiPronunciation": "ซิงชีเทียน",
+    "meanings": [
+      "วันอาทิตย์"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xiuxi-u4f11-u606f",
+    "word": "休息",
+    "pinyin": "xiūxi",
+    "thaiPronunciation": "ซิวสิ",
+    "meanings": [
+      "พักผ่อน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xue-u5b66",
+    "word": "学",
+    "pinyin": "xué",
+    "thaiPronunciation": "เสวีย",
+    "meanings": [
+      "เรียน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xuesheng-u5b66-u751f",
+    "word": "学生",
+    "pinyin": "xuésheng",
+    "thaiPronunciation": "เสวียเชิง",
+    "meanings": [
+      "นักเรียน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xuexi-u5b66-u4e60",
+    "word": "学习",
+    "pinyin": "xuéxí",
+    "thaiPronunciation": "เสวียสี",
+    "meanings": [
+      "เรียน",
+      "ศึกษา"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xuexiao-u5b66-u6821",
+    "word": "学校",
+    "pinyin": "xuéxiào",
+    "thaiPronunciation": "เสวียเชี่ยว",
+    "meanings": [
+      "โรงเรียน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "xue-u96ea",
+    "word": "雪",
+    "pinyin": "xuě",
+    "thaiPronunciation": "เสวี่ย",
+    "meanings": [
+      "หิมะ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "yao-u8981",
+    "word": "要",
+    "pinyin": "yào",
+    "thaiPronunciation": "เย่า",
+    "meanings": [
+      "เอา",
+      "จะ",
+      "ต้องการ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "ye-u4e5f",
+    "word": "也",
+    "pinyin": "yě",
+    "thaiPronunciation": "เหย่",
+    "meanings": [
+      "ก็...เหมือนกัน"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "yi-u4e00",
+    "word": "一",
+    "pinyin": "yī",
+    "thaiPronunciation": "อี",
+    "meanings": [
+      "หนึ่ง"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "yifu-u8863-u670d",
+    "word": "衣服",
+    "pinyin": "yīfu",
+    "thaiPronunciation": "อีฟู",
+    "meanings": [
+      "เสื้อผ้า"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "yisheng-u533b-u751f",
+    "word": "医生",
+    "pinyin": "yīshēng",
+    "thaiPronunciation": "อีเชิง",
+    "meanings": [
+      "หมอ",
+      "แพทย์"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "yiyuan-u533b-u9662",
+    "word": "医院",
+    "pinyin": "yīyuàn",
+    "thaiPronunciation": "อียวน",
+    "meanings": [
+      "โรงพยาบาล"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "yiban-u4e00-u534a",
+    "word": "一半",
+    "pinyin": "yíbàn",
+    "thaiPronunciation": "อีบ้าน",
+    "meanings": [
+      "ครึ่งหนึ่ง"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "yixia-u4e00-u4e0b",
+    "word": "一下",
+    "pinyin": "yíxià",
+    "thaiPronunciation": "อีเซี่ย",
+    "meanings": [
+      "สักครู่",
+      "แป๊บหนึ่ง"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "yizi-u6905-u5b50",
+    "word": "椅子",
+    "pinyin": "yǐzi",
+    "thaiPronunciation": "อี้ซึ",
+    "meanings": [
+      "เก้าอี้"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "yidianr-u4e00-u70b9-u513f",
+    "word": "一点儿",
+    "pinyin": "yìdiǎnr",
+    "thaiPronunciation": "อี้เตี่ยนเอ๋อร์",
+    "meanings": [
+      "นิดหน่อย"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "yixie-u4e00-u4e9b",
+    "word": "一些",
+    "pinyin": "yìxiē",
+    "thaiPronunciation": "อี้เซีย",
+    "meanings": [
+      "จำนวนหนึ่ง",
+      "บ้าง"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "you-u6709",
+    "word": "有",
+    "pinyin": "yǒu",
+    "thaiPronunciation": "โหย่ว",
+    "meanings": [
+      "มี"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "youde-u6709-u7684",
+    "word": "有的",
+    "pinyin": "yǒude",
+    "thaiPronunciation": "โหย่วเตอะ",
+    "meanings": [
+      "บางส่วน",
+      "บางคน"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "youdianr-u6709-u70b9-u513f",
+    "word": "有点儿",
+    "pinyin": "yǒudiǎnr",
+    "thaiPronunciation": "โหย่วเตี่ยนเอ๋อร์",
+    "meanings": [
+      "ค่อนข้าง...ไปหน่อย"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "youxie-u6709-u4e9b",
+    "word": "有些",
+    "pinyin": "yǒuxiē",
+    "thaiPronunciation": "โหย่วเซีย",
+    "meanings": [
+      "บางส่วน",
+      "มีบาง"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "yu-u96e8",
+    "word": "雨",
+    "pinyin": "yǔ",
+    "thaiPronunciation": "ยวี่",
+    "meanings": [
+      "ฝน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "yuan-u5143",
+    "word": "元",
+    "pinyin": "yuán",
+    "thaiPronunciation": "ยวน",
+    "meanings": [
+      "หยวน (หน่วยเงิน)"
+    ],
+    "partOfSpeech": [
+      "คำลักษณนาม (量词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "yue-u6708",
+    "word": "月",
+    "pinyin": "yuè",
+    "thaiPronunciation": "ยวี่ย",
+    "meanings": [
+      "เดือน",
+      "พระจันทร์"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zai-u518d",
+    "word": "再",
+    "pinyin": "zài",
+    "thaiPronunciation": "จ้าย",
+    "meanings": [
+      "อีกครั้ง"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zai-u5728",
+    "word": "在",
+    "pinyin": "zài",
+    "thaiPronunciation": "จ้าย",
+    "meanings": [
+      "อยู่",
+      "ที่"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)",
+      "คำบุพบท (介词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zaijian-u518d-u89c1",
+    "word": "再见",
+    "pinyin": "zàijiàn",
+    "thaiPronunciation": "จ้ายเจี้ยน",
+    "meanings": [
+      "ลาก่อน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zao-u65e9",
+    "word": "早",
+    "pinyin": "zǎo",
+    "thaiPronunciation": "จ่าว",
+    "meanings": [
+      "เช้า",
+      "พรุ่งนี้เช้า"
+    ],
+    "partOfSpeech": [
+      "คำคุณศัพท์ (形容词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zaofan-u65e9-u996d",
+    "word": "早饭",
+    "pinyin": "zǎofàn",
+    "thaiPronunciation": "จ่าวฟ้าน",
+    "meanings": [
+      "อาหารเช้า"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zaoshang-u65e9-u4e0a",
+    "word": "早上",
+    "pinyin": "zǎoshang",
+    "thaiPronunciation": "จ่าวซาง",
+    "meanings": [
+      "ตอนเช้าตรู่"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zenme-u600e-u4e48",
+    "word": "怎么",
+    "pinyin": "zěnme",
+    "thaiPronunciation": "เจิ่นเมอะ",
+    "meanings": [
+      "อย่างไร",
+      "ทำไม"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zenmeyang-u600e-u4e48-u6837",
+    "word": "怎么样",
+    "pinyin": "zěnmeyàng",
+    "thaiPronunciation": "เจิ่นเมอย่าง",
+    "meanings": [
+      "เป็นอย่างไรบ้าง"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhao-u627e",
+    "word": "找",
+    "pinyin": "zhǎo",
+    "thaiPronunciation": "จ่าว",
+    "meanings": [
+      "หา",
+      "ทอนเงิน"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhe-u8fd9",
+    "word": "这",
+    "pinyin": "zhè",
+    "thaiPronunciation": "เจ้อ",
+    "meanings": [
+      "นี่",
+      "นี้"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhebian-u8fd9-u8fb9",
+    "word": "这边",
+    "pinyin": "zhèbiān",
+    "thaiPronunciation": "เจ้อเปียน",
+    "meanings": [
+      "ทางนี้",
+      "ตรงนี้"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhege-u8fd9-u4e2a",
+    "word": "这个",
+    "pinyin": "zhège",
+    "thaiPronunciation": "เจ้อเก้อ",
+    "meanings": [
+      "อันนี้",
+      "คนนี้"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zheli-u8fd9-u91cc",
+    "word": "这里",
+    "pinyin": "zhèlǐ",
+    "thaiPronunciation": "เจ้อหลี่",
+    "meanings": [
+      "ที่นี่"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zher-u8fd9-u513f",
+    "word": "这儿",
+    "pinyin": "zhèr",
+    "thaiPronunciation": "เจ้อเอ๋อร์",
+    "meanings": [
+      "ที่นี่"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhexie-u8fd9-u4e9b",
+    "word": "这些",
+    "pinyin": "zhèxiē",
+    "thaiPronunciation": "เจ้อเซีย",
+    "meanings": [
+      "เหล่านี้"
+    ],
+    "partOfSpeech": [
+      "คำสรรพนาม (代词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhen-u771f",
+    "word": "真",
+    "pinyin": "zhēn",
+    "thaiPronunciation": "เจิน",
+    "meanings": [
+      "จริงๆ"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhengzai-u6b63-u5728",
+    "word": "正在",
+    "pinyin": "zhèngzài",
+    "thaiPronunciation": "เจิ้งจ้าย",
+    "meanings": [
+      "กำลัง...อยู่"
+    ],
+    "partOfSpeech": [
+      "คำวิเศษณ์ (副词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhi-u53ea",
+    "word": "只",
+    "pinyin": "zhī",
+    "thaiPronunciation": "จือ",
+    "meanings": [
+      "ตัว (ลักษณนามของสัตว์)"
+    ],
+    "partOfSpeech": [
+      "คำลักษณนาม (量词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhidao-u77e5-u9053",
+    "word": "知道",
+    "pinyin": "zhīdào",
+    "thaiPronunciation": "จือเต้า",
+    "meanings": [
+      "รู้",
+      "ทราบ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhongguo-u4e2d-u56fd",
+    "word": "中国",
+    "pinyin": "Zhōngguó",
+    "thaiPronunciation": "จงกั๋ว",
+    "meanings": [
+      "ประเทศจีน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhongwen-u4e2d-u6587",
+    "word": "中文",
+    "pinyin": "Zhōngwén",
+    "thaiPronunciation": "จงเวิน",
+    "meanings": [
+      "ภาษาจีน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhongwu-u4e2d-u5348",
+    "word": "中午",
+    "pinyin": "zhōngwǔ",
+    "thaiPronunciation": "จงอู่",
+    "meanings": [
+      "ตอนเที่ยง"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhongxue-u4e2d-u5b66",
+    "word": "中学",
+    "pinyin": "zhōngxué",
+    "thaiPronunciation": "จงเสวีย",
+    "meanings": [
+      "โรงเรียนมัธยม"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhongxuesheng-u4e2d-u5b66-u751f",
+    "word": "中学生",
+    "pinyin": "zhōngxuéshēng",
+    "thaiPronunciation": "จงเสวียเชิง",
+    "meanings": [
+      "นักเรียนมัธยม"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhu-u4f4f",
+    "word": "住",
+    "pinyin": "zhù",
+    "thaiPronunciation": "จู้",
+    "meanings": [
+      "อาศัยอยู่",
+      "พัก"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zhuozi-u684c-u5b50",
+    "word": "桌子",
+    "pinyin": "zhuōzi",
+    "thaiPronunciation": "จัวซึ",
+    "meanings": [
+      "โต๊ะ"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zi-u5b57",
+    "word": "字",
+    "pinyin": "zì",
+    "thaiPronunciation": "ซื่อ",
+    "meanings": [
+      "ตัวอักษร"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zuotian-u6628-u5929",
+    "word": "昨天",
+    "pinyin": "zuótiān",
+    "thaiPronunciation": "จั๋วเทียน",
+    "meanings": [
+      "เมื่อวาน"
+    ],
+    "partOfSpeech": [
+      "คำนาม (名词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zuo-u5750",
+    "word": "坐",
+    "pinyin": "zuò",
+    "thaiPronunciation": "นั่ง",
+    "meanings": [
+      "นั่ง"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zuo-u505a",
+    "word": "做",
+    "pinyin": "zuò",
+    "thaiPronunciation": "ทำ",
+    "meanings": [
+      "ทำ"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  },
+  {
+    "id": "zuofan-u505a-u996d",
+    "word": "做饭",
+    "pinyin": "zuò fàn",
+    "thaiPronunciation": "จั้ว ฟ้าน",
+    "meanings": [
+      "ทำอาหาร"
+    ],
+    "partOfSpeech": [
+      "คำกริยา (动词)"
+    ],
+    "hsk": [
+      "1"
+    ]
+  }
+]
